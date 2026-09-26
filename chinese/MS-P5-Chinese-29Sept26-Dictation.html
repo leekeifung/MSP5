@@ -1,0 +1,5498 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#56328c">
+
+  <title>《紫煙斗》中文默寫練習</title>
+
+  <style>
+    :root {
+      --background: #f5f3f9;
+      --paper: #ffffff;
+      --text: #202236;
+      --muted: #697087;
+      --line: #dcdaea;
+
+      --primary: #56328c;
+      --primary-dark: #3d206c;
+      --primary-light: #f0eafb;
+
+      --blue: #176c91;
+      --blue-light: #e9f7fc;
+
+      --green: #197147;
+      --green-light: #edf9f2;
+
+      --red: #b53232;
+      --red-light: #fff0f0;
+
+      --amber: #986315;
+      --amber-light: #fff7dd;
+
+      --radius: 18px;
+      --shadow: 0 10px 28px rgb(46 36 72 / 9%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 110px;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        "PingFang TC",
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        system-ui,
+        -apple-system,
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      min-height: 44px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #ffffff;
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    button:hover:not(:disabled) {
+      border-color: #9c87c7;
+      background: #faf8ff;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #ac92e3;
+      outline-offset: 3px;
+    }
+
+    .page-width {
+      width: min(1180px, calc(100% - 28px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: 6px;
+      left: 6px;
+      padding: 10px 14px;
+      border-radius: 9px;
+      background: #ffffff;
+      color: var(--text);
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* 頂部選單 */
+
+    .part-navigation {
+      position: sticky;
+      z-index: 300;
+      top: 0;
+      padding:
+        9px max(12px, calc((100vw - 1160px) / 2));
+      border-bottom: 1px solid #d8cee9;
+      background: rgb(255 255 255 / 96%);
+      box-shadow: 0 4px 18px rgb(50 39 80 / 8%);
+      backdrop-filter: blur(10px);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .part-navigation-inner {
+      display: flex;
+      width: max-content;
+      min-width: 100%;
+      gap: 8px;
+    }
+
+    .part-navigation a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 8px 14px;
+      border: 1px solid #d8cfeb;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--primary);
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .part-navigation a:hover,
+    .part-navigation a.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* 頁首 */
+
+    .hero {
+      padding: 40px 16px 36px;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgb(255 255 255 / 17%),
+          transparent 36%
+        ),
+        linear-gradient(135deg, #3e206d, #7952ad);
+      color: #ffffff;
+    }
+
+    .hero-eyebrow {
+      margin: 0 0 5px;
+      color: #eadfff;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 3.35rem);
+      line-height: 1.2;
+    }
+
+    .hero-description {
+      margin: 13px 0 0;
+      color: #f5efff;
+      font-size: 1.02rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .hero-badge {
+      padding: 6px 11px;
+      border: 1px solid rgb(255 255 255 / 38%);
+      border-radius: 999px;
+      background: rgb(255 255 255 / 11%);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    /* 主要內容 */
+
+    main {
+      margin-top: 25px;
+    }
+
+    .panel {
+      margin-bottom: 25px;
+      padding: clamp(18px, 3.5vw, 31px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 84px;
+    }
+
+    .part-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    .introduction {
+      margin: 7px 0;
+      color: var(--muted);
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .instruction-box {
+      margin: 15px 0;
+      padding: 13px 16px;
+      border-left: 4px solid #9475ca;
+      border-radius: 10px;
+      background: #f7f3ff;
+    }
+
+    .instruction-box p {
+      margin: 4px 0;
+    }
+
+    /* 聲音設定 */
+
+    .audio-settings-grid {
+      display: grid;
+      grid-template-columns: minmax(230px, 2fr) minmax(150px, 1fr);
+      gap: 14px;
+      margin-top: 17px;
+    }
+
+    .setting-field,
+    .profile-field {
+      display: grid;
+      gap: 6px;
+      font-size: 0.92rem;
+      font-weight: 850;
+    }
+
+    select,
+    .profile-input,
+    .teacher-notes,
+    .record-note {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 11px;
+      border: 1px solid #bbc1d2;
+      border-radius: 10px;
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .switch-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 11px;
+      background: #f6f7fb;
+    }
+
+    .switch-row input {
+      width: 20px;
+      height: 20px;
+      margin-top: 3px;
+      accent-color: var(--primary);
+    }
+
+    .switch-row label {
+      cursor: pointer;
+    }
+
+    /* 按鈕 */
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 18px 0 13px;
+    }
+
+    .primary-button {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .primary-button:hover:not(:disabled) {
+      background: var(--primary-dark);
+      color: #ffffff;
+    }
+
+    .secondary-button {
+      border-color: #c4b4e5;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .audio-button {
+      border-color: #add7e8;
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .audio-button.playing {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .danger-button {
+      border-color: #edb2b2;
+      background: var(--red-light);
+      color: var(--red);
+    }
+
+    /* 練習模式 */
+
+    .mode-box {
+      margin: 17px 0;
+      padding: 15px;
+      border: 1px solid #d9d2e8;
+      border-radius: 14px;
+      background: #faf8fe;
+    }
+
+    .mode-title {
+      margin: 0 0 10px;
+      color: #49326f;
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .mode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mode-button.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .mode-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    /* 成績摘要 */
+
+    .part-summary,
+    .segment-summary {
+      padding: 12px 15px;
+      border: 1px solid #dadee9;
+      border-radius: 11px;
+      background: #f5f7fa;
+      color: #3b435b;
+      font-size: 0.92rem;
+      font-weight: 850;
+    }
+
+    .part-summary {
+      margin-bottom: 18px;
+    }
+
+    .segment-summary {
+      margin: 10px 0 15px;
+    }
+
+    .part-summary.complete,
+    .segment-summary.complete {
+      border-color: #9dd5b4;
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .part-summary.has-errors,
+    .segment-summary.has-errors {
+      border-color: #e7c39d;
+      background: #fff8ec;
+      color: #80521a;
+    }
+
+    /* 題目卡 */
+
+    .question-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .word-grid {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 270px), 1fr)
+      );
+    }
+
+    .sentence-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .question-card {
+      min-width: 0;
+      padding: 16px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      background: #ffffff;
+      transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .question-card:hover {
+      transform: translateY(-1px);
+    }
+
+    .question-card.listening {
+      border-color: #44a6ce;
+      background: #f4fcff;
+      outline: 3px solid rgb(68 166 206 / 17%);
+    }
+
+    .question-card[data-state="correct"] {
+      border-color: #75c092;
+      background: #fcfffd;
+    }
+
+    .question-card[data-state="wrong"] {
+      border-color: #df8888;
+      background: #fffdfd;
+    }
+
+    .question-card[data-state="punctuation"],
+    .question-card[data-state="empty"] {
+      border-color: #deb650;
+      background: #fffefa;
+    }
+
+    .question-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 13px;
+    }
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .question-number {
+      display: inline-grid;
+      place-items: center;
+      min-width: 42px;
+      min-height: 37px;
+      padding: 4px 9px;
+      border-radius: 9px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .group-badge {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #edf0f6;
+      color: #526079;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 31px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #eef1f5;
+      color: #596277;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .status-badge.correct {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .status-badge.wrong {
+      background: var(--red-light);
+      color: var(--red);
+    }
+
+    .status-badge.punctuation,
+    .status-badge.empty {
+      background: var(--amber-light);
+      color: var(--amber);
+    }
+
+    .answer-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.88rem;
+      font-weight: 850;
+    }
+
+    .answer-input {
+      display: block;
+      width: 100%;
+      min-height: 49px;
+      padding: 10px 12px;
+      border: 2px solid #c9cedc;
+      border-radius: 10px;
+      background: #ffffff;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    textarea.answer-input {
+      min-height: 91px;
+      resize: vertical;
+    }
+
+    .answer-input::placeholder {
+      color: #9198a9;
+    }
+
+    .answer-input.answer-correct {
+      border-color: #54ac77;
+      background: var(--green-light);
+    }
+
+    .answer-input.answer-wrong {
+      border-color: #d76666;
+      background: var(--red-light);
+    }
+
+    .answer-input.answer-punctuation,
+    .answer-input.answer-empty {
+      border-color: #d6a733;
+      background: var(--amber-light);
+    }
+
+    .field-feedback {
+      min-height: 23px;
+      margin: 5px 0 0;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .field-feedback.correct {
+      color: var(--green);
+    }
+
+    .field-feedback.wrong {
+      color: var(--red);
+    }
+
+    .field-feedback.punctuation,
+    .field-feedback.empty {
+      color: var(--amber);
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .review-toggle.active {
+      border-color: #d5aa30;
+      background: #fff4d1;
+      color: #805400;
+    }
+
+    .reference-answer {
+      margin-top: 13px;
+      padding: 13px;
+      border: 1px solid #c7b8e8;
+      border-radius: 11px;
+      background: #f8f5ff;
+      overflow-wrap: anywhere;
+    }
+
+    .reference-answer strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #543290;
+      font-size: 0.87rem;
+    }
+
+    .answer-listen {
+      max-width: 100%;
+      height: auto;
+      min-height: 44px;
+      white-space: normal;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+    /* 課文段落 */
+
+    .segment-panel {
+      margin-top: 20px;
+      padding: 19px;
+      border: 1px solid #dcd7e8;
+      border-radius: 17px;
+      background: #fbfaff;
+    }
+
+    .segment-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .segment-label {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .segment-count {
+      flex: 0 0 auto;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    /* 學習紀錄 */
+
+    .privacy-note {
+      margin-top: 14px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: #edf8f2;
+      color: #246146;
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+      margin: 17px 0;
+    }
+
+    .teacher-notes {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .record-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 11px;
+      margin: 17px 0;
+    }
+
+    .record-stat {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fafbfe;
+      text-align: center;
+    }
+
+    .record-stat-number {
+      display: block;
+      color: var(--primary);
+      font-size: 1.7rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .record-stat-label {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .record-filter {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 13px 0;
+      font-weight: 800;
+    }
+
+    .record-filter input {
+      width: 19px;
+      height: 19px;
+      accent-color: var(--primary);
+    }
+
+    .record-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+    }
+
+    .record-table {
+      width: 100%;
+      min-width: 1120px;
+      border-collapse: collapse;
+    }
+
+    .record-table th,
+    .record-table td {
+      padding: 11px;
+      border-bottom: 1px solid #e3e5ed;
+      vertical-align: top;
+      text-align: left;
+      font-size: 0.84rem;
+    }
+
+    .record-table th {
+      background: #f3f1f9;
+      color: #46346c;
+      font-weight: 900;
+    }
+
+    .record-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .record-table tr.mastered {
+      opacity: 0.65;
+    }
+
+    .record-status {
+      display: inline-flex;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--amber-light);
+      color: var(--amber);
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .record-status.mastered {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .record-content-button {
+      max-width: 280px;
+      min-height: 38px;
+      padding: 6px 9px;
+      white-space: normal;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+    .record-note {
+      min-width: 155px;
+      min-height: 76px;
+      resize: vertical;
+      font-size: 0.83rem;
+    }
+
+    .record-actions {
+      display: grid;
+      gap: 6px;
+      min-width: 112px;
+    }
+
+    .record-actions button {
+      min-height: 37px;
+      padding: 6px 8px;
+      font-size: 0.8rem;
+    }
+
+    .empty-record {
+      padding: 23px;
+      border: 1px dashed #bbc1d1;
+      border-radius: 13px;
+      background: #fafbfc;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* 底部聲音列 */
+
+    .audio-status-bar {
+      position: fixed;
+      z-index: 400;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding:
+        11px max(14px, calc((100vw - 1145px) / 2))
+        calc(11px + env(safe-area-inset-bottom));
+      border-top: 1px solid #d1c7e6;
+      background: rgb(250 249 255 / 97%);
+      box-shadow: 0 -5px 20px rgb(43 37 74 / 10%);
+      backdrop-filter: blur(10px);
+    }
+
+    #audioStatus {
+      margin: 0;
+      color: #394057;
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    #stopAudio {
+      flex: 0 0 auto;
+      border-color: #edb6b6;
+      background: var(--red-light);
+      color: var(--red);
+    }
+
+    footer {
+      padding: 5px 12px 30px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 820px) {
+      .audio-settings-grid,
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .record-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page-width {
+        width: min(1180px, calc(100% - 18px));
+      }
+
+      .hero {
+        padding-inline: 10px;
+      }
+
+      .panel {
+        padding: 17px 12px;
+      }
+
+      .question-card,
+      .segment-panel {
+        padding: 13px;
+      }
+
+      .toolbar button {
+        flex: 1 1 145px;
+      }
+
+      .question-header,
+      .segment-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .question-header > .audio-button {
+        width: 100%;
+      }
+
+      .segment-count {
+        width: fit-content;
+      }
+
+      .audio-status-bar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      #stopAudio {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      @page {
+        size: landscape;
+        margin: 10mm;
+      }
+
+      body {
+        padding-bottom: 0;
+        background: #ffffff;
+      }
+
+      body.print-records .part-navigation,
+      body.print-records .hero,
+      body.print-records #audioSettings,
+      body.print-records .practice-section,
+      body.print-records .audio-status-bar,
+      body.print-records footer,
+      body.print-records #recordToolbar,
+      body.print-records .record-filter {
+        display: none !important;
+      }
+
+      body.print-records #learningRecords {
+        display: block !important;
+        border: 0;
+        box-shadow: none;
+      }
+
+      body.print-records .record-table-wrap {
+        overflow: visible;
+      }
+
+      body.print-records .record-table {
+        min-width: 0;
+        font-size: 9pt;
+      }
+
+      body.print-records .record-table th,
+      body.print-records .record-table td {
+        padding: 5px;
+      }
+
+      body.print-records .record-table th:last-child,
+      body.print-records .record-table td:last-child {
+        display: none;
+      }
+
+      body.print-records .record-content-button {
+        border: 0;
+        background: transparent;
+        color: #000000;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#mainContent">
+    跳至練習內容
+  </a>
+
+  <nav class="part-navigation" aria-label="選擇練習部分">
+    <div class="part-navigation-inner">
+      <a href="#audioSettings">🔊 朗讀設定</a>
+      <a href="#part1">第一部分</a>
+      <a href="#part2">第二部分</a>
+      <a href="#part3">第三部分</a>
+      <a href="#learningRecords">📊 學習紀錄</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="page-width">
+      <p class="hero-eyebrow">
+        中文科電子默寫教材
+      </p>
+
+      <h1>《紫煙斗》中文默寫練習</h1>
+
+      <p class="hero-description">
+        重點詞語、成語及課文句段默寫
+      </p>
+
+      <div class="hero-badges">
+        <span class="hero-badge">
+          詞語模擬抽選7題
+        </span>
+
+        <span class="hero-badge">
+          成語模擬抽選3題
+        </span>
+
+        <span class="hero-badge">
+          每項相隔3秒
+        </span>
+
+        <span class="hero-badge">
+          自動記錄學習難點
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent" class="page-width">
+    <noscript>
+      <section class="panel">
+        <strong>
+          請啟用JavaScript，才能使用發音、批改及學習紀錄功能。
+        </strong>
+      </section>
+    </noscript>
+
+    <!-- 朗讀設定 -->
+    <section
+      id="audioSettings"
+      class="panel"
+      aria-labelledby="audioSettingsTitle"
+    >
+      <span class="part-label">全頁設定</span>
+
+      <h2 id="audioSettingsTitle">
+        🔊 中文朗讀設定
+      </h2>
+
+      <p class="introduction">
+        所有部分共用以下聲音及語速設定。
+        使用「全部播放」或「逐句段播放」時，
+        每個項目之間會停頓3秒。
+      </p>
+
+      <div class="audio-settings-grid">
+        <label class="setting-field" for="voiceSelect">
+          中文／粵語聲音
+
+          <select id="voiceSelect">
+            <option value="">
+              自動選擇中文聲音
+            </option>
+          </select>
+        </label>
+
+        <label class="setting-field" for="speedSelect">
+          語速
+
+          <select id="speedSelect">
+            <option value="0.2">0.2×</option>
+            <option value="0.3">0.3×</option>
+            <option value="0.5">0.5×</option>
+            <option value="0.6">0.6×</option>
+            <option value="0.8" selected>0.8×</option>
+            <option value="1">1×</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="switch-row">
+        <input
+          id="punctuationNames"
+          type="checkbox"
+          checked
+        >
+
+        <label for="punctuationNames">
+          <strong>讀出標點名稱</strong>
+
+          <br>
+
+          <span class="small-note">
+            第三部分會讀出逗號、句號、分號、
+            省略號、破折號及引號等名稱。
+            「連貫朗讀」不會讀出標點名稱。
+          </span>
+        </label>
+      </div>
+
+      <div class="toolbar">
+        <button
+          id="testVoice"
+          class="audio-button"
+          type="button"
+          data-audio-button
+        >
+          🔊 測試聲音
+        </button>
+
+        <button id="reloadVoices" type="button">
+          ↻ 重新載入聲音
+        </button>
+      </div>
+
+      <p id="voiceMessage" class="small-note">
+        正在載入中文聲音……
+      </p>
+
+      <p class="small-note">
+        裝置實際提供的中文或粵語聲音會因瀏覽器及作業系統而異。
+        如沒有聲音，請按「重新載入聲音」，再選擇另一個聲音。
+      </p>
+    </section>
+
+    <!-- 第一部分 -->
+    <section
+      id="part1"
+      class="panel practice-section"
+      aria-labelledby="part1Title"
+    >
+      <span class="part-label">第一部分</span>
+
+      <h2 id="part1Title">
+        📚 第一課《紫煙斗》｜重點詞語
+      </h2>
+
+      <p class="introduction">
+        完整詞語表共18項；正式模擬模式會隨機抽選7題。
+      </p>
+
+      <div class="instruction-box">
+        <p>
+          點擊「聆聽」聽讀音，再輸入所聽到的詞語。
+        </p>
+
+        <p>
+          如果學生不認識某個詞語，可按
+          <strong>「☆ 我不熟悉」</strong>，
+          加入老師的針對性重溫清單。
+        </p>
+      </div>
+
+      <div class="mode-box">
+        <p class="mode-title">選擇練習模式</p>
+
+        <div class="mode-buttons">
+          <button
+            id="part1AllMode"
+            class="mode-button"
+            type="button"
+          >
+            📚 練習全部18題
+          </button>
+
+          <button
+            id="part1TestMode"
+            class="mode-button"
+            type="button"
+          >
+            🎯 模擬默書7題
+          </button>
+
+          <button id="part1Resample" type="button">
+            🔀 重新抽選7題
+          </button>
+        </div>
+
+        <p id="part1ModeNote" class="mode-note"></p>
+      </div>
+
+      <div class="toolbar">
+        <button
+          id="part1Play"
+          class="audio-button"
+          type="button"
+          data-audio-button
+        >
+          ▶ 全部播放
+        </button>
+
+        <button
+          id="part1Check"
+          class="primary-button"
+          type="button"
+        >
+          ✅ 批改
+        </button>
+
+        <button
+          id="part1Show"
+          class="secondary-button"
+          type="button"
+        >
+          👁 顯示答案
+        </button>
+
+        <button id="part1Reset" type="button">
+          ↺ 重設目前題目
+        </button>
+      </div>
+
+      <div
+        id="part1Summary"
+        class="part-summary"
+        role="status"
+        aria-live="polite"
+      >
+        尚未批改
+      </div>
+
+      <div
+        id="part1Grid"
+        class="question-grid word-grid"
+      ></div>
+    </section>
+
+    <!-- 第二部分 -->
+    <section
+      id="part2"
+      class="panel practice-section"
+      aria-labelledby="part2Title"
+    >
+      <span class="part-label">第二部分</span>
+
+      <h2 id="part2Title">
+        成語單元一｜聽詞填空
+      </h2>
+
+      <p class="introduction">
+        完整成語表共8項；正式模擬模式會隨機抽選3題。
+      </p>
+
+      <div class="instruction-box">
+        <p>
+          點擊「聆聽」聽成語讀音，再輸入完整成語。
+        </p>
+
+        <p>
+          系統會自動忽略答案中的多餘空格，
+          但仍會檢查每一個中文字。
+        </p>
+      </div>
+
+      <div class="mode-box">
+        <p class="mode-title">選擇練習模式</p>
+
+        <div class="mode-buttons">
+          <button
+            id="part2AllMode"
+            class="mode-button"
+            type="button"
+          >
+            📚 練習全部8題
+          </button>
+
+          <button
+            id="part2TestMode"
+            class="mode-button"
+            type="button"
+          >
+            🎯 模擬默書3題
+          </button>
+
+          <button id="part2Resample" type="button">
+            🔀 重新抽選3題
+          </button>
+        </div>
+
+        <p id="part2ModeNote" class="mode-note"></p>
+      </div>
+
+      <div class="toolbar">
+        <button
+          id="part2Play"
+          class="audio-button"
+          type="button"
+          data-audio-button
+        >
+          ▶ 全部播放
+        </button>
+
+        <button
+          id="part2Check"
+          class="primary-button"
+          type="button"
+        >
+          ✅ 批改
+        </button>
+
+        <button
+          id="part2Show"
+          class="secondary-button"
+          type="button"
+        >
+          👁 顯示答案
+        </button>
+
+        <button id="part2Reset" type="button">
+          ↺ 重設目前題目
+        </button>
+      </div>
+
+      <div
+        id="part2Summary"
+        class="part-summary"
+        role="status"
+        aria-live="polite"
+      >
+        尚未批改
+      </div>
+
+      <div
+        id="part2Grid"
+        class="question-grid word-grid"
+      ></div>
+    </section>
+
+    <!-- 第三部分 -->
+    <section
+      id="part3"
+      class="panel practice-section"
+      aria-labelledby="part3Title"
+    >
+      <span class="part-label">第三部分</span>
+
+      <h2 id="part3Title">
+        《紫煙斗》｜課文句段默寫
+      </h2>
+
+      <p class="introduction">
+        聆聽第一段、第三段和第六段，
+        填寫完整句字及標點符號。
+      </p>
+
+      <div class="instruction-box">
+        <p>
+          長句已按照語意及停頓位置分成較短的句段，
+          方便學生逐項默寫。
+        </p>
+
+        <p>
+          <strong>逐句段播放：</strong>
+          每個句段之間停頓3秒，並可讀出標點名稱。
+        </p>
+
+        <p>
+          <strong>連貫朗讀：</strong>
+          按課文次序自然朗讀，不讀出標點名稱。
+        </p>
+
+        <p>
+          如果文字正確但標點不正確，
+          系統會獨立顯示「標點需修改」。
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <button
+          id="part3Play"
+          class="audio-button"
+          type="button"
+          data-audio-button
+        >
+          ▶ 全部逐句段播放
+        </button>
+
+        <button
+          id="part3Natural"
+          class="audio-button"
+          type="button"
+          data-audio-button
+        >
+          📖 連貫朗讀三段
+        </button>
+
+        <button
+          id="part3Check"
+          class="primary-button"
+          type="button"
+        >
+          ✅ 批改全部
+        </button>
+
+        <button
+          id="part3Show"
+          class="secondary-button"
+          type="button"
+        >
+          👁 顯示全部答案
+        </button>
+
+        <button id="part3Reset" type="button">
+          ↺ 重設全部
+        </button>
+      </div>
+
+      <div
+        id="part3Summary"
+        class="part-summary"
+        role="status"
+        aria-live="polite"
+      >
+        尚未批改
+      </div>
+
+      <div id="part3Groups"></div>
+    </section>
+
+    <!-- 學習紀錄 -->
+    <section
+      id="learningRecords"
+      class="panel"
+      aria-labelledby="recordsTitle"
+    >
+      <span class="part-label">老師／家長檢視</span>
+
+      <h2 id="recordsTitle">
+        📊 個人學習紀錄與針對性重溫
+      </h2>
+
+      <p class="introduction">
+        系統會記錄答錯、漏答、標點錯誤及學生主動標記為
+        「不熟悉」的字詞、成語和句段。
+      </p>
+
+      <div class="privacy-note">
+        🔒 所有紀錄只儲存在目前裝置的瀏覽器內，
+        不會自動上載到任何伺服器。
+      </div>
+
+      <p id="storageMessage" class="small-note"></p>
+
+      <div class="profile-grid">
+        <label class="profile-field" for="studentName">
+          學生姓名
+
+          <input
+            id="studentName"
+            class="profile-input"
+            type="text"
+            autocomplete="off"
+            placeholder="輸入學生姓名"
+          >
+        </label>
+
+        <label class="profile-field" for="className">
+          班別／組別
+
+          <input
+            id="className"
+            class="profile-input"
+            type="text"
+            autocomplete="off"
+            placeholder="例如：五年級甲班"
+          >
+        </label>
+
+        <label class="profile-field" for="practiceDate">
+          練習日期
+
+          <input
+            id="practiceDate"
+            class="profile-input"
+            type="date"
+          >
+        </label>
+      </div>
+
+      <div class="record-summary-grid">
+        <div class="record-stat">
+          <span
+            id="activeReviewCount"
+            class="record-stat-number"
+          >
+            0
+          </span>
+
+          <span class="record-stat-label">
+            需要重溫
+          </span>
+        </div>
+
+        <div class="record-stat">
+          <span
+            id="mistakeCount"
+            class="record-stat-number"
+          >
+            0
+          </span>
+
+          <span class="record-stat-label">
+            累計問題次數
+          </span>
+        </div>
+
+        <div class="record-stat">
+          <span
+            id="recordCount"
+            class="record-stat-number"
+          >
+            0
+          </span>
+
+          <span class="record-stat-label">
+            已記錄項目
+          </span>
+        </div>
+
+        <div class="record-stat">
+          <span
+            id="recoveredCount"
+            class="record-stat-number"
+          >
+            0
+          </span>
+
+          <span class="record-stat-label">
+            其後曾經答對
+          </span>
+        </div>
+      </div>
+
+      <div id="recordToolbar" class="toolbar">
+        <button
+          id="playReview"
+          class="audio-button"
+          type="button"
+          data-audio-button
+        >
+          ▶ 播放重溫清單
+        </button>
+
+        <button id="copyRecord" type="button">
+          📋 複製紀錄
+        </button>
+
+        <button id="downloadCsv" type="button">
+          ⬇ 下載CSV
+        </button>
+
+        <button id="printRecord" type="button">
+          🖨 列印紀錄
+        </button>
+
+        <button
+          id="clearRecords"
+          class="danger-button"
+          type="button"
+        >
+          🗑 清除學習紀錄
+        </button>
+      </div>
+
+      <label class="record-filter" for="showMastered">
+        <input id="showMastered" type="checkbox">
+
+        顯示已標記為「已掌握」的舊紀錄
+      </label>
+
+      <div
+        id="recordTableWrap"
+        class="record-table-wrap"
+        hidden
+      >
+        <table class="record-table">
+          <thead>
+            <tr>
+              <th>狀態</th>
+              <th>字詞／成語／句段</th>
+              <th>來源及類型</th>
+              <th>問題分析</th>
+              <th>最近錯誤作答</th>
+              <th>最近結果</th>
+              <th>教師備註</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+
+          <tbody id="recordTableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="recordEmpty" class="empty-record">
+        暫時沒有需要重溫的項目。
+      </div>
+
+      <div style="margin-top: 18px;">
+        <label class="profile-field" for="teacherNotes">
+          老師整體備註
+
+          <textarea
+            id="teacherNotes"
+            class="teacher-notes"
+            placeholder="例如：學生未能準確分辨「屜」、「癮」和「瞄」；下次先進行字形認讀……"
+          ></textarea>
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-width">
+    <p>
+      《紫煙斗》中文默寫練習｜聆聽、書寫、批改、記錄、重溫
+    </p>
+
+    <p>
+      「重設」只會清除目前顯示的作答，
+      不會刪除老師的學習紀錄。
+    </p>
+  </footer>
+
+  <div class="audio-status-bar" aria-label="聲音播放狀態">
+    <p id="audioStatus" role="status" aria-live="polite">
+      準備就緒。請按「聆聽」或「全部播放」。
+    </p>
+
+    <button id="stopAudio" type="button" disabled>
+      ■ 停止播放
+    </button>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      /* =====================================================
+       * 基本工具
+       * ===================================================== */
+
+      const $ = id => document.getElementById(id);
+
+      const speechSupported =
+        "speechSynthesis" in window &&
+        "SpeechSynthesisUtterance" in window;
+
+      function createElement(
+        tag,
+        className = "",
+        text = null
+      ) {
+        const element = document.createElement(tag);
+
+        if (className) {
+          element.className = className;
+        }
+
+        if (text !== null) {
+          element.textContent = text;
+        }
+
+        return element;
+      }
+
+      function createButton(
+        text,
+        className,
+        handler,
+        isAudioButton = false
+      ) {
+        const button = createElement(
+          "button",
+          className,
+          text
+        );
+
+        button.type = "button";
+
+        if (isAudioButton) {
+          button.dataset.audioButton = "";
+
+          if (!speechSupported) {
+            button.disabled = true;
+          }
+        }
+
+        button.addEventListener("click", handler);
+
+        return button;
+      }
+
+      function shuffled(items) {
+        const result = [...items];
+
+        for (
+          let index = result.length - 1;
+          index > 0;
+          index--
+        ) {
+          const randomIndex = Math.floor(
+            Math.random() * (index + 1)
+          );
+
+          [
+            result[index],
+            result[randomIndex]
+          ] = [
+            result[randomIndex],
+            result[index]
+          ];
+        }
+
+        return result;
+      }
+
+      function localDateString() {
+        const date = new Date();
+
+        const year = date.getFullYear();
+
+        const month = String(
+          date.getMonth() + 1
+        ).padStart(2, "0");
+
+        const day = String(
+          date.getDate()
+        ).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+      }
+
+      function announce(message) {
+        $("audioStatus").textContent = message;
+      }
+
+      /* =====================================================
+       * 本機儲存
+       * ===================================================== */
+
+      const STORAGE_KEY =
+        "purple-smoking-pipe-dictation-v1";
+
+      let storageAvailable = true;
+
+      function freshState() {
+        return {
+          profile: {
+            studentName: "",
+            className: "",
+            practiceDate: localDateString(),
+            teacherNotes: ""
+          },
+
+          settings: {
+            speed: "0.8",
+            voice: "",
+            punctuationNames: true
+          },
+
+          modes: {
+            part1: "all",
+            part2: "all"
+          },
+
+          samples: {
+            part1: [],
+            part2: []
+          },
+
+          answers: {},
+          records: {}
+        };
+      }
+
+      function loadState() {
+        const base = freshState();
+
+        try {
+          const saved = localStorage.getItem(
+            STORAGE_KEY
+          );
+
+          if (!saved) {
+            return base;
+          }
+
+          const parsed = JSON.parse(saved);
+
+          return {
+            profile: {
+              ...base.profile,
+              ...(parsed.profile || {})
+            },
+
+            settings: {
+              ...base.settings,
+              ...(parsed.settings || {})
+            },
+
+            modes: {
+              ...base.modes,
+              ...(parsed.modes || {})
+            },
+
+            samples: {
+              ...base.samples,
+              ...(parsed.samples || {})
+            },
+
+            answers:
+              parsed.answers &&
+              typeof parsed.answers === "object"
+                ? parsed.answers
+                : {},
+
+            records:
+              parsed.records &&
+              typeof parsed.records === "object"
+                ? parsed.records
+                : {}
+          };
+        } catch (error) {
+          storageAvailable = false;
+          return base;
+        }
+      }
+
+      const appState = loadState();
+
+      function saveState() {
+        if (!storageAvailable) {
+          return;
+        }
+
+        try {
+          localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(appState)
+          );
+        } catch (error) {
+          storageAvailable = false;
+
+          if ($("storageMessage")) {
+            $("storageMessage").textContent =
+              "目前瀏覽器未能儲存紀錄，" +
+              "請下載CSV保存資料。";
+          }
+        }
+      }
+
+      /* =====================================================
+       * 答案及標點正規化
+       * ===================================================== */
+
+      function normalisePunctuation(value) {
+        let text = String(value ?? "").normalize(
+          "NFKC"
+        );
+
+        text = text
+          .replace(/"([^"]*)"/g, "「$1」")
+          .replace(/“/g, "「")
+          .replace(/”/g, "」");
+
+        /* 先處理省略號，以免句點先被轉換 */
+        text = text
+          .replace(
+            /(?:\.{3,}|[⋯…]+)/g,
+            "……"
+          )
+          .replace(
+            /(?:……){2,}/g,
+            "……"
+          );
+
+        /* 接受不同鍵盤輸入的破折號 */
+        text = text.replace(
+          /[—–－\-]+/g,
+          "——"
+        );
+
+        text = text
+          .replace(/[﹐,]/g, "，")
+          .replace(/[.．｡]/g, "。")
+          .replace(/[!！]/g, "！")
+          .replace(/[?？]/g, "？")
+          .replace(/[:：]/g, "：")
+          .replace(/[;；]/g, "；")
+          .replace(/[（(]/g, "（")
+          .replace(/[）)]/g, "）");
+
+        return text;
+      }
+
+      function canonicaliseText(value) {
+        return normalisePunctuation(value)
+          .replace(/\s+/g, "");
+      }
+
+      function stripPunctuation(value) {
+        return canonicaliseText(value).replace(
+          /[，。！？、：；「」『』（）《》〈〉【】［］…⋯—\-"'“”‘’·]/g,
+          ""
+        );
+      }
+
+      function normaliseWord(value) {
+        return stripPunctuation(value);
+      }
+
+      function recordKey(content) {
+        return (
+          stripPunctuation(content) ||
+          canonicaliseText(content)
+        );
+      }
+
+      /* =====================================================
+       * 教學內容
+       * ===================================================== */
+
+      const WORDS = [
+        "口袋",
+        "吵醒",
+        "觸電",
+        "抽屜",
+        "手忙腳亂",
+        "處理",
+        "熱鍋",
+        "發抖",
+        "可憐",
+        "煙癮",
+        "吞雲吐霧",
+        "瞄",
+        "珍藏",
+        "遞給",
+        "悠悠",
+        "打賭",
+        "如釋重負",
+        "盡情"
+      ];
+
+      const IDIOMS = [
+        "望梅止渴",
+        "人面桃花",
+        "滄海桑田",
+        "囫圇吞棗",
+        "移花接木",
+        "根深柢固",
+        "草菅人命",
+        "曇花一現"
+      ];
+
+      /*
+       * 長句按語意及停頓位置分為句段。
+       * 如需修改內容，可直接修改以下 text。
+       */
+      const PASSAGE_GROUPS = [
+        {
+          id: "paragraph1",
+          title: "第一段",
+          items: [
+            "鈴鈴……",
+            "我們被電門鈴聲吵醒，爸爸回來了。",
+            "媽媽、姐姐和我相互看了一眼，然後像觸電一般，跳起來；",
+            "媽媽抓住李伯伯送來的那根煙斗，一時放進口袋裏，一時放進抽屜，一時又拿着它在客廳裏打轉。",
+            "我和姐姐也跟着媽媽手忙腳亂地轉，像熱鍋上的螞蟻一樣。"
+          ]
+        },
+
+        {
+          id: "paragraph3",
+          title: "第三段",
+          items: [
+            "爸爸仔細地看煙斗，臉上的笑意越來越濃，",
+            "我和姐姐不約而同地跑去抱住媽媽，我們三個全身都在發抖——",
+            "爸爸的煙癮又要犯了，他又要開始吞雲吐霧了。",
+            "天哪！為甚麼不可憐可憐我們？",
+            "我和姐姐都恨煙味兒，也恨抽煙的人……",
+            "還有，自從隔壁大勇的老煙槍爸爸得肺癌死去後，",
+            "我每次看到爸爸抽煙，心裏就害怕，害怕有一天……"
+          ]
+        },
+
+        {
+          id: "paragraph6",
+          title: "第六段",
+          items: [
+            "「呼——」",
+            "我們如釋重負地鬆了一口氣，",
+            "一塊兒大聲叫着，盡情地笑着，心頭上的大石消失了。",
+            "我告訴你們，我從來沒有這麼快樂過！"
+          ]
+        }
+      ];
+
+      function makeItems(prefix, contents) {
+        return contents.map((text, index) => ({
+          id: `${prefix}-${index + 1}`,
+          text
+        }));
+      }
+
+      const WORD_ITEMS = makeItems(
+        "word",
+        WORDS
+      );
+
+      const IDIOM_ITEMS = makeItems(
+        "idiom",
+        IDIOMS
+      );
+
+      /* =====================================================
+       * 學習紀錄資料
+       * ===================================================== */
+
+      function normaliseStoredRecords() {
+        Object.values(appState.records).forEach(
+          record => {
+            record.parts = Array.isArray(
+              record.parts
+            )
+              ? record.parts
+              : [];
+
+            record.types = Array.isArray(
+              record.types
+            )
+              ? record.types
+              : [];
+
+            record.reasons =
+              record.reasons &&
+              typeof record.reasons === "object"
+                ? record.reasons
+                : {};
+
+            record.issueCount =
+              Number(record.issueCount) || 0;
+
+            record.correctCount =
+              Number(record.correctCount) || 0;
+
+            record.active =
+              record.active !== false;
+
+            record.note = record.note || "";
+            record.lastAnswer =
+              record.lastAnswer || "";
+
+            record.lastWrongAnswer =
+              record.lastWrongAnswer || "";
+
+            record.lastFocus =
+              record.lastFocus || "";
+          }
+        );
+      }
+
+      normaliseStoredRecords();
+
+      function addUnique(array, value) {
+        if (value && !array.includes(value)) {
+          array.push(value);
+        }
+      }
+
+      function ensureRecord(
+        content,
+        partName,
+        type
+      ) {
+        const key = recordKey(content);
+
+        if (!appState.records[key]) {
+          appState.records[key] = {
+            content,
+            parts: [],
+            types: [],
+            active: true,
+            issueCount: 0,
+            correctCount: 0,
+            reasons: {},
+            lastResult: "",
+            lastAnswer: "",
+            lastWrongAnswer: "",
+            lastFocus: "",
+            lastAt: "",
+            note: ""
+          };
+        }
+
+        const record = appState.records[key];
+
+        addUnique(record.parts, partName);
+        addUnique(record.types, type);
+
+        return record;
+      }
+
+      function applyOutcome({
+        content,
+        partName,
+        type,
+        result,
+        reason = "",
+        actualAnswer = "",
+        focus = ""
+      }) {
+        const key = recordKey(content);
+        const existing = appState.records[key];
+
+        if (result === "correct") {
+          if (!existing) {
+            return;
+          }
+
+          addUnique(existing.parts, partName);
+          addUnique(existing.types, type);
+
+          existing.correctCount++;
+          existing.lastResult =
+            "最近一次答對";
+
+          existing.lastAnswer =
+            actualAnswer;
+
+          existing.lastAt =
+            new Date().toISOString();
+
+          return;
+        }
+
+        const record = ensureRecord(
+          content,
+          partName,
+          type
+        );
+
+        record.active = true;
+        record.issueCount++;
+
+        record.lastResult = reason;
+
+        record.lastAnswer =
+          actualAnswer || "（空白）";
+
+        record.lastWrongAnswer =
+          actualAnswer || "（空白）";
+
+        record.lastFocus = focus;
+
+        record.lastAt =
+          new Date().toISOString();
+
+        record.reasons[reason] =
+          (record.reasons[reason] || 0) + 1;
+      }
+
+      function setReviewActive(
+        content,
+        partName,
+        type,
+        active
+      ) {
+        const key = recordKey(content);
+
+        if (active) {
+          const record = ensureRecord(
+            content,
+            partName,
+            type
+          );
+
+          record.active = true;
+
+          if (!record.issueCount) {
+            record.lastResult =
+              "學生標記：不熟悉";
+          }
+
+          record.lastAt =
+            new Date().toISOString();
+        } else if (appState.records[key]) {
+          appState.records[key].active = false;
+
+          appState.records[key].lastResult =
+            "已標記為掌握";
+
+          appState.records[key].lastAt =
+            new Date().toISOString();
+        }
+
+        saveState();
+        renderLearningRecords();
+      }
+
+      function syncReviewButtons() {
+        document
+          .querySelectorAll(".review-toggle")
+          .forEach(button => {
+            const key =
+              button.dataset.reviewKey;
+
+            const record =
+              appState.records[key];
+
+            const active = Boolean(
+              record && record.active
+            );
+
+            button.classList.toggle(
+              "active",
+              active
+            );
+
+            button.textContent = active
+              ? "★ 已加入重溫"
+              : "☆ 我不熟悉";
+
+            button.setAttribute(
+              "aria-pressed",
+              String(active)
+            );
+          });
+      }
+
+      /* =====================================================
+       * 文字差異分析
+       * ===================================================== */
+
+      function uniqueCharacters(characters) {
+        const result = [];
+
+        characters.forEach(character => {
+          if (
+            character &&
+            !result.includes(character)
+          ) {
+            result.push(character);
+          }
+        });
+
+        return result;
+      }
+
+      function characterDiagnosis(
+        expectedText,
+        actualText
+      ) {
+        const expected = Array.from(
+          stripPunctuation(expectedText)
+        );
+
+        const actual = Array.from(
+          stripPunctuation(actualText)
+        );
+
+        const rows = expected.length + 1;
+        const columns = actual.length + 1;
+
+        const table = Array.from(
+          { length: rows },
+          () => Array(columns).fill(0)
+        );
+
+        for (
+          let row = expected.length - 1;
+          row >= 0;
+          row--
+        ) {
+          for (
+            let column = actual.length - 1;
+            column >= 0;
+            column--
+          ) {
+            if (
+              expected[row] === actual[column]
+            ) {
+              table[row][column] =
+                table[row + 1][column + 1] + 1;
+            } else {
+              table[row][column] = Math.max(
+                table[row + 1][column],
+                table[row][column + 1]
+              );
+            }
+          }
+        }
+
+        const missing = [];
+        const extra = [];
+
+        let row = 0;
+        let column = 0;
+
+        while (
+          row < expected.length &&
+          column < actual.length
+        ) {
+          if (
+            expected[row] === actual[column]
+          ) {
+            row++;
+            column++;
+          } else if (
+            table[row + 1][column] >=
+            table[row][column + 1]
+          ) {
+            missing.push(expected[row]);
+            row++;
+          } else {
+            extra.push(actual[column]);
+            column++;
+          }
+        }
+
+        while (row < expected.length) {
+          missing.push(expected[row]);
+          row++;
+        }
+
+        while (column < actual.length) {
+          extra.push(actual[column]);
+          column++;
+        }
+
+        const missingUnique =
+          uniqueCharacters(missing);
+
+        const extraUnique =
+          uniqueCharacters(extra);
+
+        const descriptions = [];
+
+        if (missingUnique.length) {
+          const shown =
+            missingUnique.slice(0, 8);
+
+          descriptions.push(
+            `疑似漏寫／寫錯：「${shown.join(
+              "、"
+            )}${missingUnique.length > 8 ? "等" : ""}」`
+          );
+        }
+
+        if (extraUnique.length) {
+          const shown =
+            extraUnique.slice(0, 8);
+
+          descriptions.push(
+            `疑似多寫：「${shown.join(
+              "、"
+            )}${extraUnique.length > 8 ? "等" : ""}」`
+          );
+        }
+
+        return descriptions.join("；");
+      }
+
+      /* =====================================================
+       * 語音播放
+       * ===================================================== */
+
+      let availableVoices = [];
+
+      let playbackToken = 0;
+      let playbackTimer = null;
+      let countdownTimer = null;
+      let activeAudioButton = null;
+      let activeQuestionCard = null;
+      let activeUtterance = null;
+
+      function textForSpeech(text, mode) {
+        const normalised =
+          canonicaliseText(text);
+
+        if (
+          mode !== "sentence" ||
+          !$("punctuationNames").checked
+        ) {
+          return normalised;
+        }
+
+        let spoken = "";
+
+        for (
+          let index = 0;
+          index < normalised.length;
+          index++
+        ) {
+          const pair = normalised.slice(
+            index,
+            index + 2
+          );
+
+          if (pair === "……") {
+            spoken += "，省略號，";
+            index++;
+            continue;
+          }
+
+          if (pair === "——") {
+            spoken += "，破折號，";
+            index++;
+            continue;
+          }
+
+          const character =
+            normalised[index];
+
+          const names = {
+            "，": "，逗號，",
+            "。": "，句號。",
+            "！": "，感嘆號。",
+            "？": "，問號。",
+            "、": "，頓號，",
+            "：": "，冒號，",
+            "；": "，分號，",
+            "「": "開引號，",
+            "」": "，關引號",
+            "（": "，開括號，",
+            "）": "，關括號，",
+            "《": "，開書名號，",
+            "》": "，關書名號，"
+          };
+
+          spoken +=
+            names[character] || character;
+        }
+
+        return spoken.replace(/，{2,}/g, "，");
+      }
+
+      function getSelectedVoice() {
+        return (
+          availableVoices.find(
+            voice =>
+              voice.voiceURI ===
+              $("voiceSelect").value
+          ) || null
+        );
+      }
+
+      function clearPlaybackVisuals() {
+        if (activeAudioButton) {
+          activeAudioButton.classList.remove(
+            "playing"
+          );
+
+          activeAudioButton.removeAttribute(
+            "aria-busy"
+          );
+        }
+
+        if (activeQuestionCard) {
+          activeQuestionCard.classList.remove(
+            "listening"
+          );
+        }
+
+        activeAudioButton = null;
+        activeQuestionCard = null;
+        activeUtterance = null;
+
+        $("stopAudio").disabled = true;
+      }
+
+      function stopAudio(
+        message = "播放已停止。"
+      ) {
+        playbackToken++;
+
+        window.clearTimeout(playbackTimer);
+        window.clearInterval(countdownTimer);
+
+        playbackTimer = null;
+        countdownTimer = null;
+
+        if (speechSupported) {
+          window.speechSynthesis.cancel();
+        }
+
+        clearPlaybackVisuals();
+
+        if (message) {
+          announce(message);
+        }
+      }
+
+      function finishPlayback(message) {
+        window.clearTimeout(playbackTimer);
+        window.clearInterval(countdownTimer);
+
+        playbackTimer = null;
+        countdownTimer = null;
+
+        clearPlaybackVisuals();
+        announce(message);
+      }
+
+      function playSequence(
+        entries,
+        button,
+        label,
+        gapMilliseconds = 3000
+      ) {
+        if (!speechSupported) {
+          announce(
+            "這個瀏覽器不支援語音朗讀功能。"
+          );
+          return;
+        }
+
+        if (!entries.length) {
+          announce("沒有可播放的內容。");
+          return;
+        }
+
+        stopAudio("");
+
+        const currentToken =
+          playbackToken;
+
+        const selectedVoice =
+          getSelectedVoice();
+
+        const selectedRate =
+          Number($("speedSelect").value) ||
+          0.8;
+
+        let currentIndex = 0;
+
+        activeAudioButton = button;
+
+        if (activeAudioButton) {
+          activeAudioButton.classList.add(
+            "playing"
+          );
+
+          activeAudioButton.setAttribute(
+            "aria-busy",
+            "true"
+          );
+        }
+
+        $("stopAudio").disabled = false;
+
+        function speakNext() {
+          if (
+            currentToken !== playbackToken
+          ) {
+            return;
+          }
+
+          if (
+            currentIndex >= entries.length
+          ) {
+            finishPlayback(
+              `${label}播放完畢。`
+            );
+            return;
+          }
+
+          const entry = entries[currentIndex];
+
+          if (
+            activeQuestionCard &&
+            activeQuestionCard !== entry.card
+          ) {
+            activeQuestionCard.classList.remove(
+              "listening"
+            );
+          }
+
+          activeQuestionCard =
+            entry.card || null;
+
+          if (activeQuestionCard) {
+            activeQuestionCard.classList.add(
+              "listening"
+            );
+          }
+
+          const utterance =
+            new SpeechSynthesisUtterance(
+              textForSpeech(
+                entry.text,
+                entry.mode || "word"
+              )
+            );
+
+          if (selectedVoice) {
+            utterance.voice =
+              selectedVoice;
+
+            utterance.lang =
+              selectedVoice.lang;
+          } else {
+            utterance.lang = "zh-HK";
+          }
+
+          utterance.rate = selectedRate;
+          utterance.pitch = 1;
+          utterance.volume = 1;
+
+          activeUtterance = utterance;
+
+          announce(
+            `${label}：第 ${currentIndex + 1} 項，` +
+            `共 ${entries.length} 項。`
+          );
+
+          utterance.onend = () => {
+            if (
+              currentToken !== playbackToken
+            ) {
+              return;
+            }
+
+            activeUtterance = null;
+
+            if (activeQuestionCard) {
+              activeQuestionCard.classList.remove(
+                "listening"
+              );
+
+              activeQuestionCard = null;
+            }
+
+            currentIndex++;
+
+            if (
+              currentIndex >= entries.length
+            ) {
+              finishPlayback(
+                `${label}播放完畢。`
+              );
+              return;
+            }
+
+            if (gapMilliseconds <= 0) {
+              speakNext();
+              return;
+            }
+
+            let secondsLeft = Math.ceil(
+              gapMilliseconds / 1000
+            );
+
+            announce(
+              `${label}：本項播放完畢，` +
+              `${secondsLeft}秒後播放下一項。`
+            );
+
+            countdownTimer =
+              window.setInterval(() => {
+                secondsLeft--;
+
+                if (secondsLeft > 0) {
+                  announce(
+                    `${label}：${secondsLeft}秒後` +
+                    `播放下一項。`
+                  );
+                }
+              }, 1000);
+
+            playbackTimer =
+              window.setTimeout(() => {
+                window.clearInterval(
+                  countdownTimer
+                );
+
+                countdownTimer = null;
+                speakNext();
+              }, gapMilliseconds);
+          };
+
+          utterance.onerror = event => {
+            if (
+              currentToken !== playbackToken
+            ) {
+              return;
+            }
+
+            stopAudio(
+              "未能播放聲音，請選擇另一個中文聲音。" +
+              `（${event.error || "未知錯誤"}）`
+            );
+          };
+
+          try {
+            if (
+              window.speechSynthesis.paused
+            ) {
+              window.speechSynthesis.resume();
+            }
+
+            window.speechSynthesis.speak(
+              utterance
+            );
+          } catch (error) {
+            stopAudio(
+              "未能播放聲音，請重新載入聲音。"
+            );
+          }
+        }
+
+        speakNext();
+      }
+
+      function populateVoices() {
+        if (!speechSupported) {
+          $("voiceSelect").disabled = true;
+          $("speedSelect").disabled = true;
+          $("punctuationNames").disabled = true;
+          $("testVoice").disabled = true;
+          $("reloadVoices").disabled = true;
+
+          $("voiceMessage").textContent =
+            "這個瀏覽器不支援語音朗讀；" +
+            "輸入答案、批改及紀錄功能仍可使用。";
+
+          return;
+        }
+
+        const allVoices =
+          window.speechSynthesis.getVoices();
+
+        const chineseVoices =
+          allVoices.filter(voice => {
+            const information =
+              `${voice.name} ${voice.lang}`;
+
+            return (
+              /^(zh|yue)([-_]|$)/i.test(
+                voice.lang
+              ) ||
+              /Chinese|Cantonese|Mandarin|Hong Kong|Taiwan/i
+                .test(information)
+            );
+          });
+
+        availableVoices =
+          chineseVoices.length
+            ? chineseVoices
+            : allVoices;
+
+        availableVoices.sort(
+          (voiceA, voiceB) => {
+            return (
+              voiceA.lang.localeCompare(
+                voiceB.lang
+              ) ||
+              voiceA.name.localeCompare(
+                voiceB.name
+              )
+            );
+          }
+        );
+
+        const savedVoice =
+          appState.settings.voice ||
+          $("voiceSelect").value;
+
+        $("voiceSelect").replaceChildren();
+
+        const automaticOption =
+          createElement(
+            "option",
+            "",
+            "自動選擇中文聲音"
+          );
+
+        automaticOption.value = "";
+
+        $("voiceSelect").append(
+          automaticOption
+        );
+
+        availableVoices.forEach(voice => {
+          const option = createElement(
+            "option",
+            "",
+            `${voice.name} — ${voice.lang}`
+          );
+
+          option.value = voice.voiceURI;
+
+          $("voiceSelect").append(option);
+        });
+
+        const savedVoiceExists =
+          availableVoices.some(
+            voice =>
+              voice.voiceURI === savedVoice
+          );
+
+        if (savedVoiceExists) {
+          $("voiceSelect").value =
+            savedVoice;
+        } else if (chineseVoices.length) {
+          const preferredVoice =
+            availableVoices.find(
+              voice =>
+                /^yue[-_]HK$/i.test(
+                  voice.lang
+                )
+            ) ||
+            availableVoices.find(
+              voice =>
+                /^zh[-_]HK$/i.test(
+                  voice.lang
+                )
+            ) ||
+            availableVoices.find(
+              voice =>
+                /Cantonese|Hong Kong/i.test(
+                  `${voice.name} ${voice.lang}`
+                )
+            ) ||
+            availableVoices.find(
+              voice =>
+                /^zh[-_]TW$/i.test(
+                  voice.lang
+                )
+            ) ||
+            availableVoices.find(
+              voice =>
+                /^zh[-_]CN$/i.test(
+                  voice.lang
+                )
+            ) ||
+            availableVoices.find(
+              voice => voice.default
+            ) ||
+            availableVoices[0];
+
+          $("voiceSelect").value =
+            preferredVoice.voiceURI;
+
+          appState.settings.voice =
+            preferredVoice.voiceURI;
+
+          saveState();
+        } else {
+          $("voiceSelect").value = "";
+        }
+
+        if (!allVoices.length) {
+          $("voiceMessage").textContent =
+            "暫時未能讀取裝置聲音，" +
+            "請稍後按「重新載入聲音」。";
+        } else if (chineseVoices.length) {
+          $("voiceMessage").textContent =
+            `已找到 ${chineseVoices.length} 個中文／` +
+            `粵語聲音。`;
+        } else {
+          $("voiceMessage").textContent =
+            "裝置沒有列出中文聲音；" +
+            "系統會嘗試使用預設中文語音。";
+        }
+      }
+
+      /* =====================================================
+       * 默寫卡及答案批改
+       * ===================================================== */
+
+      const STATE_INFORMATION = {
+        correct: {
+          badge: "正確",
+          feedback: "✓ 正確！",
+          className: "correct"
+        },
+
+        wrong: {
+          badge: "需再練習",
+          feedback:
+            "✗ 答案不正確，請再聽一次。",
+          className: "wrong"
+        },
+
+        punctuation: {
+          badge: "標點需修改",
+          feedback:
+            "△ 文字正確，請修改標點符號。",
+          className: "punctuation"
+        },
+
+        empty: {
+          badge: "未作答",
+          feedback:
+            "○ 尚未輸入答案。",
+          className: "empty"
+        }
+      };
+
+      function evaluateCard(card, part) {
+        const answer = card.input.value;
+
+        if (!answer.trim()) {
+          return "empty";
+        }
+
+        if (
+          part.answerMode === "sentence"
+        ) {
+          const expectedExact =
+            canonicaliseText(card.item.text);
+
+          const answerExact =
+            canonicaliseText(answer);
+
+          if (
+            answerExact === expectedExact
+          ) {
+            return "correct";
+          }
+
+          if (
+            stripPunctuation(answerExact) ===
+            stripPunctuation(expectedExact)
+          ) {
+            return "punctuation";
+          }
+
+          return "wrong";
+        }
+
+        return (
+          normaliseWord(answer) ===
+          normaliseWord(card.item.text)
+        )
+          ? "correct"
+          : "wrong";
+      }
+
+      function setCardState(
+        card,
+        state,
+        feedbackHint = ""
+      ) {
+        card.state = state;
+
+        card.input.classList.remove(
+          "answer-correct",
+          "answer-wrong",
+          "answer-punctuation",
+          "answer-empty"
+        );
+
+        card.statusBadge.className =
+          "status-badge";
+
+        card.feedback.className =
+          "field-feedback";
+
+        card.input.removeAttribute(
+          "aria-invalid"
+        );
+
+        if (state === "ungraded") {
+          card.element.removeAttribute(
+            "data-state"
+          );
+
+          card.statusBadge.textContent =
+            card.modified
+              ? "已修改，尚未批改"
+              : "尚未批改";
+
+          card.feedback.textContent = "";
+          return;
+        }
+
+        card.element.dataset.state = state;
+
+        const information =
+          STATE_INFORMATION[state];
+
+        card.statusBadge.textContent =
+          information.badge;
+
+        card.statusBadge.classList.add(
+          information.className
+        );
+
+        card.feedback.textContent =
+          state === "wrong" && feedbackHint
+            ? `✗ 句段內容未完全正確。${feedbackHint}`
+            : information.feedback;
+
+        card.feedback.classList.add(
+          information.className
+        );
+
+        card.input.classList.add(
+          `answer-${information.className}`
+        );
+
+        if (state !== "correct") {
+          card.input.setAttribute(
+            "aria-invalid",
+            "true"
+          );
+        }
+      }
+
+      function checkCard(
+        card,
+        part,
+        deferRendering = false
+      ) {
+        const result =
+          evaluateCard(card, part);
+
+        card.everChecked = true;
+        card.modified = false;
+
+        let reason = "";
+        let recordFocus = "";
+        let feedbackHint = "";
+
+        if (result === "wrong") {
+          if (
+            part.answerMode === "sentence"
+          ) {
+            reason = "句段內容有誤";
+
+            recordFocus =
+              characterDiagnosis(
+                card.item.text,
+                card.input.value
+              ) ||
+              "內容次序或字詞需要再檢查";
+
+            feedbackHint = recordFocus;
+          } else {
+            reason =
+              part.recordType === "成語"
+                ? "成語有誤"
+                : "詞語有誤";
+
+            recordFocus =
+              `目標答案：${card.item.text}`;
+          }
+        } else if (
+          result === "punctuation"
+        ) {
+          reason = "標點符號有誤";
+          recordFocus = "標點符號";
+        } else if (result === "empty") {
+          reason = "未作答";
+          recordFocus =
+            "學生尚未輸入答案";
+        }
+
+        setCardState(
+          card,
+          result,
+          feedbackHint
+        );
+
+        const outcomeSignature =
+          `${result}|${canonicaliseText(
+            card.input.value
+          )}`;
+
+        if (
+          card.lastOutcomeSignature !==
+          outcomeSignature
+        ) {
+          applyOutcome({
+            content: card.item.text,
+            partName:
+              card.item.source ||
+              part.recordPartName,
+            type: part.recordType,
+            result,
+            reason,
+            actualAnswer:
+              card.input.value.trim(),
+            focus: recordFocus
+          });
+
+          card.lastOutcomeSignature =
+            outcomeSignature;
+        }
+
+        if (!deferRendering) {
+          saveState();
+          renderLearningRecords();
+          refreshPartUI(part);
+
+          announce(
+            `${part.shortName} ${card.number.textContent}：` +
+            STATE_INFORMATION[result].badge
+          );
+        }
+      }
+
+      function checkCards(
+        cards,
+        part,
+        label
+      ) {
+        cards.forEach(card => {
+          checkCard(card, part, true);
+        });
+
+        saveState();
+        renderLearningRecords();
+        refreshPartUI(part);
+
+        announce(
+          `${label}批改完成。`
+        );
+      }
+
+      function setReferenceVisible(
+        card,
+        visible
+      ) {
+        card.reference.hidden = !visible;
+
+        card.showButton.textContent = visible
+          ? "🙈 隱藏答案"
+          : "👁 顯示答案";
+
+        card.showButton.setAttribute(
+          "aria-expanded",
+          String(visible)
+        );
+      }
+
+      function updateBulkAnswerButton(
+        button,
+        cards,
+        showText = "👁 顯示答案",
+        hideText = "🙈 隱藏答案"
+      ) {
+        const allVisible =
+          cards.length > 0 &&
+          cards.every(
+            card => !card.reference.hidden
+          );
+
+        button.textContent = allVisible
+          ? hideText
+          : showText;
+
+        button.setAttribute(
+          "aria-expanded",
+          String(allVisible)
+        );
+      }
+
+      function toggleAnswers(
+        cards,
+        button,
+        label,
+        showText,
+        hideText
+      ) {
+        const shouldShow =
+          cards.some(
+            card => card.reference.hidden
+          );
+
+        cards.forEach(card => {
+          setReferenceVisible(
+            card,
+            shouldShow
+          );
+        });
+
+        updateBulkAnswerButton(
+          button,
+          cards,
+          showText,
+          hideText
+        );
+
+        announce(
+          shouldShow
+            ? `${label}已顯示答案。`
+            : `${label}已隱藏答案。`
+        );
+      }
+
+      function resetCards(
+        cards,
+        part,
+        label
+      ) {
+        const hasWork = cards.some(card => {
+          return (
+            card.input.value.trim() ||
+            card.state !== "ungraded" ||
+            !card.reference.hidden
+          );
+        });
+
+        if (
+          hasWork &&
+          !window.confirm(
+            `確定清除${label}的作答和批改結果嗎？\n` +
+            "老師的學習紀錄不會被刪除。"
+          )
+        ) {
+          return;
+        }
+
+        stopAudio("");
+
+        cards.forEach(card => {
+          card.input.value = "";
+          card.state = "ungraded";
+          card.modified = false;
+          card.everChecked = false;
+          card.lastOutcomeSignature = null;
+
+          delete appState.answers[
+            card.answerKey
+          ];
+
+          setCardState(
+            card,
+            "ungraded"
+          );
+
+          setReferenceVisible(
+            card,
+            false
+          );
+        });
+
+        saveState();
+        refreshPartUI(part);
+
+        announce(`${label}已重設。`);
+      }
+
+      function getCounts(cards) {
+        return {
+          total: cards.length,
+
+          checked: cards.filter(
+            card =>
+              card.state !== "ungraded"
+          ).length,
+
+          correct: cards.filter(
+            card =>
+              card.state === "correct"
+          ).length,
+
+          wrong: cards.filter(
+            card =>
+              card.state === "wrong"
+          ).length,
+
+          punctuation: cards.filter(
+            card =>
+              card.state === "punctuation"
+          ).length,
+
+          empty: cards.filter(
+            card =>
+              card.state === "empty"
+          ).length
+        };
+      }
+
+      function updateSummaryElement(
+        element,
+        cards,
+        itemName = "題"
+      ) {
+        const counts = getCounts(cards);
+
+        element.className =
+          element.classList.contains(
+            "segment-summary"
+          )
+            ? "segment-summary"
+            : "part-summary";
+
+        if (!counts.checked) {
+          element.textContent =
+            `尚未批改｜共 ${counts.total} ${itemName}`;
+          return;
+        }
+
+        element.textContent =
+          `已批改 ${counts.checked}/${counts.total} ${itemName}｜` +
+          `正確 ${counts.correct}｜` +
+          `錯誤 ${counts.wrong}｜` +
+          `標點 ${counts.punctuation}｜` +
+          `未作答 ${counts.empty}`;
+
+        if (
+          counts.correct === counts.total
+        ) {
+          element.classList.add("complete");
+        } else {
+          element.classList.add(
+            "has-errors"
+          );
+        }
+      }
+
+      function playCards(
+        cards,
+        button,
+        label
+      ) {
+        const entries = cards.map(card => ({
+          text: card.item.text,
+          mode:
+            card.part.answerMode ===
+            "sentence"
+              ? "sentence"
+              : "word",
+          card: card.element
+        }));
+
+        playSequence(
+          entries,
+          button,
+          label,
+          3000
+        );
+      }
+
+      function buildDictationCard(
+        item,
+        part
+      ) {
+        const card = {
+          item,
+          part,
+          state: "ungraded",
+          modified: false,
+          everChecked: false,
+          lastOutcomeSignature: null
+        };
+
+        card.answerKey =
+          `${part.key}:${item.id}`;
+
+        card.element = createElement(
+          "article",
+          "question-card"
+        );
+
+        const header = createElement(
+          "div",
+          "question-header"
+        );
+
+        const meta = createElement(
+          "div",
+          "question-meta"
+        );
+
+        card.number = createElement(
+          "span",
+          "question-number",
+          "題目"
+        );
+
+        card.statusBadge = createElement(
+          "span",
+          "status-badge",
+          "尚未批改"
+        );
+
+        meta.append(card.number);
+
+        if (item.group) {
+          meta.append(
+            createElement(
+              "span",
+              "group-badge",
+              item.group
+            )
+          );
+        }
+
+        meta.append(card.statusBadge);
+
+        card.listenButton = createButton(
+          "🔊 聆聽",
+          "audio-button",
+          event => {
+            playSequence(
+              [{
+                text: item.text,
+                mode:
+                  part.answerMode ===
+                  "sentence"
+                    ? "sentence"
+                    : "word",
+                card: card.element
+              }],
+              event.currentTarget,
+              `${part.shortName} ${card.number.textContent}`,
+              0
+            );
+          },
+          true
+        );
+
+        header.append(
+          meta,
+          card.listenButton
+        );
+
+        card.element.append(header);
+
+        const label = createElement(
+          "label",
+          "answer-label",
+          part.answerMode === "sentence"
+            ? "請輸入完整句段和標點："
+            : part.recordType === "成語"
+              ? "請輸入所聽到的成語："
+              : "請輸入所聽到的詞語："
+        );
+
+        const input = createElement(
+          part.answerMode === "sentence"
+            ? "textarea"
+            : "input",
+          "answer-input"
+        );
+
+        if (
+          part.answerMode === "sentence"
+        ) {
+          input.rows = 2;
+
+          input.placeholder =
+            "輸入完整句段和標點……";
+        } else {
+          input.type = "text";
+
+          input.placeholder =
+            part.recordType === "成語"
+              ? "輸入完整成語……"
+              : "輸入詞語……";
+        }
+
+        const inputId =
+          `${part.key}-${item.id}-answer`;
+
+        input.id = inputId;
+        input.lang = "zh-Hant";
+        input.spellcheck = false;
+        input.autocomplete = "off";
+        input.setAttribute(
+          "autocorrect",
+          "off"
+        );
+
+        label.htmlFor = inputId;
+
+        input.value =
+          appState.answers[
+            card.answerKey
+          ] || "";
+
+        card.input = input;
+
+        card.feedback = createElement(
+          "p",
+          "field-feedback"
+        );
+
+        input.addEventListener(
+          "input",
+          () => {
+            const hadChecked =
+              card.state !== "ungraded" ||
+              card.everChecked;
+
+            card.modified = hadChecked;
+
+            card.everChecked =
+              card.everChecked ||
+              hadChecked;
+
+            card.lastOutcomeSignature = null;
+
+            if (input.value) {
+              appState.answers[
+                card.answerKey
+              ] = input.value;
+            } else {
+              delete appState.answers[
+                card.answerKey
+              ];
+            }
+
+            setCardState(
+              card,
+              "ungraded"
+            );
+
+            refreshPartUI(part);
+            saveState();
+          }
+        );
+
+        input.addEventListener(
+          "keydown",
+          event => {
+            if (
+              event.isComposing ||
+              event.key !== "Enter"
+            ) {
+              return;
+            }
+
+            if (
+              part.answerMode ===
+                "sentence" &&
+              !event.ctrlKey &&
+              !event.metaKey
+            ) {
+              return;
+            }
+
+            event.preventDefault();
+
+            checkCard(card, part);
+          }
+        );
+
+        card.element.append(
+          label,
+          input,
+          card.feedback
+        );
+
+        const actions = createElement(
+          "div",
+          "card-actions"
+        );
+
+        const checkButton = createButton(
+          "✓ 批改本題",
+          "secondary-button",
+          () => {
+            checkCard(card, part);
+          }
+        );
+
+        card.showButton = createButton(
+          "👁 顯示答案",
+          "",
+          () => {
+            setReferenceVisible(
+              card,
+              card.reference.hidden
+            );
+
+            refreshPartUI(part);
+          }
+        );
+
+        card.showButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        const reviewButton = createButton(
+          "☆ 我不熟悉",
+          "review-toggle",
+          () => {
+            const key =
+              recordKey(item.text);
+
+            const record =
+              appState.records[key];
+
+            setReviewActive(
+              item.text,
+              item.source ||
+                part.recordPartName,
+              part.recordType,
+              !(
+                record &&
+                record.active
+              )
+            );
+          }
+        );
+
+        reviewButton.dataset.reviewKey =
+          recordKey(item.text);
+
+        actions.append(
+          checkButton,
+          card.showButton,
+          reviewButton
+        );
+
+        card.reference = createElement(
+          "div",
+          "reference-answer"
+        );
+
+        card.reference.hidden = true;
+
+        card.reference.append(
+          createElement(
+            "strong",
+            "",
+            "參考答案"
+          )
+        );
+
+        const answerListenButton =
+          createButton(
+            `🔊 ${item.text}`,
+            "audio-button answer-listen",
+            event => {
+              playSequence(
+                [{
+                  text: item.text,
+                  mode:
+                    part.answerMode ===
+                    "sentence"
+                      ? "sentence"
+                      : "word",
+                  card: card.element
+                }],
+                event.currentTarget,
+                "參考答案",
+                0
+              );
+            },
+            true
+          );
+
+        card.reference.append(
+          answerListenButton
+        );
+
+        card.element.append(
+          actions,
+          card.reference
+        );
+
+        return card;
+      }
+
+      /* =====================================================
+       * 第一、第二部分：完整練習及抽題模式
+       * ===================================================== */
+
+      function createNewSample(part) {
+        appState.samples[part.key] =
+          shuffled(part.items)
+            .slice(0, part.sampleSize)
+            .map(item => item.id);
+
+        saveState();
+      }
+
+      function ensureSample(part) {
+        const validIds = new Set(
+          part.items.map(item => item.id)
+        );
+
+        const current =
+          Array.isArray(
+            appState.samples[part.key]
+          )
+            ? appState.samples[part.key]
+            : [];
+
+        const validCurrent =
+          current.filter(id =>
+            validIds.has(id)
+          );
+
+        if (
+          validCurrent.length !==
+          part.sampleSize
+        ) {
+          createNewSample(part);
+        }
+      }
+
+      function getVisibleCards(part) {
+        if (
+          appState.modes[part.key] !==
+          "test"
+        ) {
+          return part.cards;
+        }
+
+        ensureSample(part);
+
+        const cardMap = new Map(
+          part.cards.map(card => [
+            card.item.id,
+            card
+          ])
+        );
+
+        return appState.samples[part.key]
+          .map(id => cardMap.get(id))
+          .filter(Boolean);
+      }
+
+      function updateBankModeControls(
+        part
+      ) {
+        const testMode =
+          appState.modes[part.key] ===
+          "test";
+
+        part.allModeButton.classList.toggle(
+          "active",
+          !testMode
+        );
+
+        part.testModeButton.classList.toggle(
+          "active",
+          testMode
+        );
+
+        part.allModeButton.setAttribute(
+          "aria-pressed",
+          String(!testMode)
+        );
+
+        part.testModeButton.setAttribute(
+          "aria-pressed",
+          String(testMode)
+        );
+
+        part.modeNote.textContent =
+          testMode
+            ? `目前是模擬默書模式：從${part.items.length}項中抽選${part.sampleSize}題。切換模式不會清除已輸入的答案。`
+            : `目前是完整練習模式：顯示全部${part.items.length}題。`;
+      }
+
+      function renderBankPart(part) {
+        part.visibleCards =
+          getVisibleCards(part);
+
+        part.grid.replaceChildren(
+          ...part.visibleCards.map(
+            card => card.element
+          )
+        );
+
+        part.visibleCards.forEach(
+          (card, index) => {
+            card.number.textContent =
+              `第${index + 1}題`;
+
+            card.listenButton.setAttribute(
+              "aria-label",
+              `${part.shortName}第${index + 1}題：聆聽`
+            );
+          }
+        );
+
+        updateBankModeControls(part);
+        updateBankPartUI(part);
+        syncReviewButtons();
+      }
+
+      function updateBankPartUI(part) {
+        updateSummaryElement(
+          part.summary,
+          part.visibleCards,
+          "題"
+        );
+
+        updateBulkAnswerButton(
+          part.showButton,
+          part.visibleCards,
+          "👁 顯示答案",
+          "🙈 隱藏答案"
+        );
+      }
+
+      function setBankMode(
+        part,
+        mode
+      ) {
+        stopAudio("");
+
+        appState.modes[part.key] =
+          mode;
+
+        if (mode === "test") {
+          ensureSample(part);
+        }
+
+        saveState();
+        renderBankPart(part);
+
+        announce(
+          mode === "test"
+            ? `${part.shortName}已切換至模擬默書模式。`
+            : `${part.shortName}已切換至完整練習模式。`
+        );
+      }
+
+      function resampleBankPart(part) {
+        stopAudio("");
+
+        createNewSample(part);
+
+        appState.modes[part.key] =
+          "test";
+
+        saveState();
+        renderBankPart(part);
+
+        announce(
+          `${part.shortName}已重新抽選${part.sampleSize}題；原有作答仍然保留。`
+        );
+      }
+
+      function createBankPart(config) {
+        const part = {
+          ...config,
+          kind: "bank",
+
+          grid: $(config.gridId),
+          summary: $(config.summaryId),
+          showButton:
+            $(config.showButtonId),
+
+          allModeButton:
+            $(config.allModeButtonId),
+
+          testModeButton:
+            $(config.testModeButtonId),
+
+          modeNote:
+            $(config.modeNoteId),
+
+          cards: [],
+          visibleCards: []
+        };
+
+        if (
+          !["all", "test"].includes(
+            appState.modes[part.key]
+          )
+        ) {
+          appState.modes[part.key] =
+            "all";
+        }
+
+        part.cards = part.items.map(
+          item =>
+            buildDictationCard(
+              item,
+              part
+            )
+        );
+
+        part.allModeButton.addEventListener(
+          "click",
+          () => {
+            setBankMode(part, "all");
+          }
+        );
+
+        part.testModeButton.addEventListener(
+          "click",
+          () => {
+            setBankMode(part, "test");
+          }
+        );
+
+        $(
+          config.resampleButtonId
+        ).addEventListener(
+          "click",
+          () => {
+            resampleBankPart(part);
+          }
+        );
+
+        $(
+          config.playButtonId
+        ).addEventListener(
+          "click",
+          event => {
+            playCards(
+              part.visibleCards,
+              event.currentTarget,
+              `${part.shortName}全部播放`
+            );
+          }
+        );
+
+        $(
+          config.checkButtonId
+        ).addEventListener(
+          "click",
+          () => {
+            checkCards(
+              part.visibleCards,
+              part,
+              part.shortName
+            );
+          }
+        );
+
+        part.showButton.addEventListener(
+          "click",
+          () => {
+            toggleAnswers(
+              part.visibleCards,
+              part.showButton,
+              part.shortName,
+              "👁 顯示答案",
+              "🙈 隱藏答案"
+            );
+          }
+        );
+
+        $(
+          config.resetButtonId
+        ).addEventListener(
+          "click",
+          () => {
+            resetCards(
+              part.visibleCards,
+              part,
+              `${part.shortName}目前題目`
+            );
+          }
+        );
+
+        renderBankPart(part);
+
+        return part;
+      }
+
+      let part1;
+      let part2;
+      let passagePart;
+
+      part1 = createBankPart({
+        key: "part1",
+        shortName: "第一部分",
+        recordPartName:
+          "第一部分：第一課《紫煙斗》重點詞語",
+        recordType: "詞語",
+        answerMode: "word",
+        items: WORD_ITEMS,
+        sampleSize: 7,
+
+        gridId: "part1Grid",
+        summaryId: "part1Summary",
+        showButtonId: "part1Show",
+
+        allModeButtonId:
+          "part1AllMode",
+
+        testModeButtonId:
+          "part1TestMode",
+
+        modeNoteId: "part1ModeNote",
+        resampleButtonId:
+          "part1Resample",
+
+        playButtonId: "part1Play",
+        checkButtonId: "part1Check",
+        resetButtonId: "part1Reset"
+      });
+
+      part2 = createBankPart({
+        key: "part2",
+        shortName: "第二部分",
+        recordPartName:
+          "第二部分：成語單元一",
+        recordType: "成語",
+        answerMode: "word",
+        items: IDIOM_ITEMS,
+        sampleSize: 3,
+
+        gridId: "part2Grid",
+        summaryId: "part2Summary",
+        showButtonId: "part2Show",
+
+        allModeButtonId:
+          "part2AllMode",
+
+        testModeButtonId:
+          "part2TestMode",
+
+        modeNoteId: "part2ModeNote",
+        resampleButtonId:
+          "part2Resample",
+
+        playButtonId: "part2Play",
+        checkButtonId: "part2Check",
+        resetButtonId: "part2Reset"
+      });
+
+      /* =====================================================
+       * 第三部分：課文分段默寫
+       * ===================================================== */
+
+      function createPassagePart() {
+        const part = {
+          key: "part3",
+          kind: "passage",
+          shortName: "第三部分",
+
+          recordPartName:
+            "第三部分：《紫煙斗》課文句段",
+
+          recordType: "句子／句段",
+          answerMode: "sentence",
+
+          summary: $("part3Summary"),
+          showButton: $("part3Show"),
+
+          groups: [],
+          cards: []
+        };
+
+        const container =
+          $("part3Groups");
+
+        PASSAGE_GROUPS.forEach(
+          groupData => {
+            const group = {
+              id: groupData.id,
+              title: groupData.title
+            };
+
+            group.items =
+              groupData.items.map(
+                (text, index) => ({
+                  id:
+                    `${group.id}-${index + 1}`,
+                  text,
+                  group: group.title,
+                  source:
+                    `第三部分：《紫煙斗》${group.title}`
+                })
+              );
+
+            group.cards =
+              group.items.map(item =>
+                buildDictationCard(
+                  item,
+                  part
+                )
+              );
+
+            part.cards.push(
+              ...group.cards
+            );
+
+            group.fullText =
+              group.items
+                .map(item => item.text)
+                .join("");
+
+            group.element =
+              createElement(
+                "section",
+                "segment-panel"
+              );
+
+            const header =
+              createElement(
+                "div",
+                "segment-header"
+              );
+
+            const titleArea =
+              createElement("div");
+
+            titleArea.append(
+              createElement(
+                "span",
+                "segment-label",
+                "課文分段"
+              ),
+              createElement(
+                "h3",
+                "",
+                group.title
+              )
+            );
+
+            header.append(
+              titleArea,
+              createElement(
+                "span",
+                "segment-count",
+                `${group.cards.length}個句段`
+              )
+            );
+
+            group.element.append(header);
+
+            const toolbar =
+              createElement(
+                "div",
+                "toolbar"
+              );
+
+            group.playButton =
+              createButton(
+                "▶ 逐句段播放",
+                "audio-button",
+                event => {
+                  playCards(
+                    group.cards,
+                    event.currentTarget,
+                    `${group.title}逐句段播放`
+                  );
+                },
+                true
+              );
+
+            group.naturalButton =
+              createButton(
+                "📖 連貫朗讀本段",
+                "audio-button",
+                event => {
+                  playSequence(
+                    [{
+                      text:
+                        group.fullText,
+                      mode: "natural",
+                      card: null
+                    }],
+                    event.currentTarget,
+                    `${group.title}連貫朗讀`,
+                    0
+                  );
+                },
+                true
+              );
+
+            group.checkButton =
+              createButton(
+                "✅ 批改本段",
+                "primary-button",
+                () => {
+                  checkCards(
+                    group.cards,
+                    part,
+                    group.title
+                  );
+                }
+              );
+
+            group.showButton =
+              createButton(
+                "👁 顯示本段答案",
+                "secondary-button",
+                () => {
+                  toggleAnswers(
+                    group.cards,
+                    group.showButton,
+                    group.title,
+                    "👁 顯示本段答案",
+                    "🙈 隱藏本段答案"
+                  );
+
+                  updatePassagePartUI(
+                    part
+                  );
+                }
+              );
+
+            group.resetButton =
+              createButton(
+                "↺ 重設本段",
+                "",
+                () => {
+                  resetCards(
+                    group.cards,
+                    part,
+                    group.title
+                  );
+                }
+              );
+
+            toolbar.append(
+              group.playButton,
+              group.naturalButton,
+              group.checkButton,
+              group.showButton,
+              group.resetButton
+            );
+
+            group.element.append(toolbar);
+
+            group.summary =
+              createElement(
+                "div",
+                "segment-summary",
+                "尚未批改"
+              );
+
+            group.summary.setAttribute(
+              "role",
+              "status"
+            );
+
+            group.element.append(
+              group.summary
+            );
+
+            group.grid =
+              createElement(
+                "div",
+                "question-grid sentence-grid"
+              );
+
+            group.grid.append(
+              ...group.cards.map(
+                card => card.element
+              )
+            );
+
+            group.cards.forEach(
+              (card, index) => {
+                card.number.textContent =
+                  `第${index + 1}句段`;
+
+                card.listenButton.setAttribute(
+                  "aria-label",
+                  `${group.title}第${index + 1}句段：聆聽`
+                );
+              }
+            );
+
+            group.element.append(
+              group.grid
+            );
+
+            container.append(
+              group.element
+            );
+
+            part.groups.push(group);
+          }
+        );
+
+        $("part3Play").addEventListener(
+          "click",
+          event => {
+            playCards(
+              part.cards,
+              event.currentTarget,
+              "第三部分全部逐句段播放"
+            );
+          }
+        );
+
+        $("part3Natural").addEventListener(
+          "click",
+          event => {
+            playSequence(
+              part.groups.map(group => ({
+                text: group.fullText,
+                mode: "natural",
+                card: null
+              })),
+              event.currentTarget,
+              "《紫煙斗》三段連貫朗讀",
+              3000
+            );
+          }
+        );
+
+        $("part3Check").addEventListener(
+          "click",
+          () => {
+            checkCards(
+              part.cards,
+              part,
+              "第三部分全部句段"
+            );
+          }
+        );
+
+        part.showButton.addEventListener(
+          "click",
+          () => {
+            toggleAnswers(
+              part.cards,
+              part.showButton,
+              "第三部分",
+              "👁 顯示全部答案",
+              "🙈 隱藏全部答案"
+            );
+
+            updatePassagePartUI(part);
+          }
+        );
+
+        $("part3Reset").addEventListener(
+          "click",
+          () => {
+            resetCards(
+              part.cards,
+              part,
+              "第三部分全部句段"
+            );
+          }
+        );
+
+        updatePassagePartUI(part);
+
+        return part;
+      }
+
+      function updatePassagePartUI(part) {
+        updateSummaryElement(
+          part.summary,
+          part.cards,
+          "個句段"
+        );
+
+        updateBulkAnswerButton(
+          part.showButton,
+          part.cards,
+          "👁 顯示全部答案",
+          "🙈 隱藏全部答案"
+        );
+
+        part.groups.forEach(group => {
+          updateSummaryElement(
+            group.summary,
+            group.cards,
+            "個句段"
+          );
+
+          updateBulkAnswerButton(
+            group.showButton,
+            group.cards,
+            "👁 顯示本段答案",
+            "🙈 隱藏本段答案"
+          );
+        });
+      }
+
+      passagePart = createPassagePart();
+
+      function refreshPartUI(part) {
+        if (!part) {
+          return;
+        }
+
+        if (part.kind === "bank") {
+          updateBankPartUI(part);
+        } else {
+          updatePassagePartUI(part);
+        }
+      }
+
+      /* =====================================================
+       * 學習紀錄顯示
+       * ===================================================== */
+
+      function formatDateTime(value) {
+        if (!value) {
+          return "—";
+        }
+
+        const date = new Date(value);
+
+        if (
+          Number.isNaN(date.getTime())
+        ) {
+          return value;
+        }
+
+        return date.toLocaleString(
+          "zh-HK",
+          {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+          }
+        );
+      }
+
+      function reasonSummary(record) {
+        const reasons = Object.entries(
+          record.reasons || {}
+        );
+
+        if (!reasons.length) {
+          return record.issueCount
+            ? "需要重溫"
+            : "學生手動加入重溫清單";
+        }
+
+        return reasons
+          .sort(
+            (entryA, entryB) =>
+              entryB[1] - entryA[1]
+          )
+          .map(
+            ([reason, count]) =>
+              `${reason} × ${count}`
+          )
+          .join("；");
+      }
+
+      function sortedRecords(records) {
+        return [...records].sort(
+          (recordA, recordB) => {
+            if (
+              recordA.active !==
+              recordB.active
+            ) {
+              return recordA.active
+                ? -1
+                : 1;
+            }
+
+            return String(
+              recordB.lastAt || ""
+            ).localeCompare(
+              String(
+                recordA.lastAt || ""
+              )
+            );
+          }
+        );
+      }
+
+      function recordUsesSentenceVoice(
+        record
+      ) {
+        return record.types.some(type =>
+          type.includes("句")
+        );
+      }
+
+      function renderLearningRecords() {
+        const allRecords =
+          Object.values(
+            appState.records
+          );
+
+        const activeRecords =
+          allRecords.filter(
+            record => record.active
+          );
+
+        const totalIssues =
+          allRecords.reduce(
+            (total, record) =>
+              total +
+              (Number(
+                record.issueCount
+              ) || 0),
+            0
+          );
+
+        const recoveredRecords =
+          allRecords.filter(
+            record =>
+              Number(
+                record.correctCount
+              ) > 0
+          );
+
+        $("activeReviewCount").textContent =
+          activeRecords.length;
+
+        $("mistakeCount").textContent =
+          totalIssues;
+
+        $("recordCount").textContent =
+          allRecords.length;
+
+        $("recoveredCount").textContent =
+          recoveredRecords.length;
+
+        const showMastered =
+          $("showMastered").checked;
+
+        const visibleRecords =
+          sortedRecords(
+            showMastered
+              ? allRecords
+              : activeRecords
+          );
+
+        $("recordTableBody").replaceChildren();
+
+        visibleRecords.forEach(record => {
+          const row =
+            document.createElement("tr");
+
+          if (!record.active) {
+            row.classList.add(
+              "mastered"
+            );
+          }
+
+          const statusCell =
+            createElement("td");
+
+          const statusBadge =
+            createElement(
+              "span",
+              record.active
+                ? "record-status"
+                : "record-status mastered",
+              record.active
+                ? "需要重溫"
+                : "已掌握"
+            );
+
+          statusCell.append(statusBadge);
+
+          const contentCell =
+            createElement("td");
+
+          const contentButton =
+            createButton(
+              `🔊 ${record.content}`,
+              "audio-button record-content-button",
+              event => {
+                playSequence(
+                  [{
+                    text:
+                      record.content,
+
+                    mode:
+                      recordUsesSentenceVoice(
+                        record
+                      )
+                        ? "sentence"
+                        : "word",
+
+                    card: null
+                  }],
+                  event.currentTarget,
+                  "重溫項目",
+                  0
+                );
+              },
+              true
+            );
+
+          contentCell.append(
+            contentButton
+          );
+
+          const contextCell =
+            createElement("td");
+
+          contextCell.append(
+            createElement(
+              "div",
+              "",
+              record.parts.join("、") ||
+                "—"
+            ),
+
+            createElement(
+              "div",
+              "small-note",
+              record.types.join("、") ||
+                "—"
+            )
+          );
+
+          const issueCell =
+            createElement("td");
+
+          issueCell.append(
+            createElement(
+              "div",
+              "",
+              reasonSummary(record)
+            )
+          );
+
+          if (record.lastFocus) {
+            issueCell.append(
+              createElement(
+                "div",
+                "small-note",
+                `重點：${record.lastFocus}`
+              )
+            );
+          }
+
+          issueCell.append(
+            createElement(
+              "div",
+              "small-note",
+              `問題 ${record.issueCount} 次；` +
+              `其後答對 ${record.correctCount} 次`
+            )
+          );
+
+          const wrongAnswerCell =
+            createElement(
+              "td",
+              "",
+              record.lastWrongAnswer ||
+                "—"
+            );
+
+          const latestCell =
+            createElement("td");
+
+          latestCell.append(
+            createElement(
+              "div",
+              "",
+              record.lastResult || "—"
+            ),
+
+            createElement(
+              "div",
+              "small-note",
+              formatDateTime(
+                record.lastAt
+              )
+            )
+          );
+
+          const noteCell =
+            createElement("td");
+
+          const noteInput =
+            createElement(
+              "textarea",
+              "record-note"
+            );
+
+          noteInput.value =
+            record.note || "";
+
+          noteInput.placeholder =
+            "加入個別備註……";
+
+          noteInput.setAttribute(
+            "aria-label",
+            `${record.content}的教師備註`
+          );
+
+          noteInput.addEventListener(
+            "input",
+            () => {
+              record.note =
+                noteInput.value;
+
+              saveState();
+            }
+          );
+
+          noteCell.append(noteInput);
+
+          const actionsCell =
+            createElement("td");
+
+          const actions =
+            createElement(
+              "div",
+              "record-actions"
+            );
+
+          const masteryButton =
+            createButton(
+              record.active
+                ? "✓ 標記掌握"
+                : "↺ 重新加入",
+              "",
+              () => {
+                record.active =
+                  !record.active;
+
+                record.lastResult =
+                  record.active
+                    ? "重新加入重溫清單"
+                    : "已標記為掌握";
+
+                record.lastAt =
+                  new Date().toISOString();
+
+                saveState();
+                renderLearningRecords();
+              }
+            );
+
+          const deleteButton =
+            createButton(
+              "刪除紀錄",
+              "danger-button",
+              () => {
+                if (
+                  !window.confirm(
+                    `確定刪除「${record.content}」的學習紀錄嗎？`
+                  )
+                ) {
+                  return;
+                }
+
+                delete appState.records[
+                  recordKey(
+                    record.content
+                  )
+                ];
+
+                saveState();
+                renderLearningRecords();
+              }
+            );
+
+          actions.append(
+            masteryButton,
+            deleteButton
+          );
+
+          actionsCell.append(actions);
+
+          row.append(
+            statusCell,
+            contentCell,
+            contextCell,
+            issueCell,
+            wrongAnswerCell,
+            latestCell,
+            noteCell,
+            actionsCell
+          );
+
+          $("recordTableBody").append(
+            row
+          );
+        });
+
+        const hasVisibleRecords =
+          visibleRecords.length > 0;
+
+        $("recordTableWrap").hidden =
+          !hasVisibleRecords;
+
+        $("recordEmpty").hidden =
+          hasVisibleRecords;
+
+        if (!hasVisibleRecords) {
+          $("recordEmpty").textContent =
+            showMastered
+              ? "暫時沒有任何學習紀錄。"
+              : "暫時沒有需要重溫的項目。";
+        }
+
+        $("playReview").disabled =
+          !speechSupported ||
+          activeRecords.length === 0;
+
+        $("copyRecord").disabled =
+          allRecords.length === 0;
+
+        $("downloadCsv").disabled =
+          allRecords.length === 0;
+
+        syncReviewButtons();
+      }
+
+      function buildPlainTextRecord() {
+        const records = sortedRecords(
+          Object.values(
+            appState.records
+          )
+        );
+
+        const lines = [
+          "《紫煙斗》中文默寫學習紀錄",
+
+          `學生姓名：${
+            appState.profile.studentName ||
+            "未填寫"
+          }`,
+
+          `班別／組別：${
+            appState.profile.className ||
+            "未填寫"
+          }`,
+
+          `練習日期：${
+            appState.profile.practiceDate ||
+            "未填寫"
+          }`,
+
+          ""
+        ];
+
+        records.forEach(
+          (record, index) => {
+            lines.push(
+              `${index + 1}. ${record.content}`,
+
+              `狀態：${
+                record.active
+                  ? "需要重溫"
+                  : "已掌握"
+              }`,
+
+              `來源：${record.parts.join(
+                "、"
+              )}`,
+
+              `類型：${record.types.join(
+                "、"
+              )}`,
+
+              `問題：${reasonSummary(
+                record
+              )}`,
+
+              `重點分析：${
+                record.lastFocus || "—"
+              }`,
+
+              `最近錯誤作答：${
+                record.lastWrongAnswer ||
+                "—"
+              }`,
+
+              `問題次數：${
+                record.issueCount
+              }`,
+
+              `其後答對：${
+                record.correctCount
+              }`,
+
+              `最近結果：${
+                record.lastResult || "—"
+              }`,
+
+              `教師備註：${
+                record.note || "—"
+              }`,
+
+              ""
+            );
+          }
+        );
+
+        lines.push(
+          `老師整體備註：${
+            appState.profile.teacherNotes ||
+            "—"
+          }`
+        );
+
+        return lines.join("\n");
+      }
+
+      async function copyLearningRecord() {
+        const text =
+          buildPlainTextRecord();
+
+        try {
+          if (
+            navigator.clipboard &&
+            window.isSecureContext
+          ) {
+            await navigator.clipboard.writeText(
+              text
+            );
+          } else {
+            throw new Error(
+              "Clipboard API unavailable"
+            );
+          }
+
+          announce(
+            "學習紀錄已複製到剪貼簿。"
+          );
+        } catch (error) {
+          const helper =
+            document.createElement(
+              "textarea"
+            );
+
+          helper.value = text;
+          helper.style.position = "fixed";
+          helper.style.opacity = "0";
+
+          document.body.append(helper);
+          helper.select();
+
+          document.execCommand("copy");
+          helper.remove();
+
+          announce(
+            "學習紀錄已複製。"
+          );
+        }
+      }
+
+      function csvCell(value) {
+        return `"${String(value ?? "")
+          .replace(/"/g, '""')}"`;
+      }
+
+      function downloadLearningRecord() {
+        const records = sortedRecords(
+          Object.values(
+            appState.records
+          )
+        );
+
+        const rows = [
+          [
+            "學生姓名",
+            appState.profile.studentName
+          ],
+
+          [
+            "班別／組別",
+            appState.profile.className
+          ],
+
+          [
+            "練習日期",
+            appState.profile.practiceDate
+          ],
+
+          [
+            "老師整體備註",
+            appState.profile.teacherNotes
+          ],
+
+          [],
+
+          [
+            "狀態",
+            "字詞／成語／句段",
+            "來源",
+            "類型",
+            "問題紀錄",
+            "重點分析",
+            "問題次數",
+            "其後答對次數",
+            "最近錯誤作答",
+            "最近結果",
+            "最後更新",
+            "教師備註"
+          ]
+        ];
+
+        records.forEach(record => {
+          rows.push([
+            record.active
+              ? "需要重溫"
+              : "已掌握",
+
+            record.content,
+
+            record.parts.join("、"),
+
+            record.types.join("、"),
+
+            reasonSummary(record),
+
+            record.lastFocus,
+
+            record.issueCount,
+
+            record.correctCount,
+
+            record.lastWrongAnswer,
+
+            record.lastResult,
+
+            formatDateTime(
+              record.lastAt
+            ),
+
+            record.note
+          ]);
+        });
+
+        const csv =
+          "\uFEFF" +
+          rows
+            .map(row =>
+              row.map(csvCell).join(",")
+            )
+            .join("\r\n");
+
+        const blob = new Blob(
+          [csv],
+          {
+            type:
+              "text/csv;charset=utf-8"
+          }
+        );
+
+        const url =
+          URL.createObjectURL(blob);
+
+        const link =
+          document.createElement("a");
+
+        const safeName =
+          (
+            appState.profile.studentName ||
+            "學生"
+          ).replace(
+            /[\\/:*?"<>|]/g,
+            "_"
+          );
+
+        link.href = url;
+
+        link.download =
+          `${safeName}_紫煙斗中文默寫學習紀錄_` +
+          `${
+            appState.profile.practiceDate ||
+            localDateString()
+          }.csv`;
+
+        document.body.append(link);
+        link.click();
+        link.remove();
+
+        URL.revokeObjectURL(url);
+
+        announce(
+          "CSV學習紀錄已下載。"
+        );
+      }
+
+      function playReviewList(button) {
+        const activeRecords =
+          sortedRecords(
+            Object.values(
+              appState.records
+            ).filter(
+              record => record.active
+            )
+          );
+
+        const entries =
+          activeRecords.map(record => ({
+            text: record.content,
+
+            mode:
+              recordUsesSentenceVoice(
+                record
+              )
+                ? "sentence"
+                : "word",
+
+            card: null
+          }));
+
+        playSequence(
+          entries,
+          button,
+          "針對性重溫清單",
+          3000
+        );
+      }
+
+      /* =====================================================
+       * 個人資料及紀錄按鈕
+       * ===================================================== */
+
+      if (
+        !appState.profile.practiceDate
+      ) {
+        appState.profile.practiceDate =
+          localDateString();
+      }
+
+      const profileFields = {
+        studentName: $("studentName"),
+        className: $("className"),
+        practiceDate: $("practiceDate"),
+        teacherNotes: $("teacherNotes")
+      };
+
+      Object.entries(
+        profileFields
+      ).forEach(([key, field]) => {
+        field.value =
+          appState.profile[key] || "";
+
+        field.addEventListener(
+          "input",
+          () => {
+            appState.profile[key] =
+              field.value;
+
+            saveState();
+          }
+        );
+      });
+
+      $("storageMessage").textContent =
+        storageAvailable
+          ? "本頁會自動保留學生資料、作答及學習紀錄。"
+          : "目前瀏覽器未能使用本機儲存，請下載CSV保存紀錄。";
+
+      $("showMastered").addEventListener(
+        "change",
+        renderLearningRecords
+      );
+
+      $("playReview").addEventListener(
+        "click",
+        event => {
+          playReviewList(
+            event.currentTarget
+          );
+        }
+      );
+
+      $("copyRecord").addEventListener(
+        "click",
+        copyLearningRecord
+      );
+
+      $("downloadCsv").addEventListener(
+        "click",
+        downloadLearningRecord
+      );
+
+      $("printRecord").addEventListener(
+        "click",
+        () => {
+          document.body.classList.add(
+            "print-records"
+          );
+
+          window.print();
+        }
+      );
+
+      window.addEventListener(
+        "afterprint",
+        () => {
+          document.body.classList.remove(
+            "print-records"
+          );
+        }
+      );
+
+      $("clearRecords").addEventListener(
+        "click",
+        () => {
+          if (
+            !window.confirm(
+              "確定刪除所有學習紀錄嗎？\n" +
+              "這項操作不能復原，但不會清除目前作答。"
+            )
+          ) {
+            return;
+          }
+
+          appState.records = {};
+
+          saveState();
+          renderLearningRecords();
+
+          announce(
+            "所有學習紀錄已清除。"
+          );
+        }
+      );
+
+      /* =====================================================
+       * 全頁聲音設定
+       * ===================================================== */
+
+      const validSpeeds = [
+        "0.2",
+        "0.3",
+        "0.5",
+        "0.6",
+        "0.8",
+        "1"
+      ];
+
+      $("speedSelect").value =
+        validSpeeds.includes(
+          appState.settings.speed
+        )
+          ? appState.settings.speed
+          : "0.8";
+
+      $("punctuationNames").checked =
+        appState.settings
+          .punctuationNames !== false;
+
+      $("testVoice").addEventListener(
+        "click",
+        event => {
+          playSequence(
+            [{
+              text:
+                "你好，歡迎使用《紫煙斗》中文默寫練習。",
+              mode: "word",
+              card: null
+            }],
+            event.currentTarget,
+            "聲音測試",
+            0
+          );
+        }
+      );
+
+      $("reloadVoices").addEventListener(
+        "click",
+        () => {
+          stopAudio("");
+          populateVoices();
+
+          window.setTimeout(
+            populateVoices,
+            450
+          );
+
+          announce(
+            "聲音清單已重新載入，請按「測試聲音」。"
+          );
+        }
+      );
+
+      $("stopAudio").addEventListener(
+        "click",
+        () => {
+          stopAudio("播放已停止。");
+        }
+      );
+
+      $("voiceSelect").addEventListener(
+        "change",
+        () => {
+          appState.settings.voice =
+            $("voiceSelect").value;
+
+          saveState();
+
+          stopAudio(
+            "已更改聲音，請重新按播放。"
+          );
+        }
+      );
+
+      $("speedSelect").addEventListener(
+        "change",
+        () => {
+          appState.settings.speed =
+            $("speedSelect").value;
+
+          saveState();
+
+          stopAudio(
+            `語速已更改為 ${
+              $("speedSelect").value
+            }×。`
+          );
+        }
+      );
+
+      $("punctuationNames")
+        .addEventListener(
+          "change",
+          () => {
+            appState.settings
+              .punctuationNames =
+              $("punctuationNames")
+                .checked;
+
+            saveState();
+
+            stopAudio(
+              $("punctuationNames")
+                .checked
+                ? "已開啟標點名稱朗讀。"
+                : "已關閉標點名稱朗讀。"
+            );
+          }
+        );
+
+      /* =====================================================
+       * 頂部導航狀態
+       * ===================================================== */
+
+      function initialiseNavigation() {
+        const links = [
+          ...document.querySelectorAll(
+            ".part-navigation a"
+          )
+        ];
+
+        const sections = links
+          .map(link =>
+            document.querySelector(
+              link.getAttribute("href")
+            )
+          )
+          .filter(Boolean);
+
+        if (
+          !(
+            "IntersectionObserver" in
+            window
+          )
+        ) {
+          return;
+        }
+
+        const observer =
+          new IntersectionObserver(
+            entries => {
+              const visibleEntry =
+                entries
+                  .filter(
+                    entry =>
+                      entry.isIntersecting
+                  )
+                  .sort(
+                    (entryA, entryB) =>
+                      entryB.intersectionRatio -
+                      entryA.intersectionRatio
+                  )[0];
+
+              if (!visibleEntry) {
+                return;
+              }
+
+              links.forEach(link => {
+                link.classList.toggle(
+                  "active",
+
+                  link.getAttribute(
+                    "href"
+                  ) ===
+                    `#${visibleEntry.target.id}`
+                );
+              });
+            },
+            {
+              rootMargin:
+                "-20% 0px -65% 0px",
+
+              threshold: [
+                0.05,
+                0.2,
+                0.5
+              ]
+            }
+          );
+
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+      }
+
+      /* =====================================================
+       * 初始化
+       * ===================================================== */
+
+      renderLearningRecords();
+      initialiseNavigation();
+
+      if (speechSupported) {
+        populateVoices();
+
+        window.setTimeout(
+          populateVoices,
+          350
+        );
+
+        window.setTimeout(
+          populateVoices,
+          1200
+        );
+
+        if (
+          typeof window.speechSynthesis
+            .addEventListener ===
+          "function"
+        ) {
+          window.speechSynthesis
+            .addEventListener(
+              "voiceschanged",
+              populateVoices
+            );
+        } else {
+          window.speechSynthesis
+            .onvoiceschanged =
+            populateVoices;
+        }
+      } else {
+        populateVoices();
+
+        document
+          .querySelectorAll(
+            "[data-audio-button]"
+          )
+          .forEach(button => {
+            button.disabled = true;
+          });
+
+        announce(
+          "這個瀏覽器不支援語音朗讀；" +
+          "輸入、批改及紀錄功能仍可使用。"
+        );
+      }
+
+      document.addEventListener(
+        "visibilitychange",
+        () => {
+          if (
+            document.hidden &&
+            activeAudioButton
+          ) {
+            stopAudio(
+              "頁面暫時離開，播放已停止。"
+            );
+          }
+        }
+      );
+
+      window.addEventListener(
+        "pagehide",
+        () => {
+          stopAudio("");
+        }
+      );
+    })();
+  </script>
+</body>
+</html>
