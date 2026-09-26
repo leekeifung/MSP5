@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSP5 ｜ Method School P.5 學習平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8fafc;--card:#fff;--txt:#1e293b;--txt2:#64748b;
+  --bdr:#e2e8f0;--r:16px;--rs:10px;
+  --sh:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --sh2:0 10px 15px -3px rgba(0,0,0,.08),0 4px 6px -2px rgba(0,0,0,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 50%,#a855f7 100%);color:#fff;padding:3rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 60%);animation:pulse 8s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.hero-in{position:relative;z-index:1}
+.hero h1{font-size:2.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.25rem}
+.hero .sub{font-size:1.05rem;opacity:.9}
+.hero .badge{display:inline-block;margin-top:1rem;padding:.35rem 1.1rem;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border-radius:9999px;font-size:.85rem;font-weight:500}
+
+/* ===== GREETING ===== */
+.greet{text-align:center;padding:1.5rem 1rem .5rem;font-size:.95rem;color:var(--txt2)}
+
+/* ===== MAIN / GRID ===== */
+.main{max-width:1120px;margin:0 auto;padding:1.5rem 1rem 3rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+
+/* ===== CARD ===== */
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:transform .25s,box-shadow .25s;opacity:0;animation:up .5s ease forwards}
+.card:nth-child(1){animation-delay:.05s}
+.card:nth-child(2){animation-delay:.10s}
+.card:nth-child(3){animation-delay:.15s}
+.card:nth-child(4){animation-delay:.20s}
+.card:nth-child(5){animation-delay:.25s}
+.card:nth-child(6){animation-delay:.30s}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+
+.card-hd{padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem}
+.ib{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;color:#fff;flex-shrink:0}
+.card-hd h2{font-size:1.2rem;font-weight:700;line-height:1.3}
+.card-hd .lb{font-size:.82rem;color:var(--txt2);font-weight:400}
+.card-bd{padding:0 1.5rem 1.5rem}
+
+/* topic */
+.tp{margin-bottom:.75rem}.tp:last-child{margin-bottom:0}
+.tp-t{font-size:.75rem;font-weight:600;color:var(--txt2);text-transform:uppercase;letter-spacing:.06em;padding-bottom:.35rem;margin-bottom:.4rem;border-bottom:1px solid var(--bdr)}
+.ll{list-style:none}.ll li+li{margin-top:.4rem}
+.ll a{display:flex;align-items:center;gap:.6rem;padding:.55rem .85rem;border-radius:var(--rs);text-decoration:none;color:var(--txt);background:#f8fafc;border:1px solid var(--bdr);font-size:.9rem;font-weight:500;transition:all .15s}
+.ll a:hover{background:#eef2ff;border-color:#c7d2fe;color:#4338ca}
+.le{font-size:1.1rem;flex-shrink:0}
+.tg{margin-left:auto;font-size:.68rem;font-weight:600;padding:.15rem .55rem;border-radius:9999px;flex-shrink:0;white-space:nowrap}
+.tg-r{background:#dbeafe;color:#1e40af}
+.tg-n{background:#dcfce7;color:#166534}
+
+/* archive */
+.abtn{display:inline-flex;align-items:center;gap:.3rem;font-size:.8rem;color:var(--txt2);cursor:pointer;padding:.3rem 0;border:none;background:none;font-family:inherit;transition:color .15s}
+.abtn:hover{color:var(--txt)}
+.abox{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.abox.open{max-height:500px}
+
+/* placeholder */
+.ph{text-align:center;padding:1.5rem .5rem;color:#94a3b8}
+.ph .big{font-size:2rem;margin-bottom:.5rem}
+.ph p{font-size:.88rem}
+
+/* ===== THEMES ===== */
+.t-chi .card-hd{background:linear-gradient(135deg,#fef2f2,#fff1f2)}
+.t-chi .ib{background:linear-gradient(135deg,#ef4444,#f97316)}
+.t-eng .card-hd{background:linear-gradient(135deg,#eff6ff,#eef2ff)}
+.t-eng .ib{background:linear-gradient(135deg,#3b82f6,#6366f1)}
+.t-mat .card-hd{background:linear-gradient(135deg,#f0fdf4,#ecfdf5)}
+.t-mat .ib{background:linear-gradient(135deg,#22c55e,#10b981)}
+.t-hum .card-hd{background:linear-gradient(135deg,#fffbeb,#fefce8)}
+.t-hum .ib{background:linear-gradient(135deg,#f59e0b,#eab308)}
+.t-sci .card-hd{background:linear-gradient(135deg,#faf5ff,#f5f3ff)}
+.t-sci .ib{background:linear-gradient(135deg,#8b5cf6,#a855f7)}
+.t-pth .card-hd{background:linear-gradient(135deg,#fdf2f8,#fff1f3)}
+.t-pth .ib{background:linear-gradient(135deg,#ec4899,#f472b6)}
+
+/* ===== FOOTER ===== */
+.ft{text-align:center;padding:2rem 1rem;color:#94a3b8;font-size:.82rem;border-top:1px solid var(--bdr);max-width:1120px;margin:0 auto}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:480px){
+  .hero{padding:2rem 1rem 1.75rem}
+  .hero h1{font-size:1.5rem}
+  .grid{grid-template-columns:1fr;gap:1rem}
+  .card-hd{padding:1rem 1.25rem}
+  .card-bd{padding:0 1.25rem 1.25rem}
+  .ib{width:44px;height:44px;font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="hero-in">
+    <h1>📚 MSP5 學習平台</h1>
+    <p class="sub">Method School — Primary 4 Interactive Learning Hub</p>
+    <div class="badge">🎓 小四互動學習資源中心</div>
+  </div>
+</header>
+
+<div class="greet" id="greet"></div>
+
+<!-- ==================== MAIN ==================== -->
+<main class="main">
+<div class="grid">
+
+  <!-- ====== 中文 ====== -->
+  <div class="card t-chi">
+    <div class="card-hd">
+      <div class="ib">中</div>
+      <div><h2>中文</h2><div class="lb">Chinese Language</div></div>
+    </div>
+    <div class="card-bd">
+
+      <div class="tp">
+        <div class="tp-t">📖 《智慧型機器人》</div>
+        <ul class="ll">
+           <li><a href="chinese/MS-P5-Chinese-29Sept26-Dictation.html">
+            <span class="le">✍️</span> 第一課 課文 紫煙斗
+            <span class="tg tg-r">✦ 考試努力💪</span></a></li>
+          <li><a href="chinese/MSP4-Chinese-VocabMean-Exam-NoRandom.html">
+            <span class="le">✍️</span> 中文詞義理解特訓1-NonRandom
+            <span class="tg tg-r">✦ 考試努力💪</span></a></li>
+          <li><a href="chinese/MS-P4-Chinese-VocabMean-Exam.html">
+            <span class="le">✍️</span> 中文詞義理解特訓1
+            <span class="tg tg-r">✦ 考試努力💪</span></a></li>
+          <li><a href="chinese/MS-P4-chinese-idioms-Exam.html">
+            <span class="le">✍️</span> 中文四字成語
+            <span class="tg tg-r">✦ 考試努力💪</span></a></li>
+          <li><a href="chinese/MS-P4-Chinese-5May26-Recite-part2.html">
+            <span class="le">✍️</span> 形容景色很美
+            <span class="tg tg-r">✦ 推薦</span></a></li>
+          <li><a href="chinese/MS-P4-Chinese-5May26-Recite.html">
+            <span class="le">✍️</span> 第五課 課文《沒有牙齒的大老虎》：聽詞填寫
+            <span class="tg tg-r">✦ 推薦</span></a></li>
+           <li><a href="chinese/MS-P4-Chinese-14April26-Recite.html">
+            <span class="le">🔊</span> 第四課 課文 虛擬實境的應用：聽詞填寫
+            <span class="tg tg-r">✦ 推薦</span></a></li>
+          <li><a href="chinese/MS-P4-Chinese-23March26-V4.html">
+            <span class="le">🔊</span> 聽詞填寫＋筆順動畫
+            <span class="tg tg-r">✦ 推薦</span></a></li>
+          <li><a href="chinese/MS-P4-Chinese-23March26-Paragraph-V2.html">
+            <span class="le">✍️</span> 默寫：整句與分句播放
+            <span class="tg tg-r">✦ 推薦</span></a></li>
+          <li><a href="chinese/MS-P4-Chinese-23March26-Paragraph.html">
+            <span class="le">📝</span> 默寫：逐段（每5字）播放</a></li>
+        </ul>
+      </div>
+
+      <div class="tp">
+        <div class="tp-t">🏔️ 古詩默寫</div>
+        <ul class="ll">
+          <li><a href="chinese/MS-P4-Chinese-23March26-Recite.html">
+            <span class="le">🎙️</span> 早發白帝城 — 半句朗讀停頓
+            <span class="tg tg-n">NEW</span></a></li>
+        </ul>
+      </div>
+
+      <div class="tp">
+        <button class="abtn" onclick="tog(this)">📁 舊版 / 備用 <span class="arr">▸</span></button>
+        <div class="abox">
+          <ul class="ll" style="margin-top:.4rem">
+            <li><a href="chinese/MS-P4-Chinese-23March26.html">
+              <span class="le">📄</span> 聽詞填寫（基本版）</a></li>
+            <li><a href="chinese/MS-P4-Chinese-23March26-V2.html">
+              <span class="le">📄</span> 聽詞填寫＋筆順 V2</a></li>
+            <li><a href="chinese/MS-P4-Chinese-23March26-V-.html">
+              <span class="le">📄</span> 聽詞填寫＋筆順（早期版）</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====== ENGLISH ====== -->
+  <div class="card t-eng">
+    <div class="card-hd">
+      <div class="ib">En</div>
+      <div><h2>English</h2><div class="lb">英文</div></div>
+    </div>
+    <div class="card-bd">
+
+      <div class="tp">
+        <div class="tp-t">🍽️ Vocabulary &amp; Spelling</div>
+        <ul class="ll">
+          <li><a href="english/MS-4-Dictation-May.html">
+            <span class="le">🗑️</span> 4C Treasure from rubbish — Listen &amp; Spell</a></li>
+          <li><a href="english/MS-4-Dictation-April.html">
+            <span class="le">🍕</span> 4C Stay Fit — Listen &amp; Spell</a></li>
+          <li><a href="english/MS-4-4C-Restaurant.html">
+            <span class="le">🍕</span> 4C Restaurant — Listen &amp; Spell</a></li>
+          <li><a href="english/MS-4-VerbForm-study.html">
+            <span class="le">📖</span> Verb Forms — Study Mode</a></li>
+          <li><a href="english/MS-4-VerbForm2.html">
+            <span class="le">🎧</span> Verb Forms — Listen &amp; Type Quiz</a></li>
+        </ul>
+      </div>
+
+      <div class="tp">
+        <div class="tp-t">✉️ Dictation</div>
+        <ul class="ll">
+          <li><a href="english/MS-4-Dictation-March.html">
+            <span class="le">🎂</span> Birthday Party Letter
+            <span class="tg tg-n">NEW</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====== 數學 ====== -->
+  <div class="card t-mat">
+    <div class="card-hd">
+      <div class="ib">數</div>
+      <div><h2>數學</h2><div class="lb">Mathematics</div></div>
+    </div>
+    <div class="card-bd">
+
+      <div class="tp">
+        <div class="tp-t">Speed Calculation</div>
+        <ul class="ll">
+          <li><a href="maths/Speed.html">
+            <span class="le">📖</span> Speed Calculation </a></li>
+        </ul>
+      </div>
+      <div class="ph"><div class="big">🔢</div><p>即將推出 · Coming Soon</p></div>
+    </div>
+  </div>
+
+  <!-- ====== 人文 ====== -->
+  <div class="card t-hum">
+    <div class="card-hd">
+      <div class="ib">人</div>
+      <div><h2>人文</h2><div class="lb">Humanities</div></div>
+    </div>
+    <div class="card-bd">
+      <div class="ph"><div class="big">🗺️</div><p>即將推出 · Coming Soon</p></div>
+    </div>
+  </div>
+
+  <!-- ====== 科學 ====== -->
+  <div class="card t-sci">
+    <div class="card-hd">
+      <div class="ib">科</div>
+      <div><h2>科學</h2><div class="lb">Science</div></div>
+    </div>
+    <div class="card-bd">
+      <div class="ph"><div class="big">🧪</div><p>即將推出 · Coming Soon</p></div>
+    </div>
+  </div>
+
+  <!-- ====== 普通話 ====== -->
+  <div class="card t-pth">
+    <div class="card-hd">
+      <div class="ib">普</div>
+      <div><h2>普通話</h2><div class="lb">Putonghua</div></div>
+    </div>
+    <div class="card-bd">
+      <div class="ph"><div class="big">🎤</div><p>即將推出 · Coming Soon</p></div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="ft">
+  <p>© 2025–2026 Method School · Primary 5 Learning Platform</p>
+  <p style="margin-top:.3rem">Built with ❤️ for MS students · Last updated: <span id="upd"></span></p>
+</footer>
+
+<!-- ==================== JS ==================== -->
+<script>
+// --- Greeting ---
+(function(){
+  var h=new Date().getHours(),g;
+  if(h<12) g='☀️ 早安！Good morning!';
+  else if(h<18) g='🌤️ 午安！Good afternoon!';
+  else g='🌙 晚安！Good evening!';
+  document.getElementById('greet').textContent=g+' 歡迎使用 MSP4 學習平台。';
+})();
+
+// --- Last updated ---
+document.getElementById('upd').textContent=
+  new Date().toLocaleDateString('zh-HK',{year:'numeric',month:'long'});
+
+// --- Archive toggle ---
+function tog(btn){
+  var box=btn.nextElementSibling,ar=btn.querySelector('.arr');
+  box.classList.toggle('open');
+  ar.textContent=box.classList.contains('open')?'▾':'▸';
+}
+</script>
+</body>
+</html>
