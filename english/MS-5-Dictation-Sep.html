@@ -1,0 +1,2610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#4338ca">
+
+  <title>2026/27 J.5 English Dictation</title>
+
+  <style>
+    :root {
+      --background: #f3f6fc;
+      --paper: #ffffff;
+      --text: #172033;
+      --muted: #64748b;
+      --line: #dbe3ef;
+
+      --primary: #4338ca;
+      --primary-dark: #312e81;
+      --primary-light: #eef2ff;
+
+      --blue: #0369a1;
+      --blue-light: #e0f2fe;
+
+      --green: #166534;
+      --green-light: #f0fdf4;
+
+      --red: #b91c1c;
+      --red-light: #fff1f2;
+
+      --amber: #92400e;
+      --amber-light: #fffbeb;
+
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 100px;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      min-height: 44px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    button:hover:not(:disabled) {
+      border-color: #a5b4fc;
+      background: #f5f7ff;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #818cf8;
+      outline-offset: 3px;
+    }
+
+    .primary-button {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .primary-button:hover:not(:disabled) {
+      background: var(--primary-dark);
+      color: #ffffff;
+    }
+
+    .secondary-button {
+      border-color: #c7d2fe;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .audio-button {
+      border-color: #bae6fd;
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .audio-button.playing {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 200;
+      top: 8px;
+      left: 8px;
+      padding: 10px 14px;
+      background: #ffffff;
+      color: var(--text);
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* Header */
+
+    .hero {
+      padding: 34px 18px 30px;
+      background: linear-gradient(135deg, #312e81, #4f46e5);
+      color: #ffffff;
+    }
+
+    .page-width {
+      width: min(1160px, calc(100% - 28px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 5px;
+      color: #c7d2fe;
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      line-height: 1.15;
+    }
+
+    .hero-description {
+      margin: 12px 0 0;
+      color: #eef2ff;
+    }
+
+    .part-navigation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .part-navigation a {
+      padding: 8px 14px;
+      border: 1px solid #a5b4fc;
+      border-radius: 999px;
+      background: rgb(255 255 255 / 8%);
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* Main panels */
+
+    main {
+      margin-top: 24px;
+    }
+
+    .panel {
+      margin-bottom: 24px;
+      padding: clamp(18px, 3vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgb(36 49 80 / 6%);
+      scroll-margin-top: 14px;
+    }
+
+    .part-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--primary);
+      font-size: 0.79rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.35rem, 4vw, 1.9rem);
+      line-height: 1.3;
+    }
+
+    .introduction {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .instruction-box {
+      margin: 15px 0;
+      padding: 13px 16px;
+      border-left: 4px solid #818cf8;
+      border-radius: 8px;
+      background: #f5f7ff;
+    }
+
+    .instruction-box p {
+      margin: 4px 0;
+    }
+
+    /* Audio settings */
+
+    .audio-settings {
+      display: grid;
+      grid-template-columns: minmax(240px, 2fr) 1fr;
+      gap: 14px;
+      margin-top: 17px;
+    }
+
+    .setting-field {
+      display: grid;
+      gap: 6px;
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    select {
+      width: 100%;
+      min-height: 44px;
+      padding: 8px 10px;
+      border: 1px solid #bdc8dc;
+      border-radius: 9px;
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .voice-message {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Toolbars */
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 17px 0 13px;
+    }
+
+    .score {
+      margin-bottom: 18px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 0.93rem;
+      font-weight: 800;
+    }
+
+    .score.complete {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    /* Question grids */
+
+    .question-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .verb-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .phrase-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .sentence-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Question cards */
+
+    .question-card {
+      min-width: 0;
+      padding: 16px;
+      border: 2px solid var(--line);
+      border-radius: 15px;
+      background: #ffffff;
+      transition:
+        border-color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .question-card[data-result="correct"] {
+      border-color: #75c68f;
+    }
+
+    .question-card[data-result="wrong"] {
+      border-color: #ef9a9a;
+    }
+
+    .question-card[data-result="partial"] {
+      border-color: #e7c35a;
+    }
+
+    .question-card.listening {
+      outline: 3px solid #38bdf8;
+      outline-offset: 2px;
+      background: #f5fbff;
+    }
+
+    .question-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .question-number {
+      display: inline-grid;
+      place-items: center;
+      min-width: 40px;
+      min-height: 36px;
+      padding: 4px 9px;
+      border-radius: 9px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .picture-clue {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+
+    .speaker {
+      color: #475569;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    /* Answer fields */
+
+    .answer-fields {
+      display: grid;
+      gap: 12px;
+    }
+
+    .verb-fields {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .answer-field {
+      min-width: 0;
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+      font-weight: 850;
+    }
+
+    .field-label small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+    }
+
+    .answer-input {
+      display: block;
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 11px;
+      border: 2px solid #cbd5e1;
+      border-radius: 9px;
+      background: #ffffff;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    textarea.answer-input {
+      min-height: 82px;
+      resize: vertical;
+    }
+
+    .answer-input::placeholder {
+      color: #8b97a8;
+    }
+
+    .answer-input.is-correct {
+      border-color: #43a66d;
+      background: var(--green-light);
+    }
+
+    .answer-input.is-wrong {
+      border-color: #db6b6b;
+      background: var(--red-light);
+    }
+
+    .answer-input.is-empty {
+      border-color: #d5a832;
+      background: var(--amber-light);
+    }
+
+    .field-feedback {
+      min-height: 21px;
+      margin: 4px 0 0;
+      font-size: 0.81rem;
+      font-weight: 800;
+    }
+
+    .field-feedback.correct {
+      color: var(--green);
+    }
+
+    .field-feedback.wrong {
+      color: var(--red);
+    }
+
+    .field-feedback.empty {
+      color: var(--amber);
+    }
+
+    .not-required {
+      min-height: 46px;
+      padding: 9px 11px;
+      border: 1px dashed #b8c3d5;
+      border-radius: 9px;
+      background: #f8fafc;
+      color: #64748b;
+      font-weight: 800;
+    }
+
+    .not-required small {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 500;
+    }
+
+    /* Card actions and answer boxes */
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .card-message {
+      min-height: 23px;
+      margin: 8px 0 0;
+      color: #475569;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .reference-answer {
+      margin-top: 12px;
+      padding: 13px;
+      border: 1px solid #c4b5fd;
+      border-radius: 10px;
+      background: #f7f4ff;
+      overflow-wrap: anywhere;
+    }
+
+    .reference-answer strong {
+      color: #5b21b6;
+      font-size: 0.86rem;
+    }
+
+    .reference-answer p {
+      margin: 6px 0 0;
+      white-space: pre-line;
+    }
+
+    /* Bottom audio status */
+
+    .audio-status-bar {
+      position: fixed;
+      z-index: 100;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding:
+        11px max(14px, calc((100vw - 1130px) / 2))
+        calc(11px + env(safe-area-inset-bottom));
+      border-top: 1px solid #c7d2fe;
+      background: #f8faff;
+      box-shadow: 0 -5px 20px rgb(38 50 75 / 10%);
+    }
+
+    #audioStatus {
+      margin: 0;
+      color: #334155;
+      font-size: 0.88rem;
+    }
+
+    #stopAudio {
+      flex: 0 0 auto;
+      border-color: #fecaca;
+      background: #fff1f2;
+      color: #991b1b;
+    }
+
+    footer {
+      padding: 5px 10px 28px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 800px) {
+      .verb-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .audio-settings {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page-width {
+        width: min(1160px, calc(100% - 18px));
+      }
+
+      .hero {
+        padding-inline: 10px;
+      }
+
+      .panel {
+        padding: 17px 12px;
+      }
+
+      .question-card {
+        padding: 13px;
+      }
+
+      .verb-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .phrase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar button {
+        flex: 1 1 145px;
+      }
+
+      .picture-clue {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#mainContent">Skip to practice</a>
+
+  <header class="hero">
+    <div class="page-width">
+      <p class="eyebrow">2026/27 · FIRST TERM · J.5</p>
+
+      <h1>English Dictation</h1>
+
+      <p class="hero-description">
+        🔊 Listen carefully → ✍️ Type your answer → ✅ Check your work
+      </p>
+
+      <nav class="part-navigation" aria-label="Dictation sections">
+        <a href="#part1">Part 1 · Verb Table</a>
+        <a href="#part2">Part 2 · Farmer Lam</a>
+        <a href="#part3">Part 3 · Happy Actions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent" class="page-width">
+    <noscript>
+      <section class="panel">
+        <strong>Please enable JavaScript to use this activity.</strong>
+        <p lang="zh-Hant">
+          請啟用 JavaScript，才能使用發音、默寫及核對功能。
+        </p>
+      </section>
+    </noscript>
+
+    <!-- Global audio settings -->
+    <section class="panel" aria-labelledby="audioSettingsTitle">
+      <h2 id="audioSettingsTitle">Audio Settings</h2>
+
+      <div class="audio-settings">
+        <label class="setting-field" for="voiceSelect">
+          English voice / 英語聲音
+
+          <select id="voiceSelect">
+            <option value="">Automatic English voice</option>
+          </select>
+        </label>
+
+        <label class="setting-field" for="speedSelect">
+          Speed / 語速
+
+          <select id="speedSelect">
+            <option value="0.2">0.2×</option>
+            <option value="0.3">0.3×</option>
+            <option value="0.5">0.5×</option>
+            <option value="0.7">0.7×</option>
+            <option value="0.9" selected>0.9×</option>
+            <option value="1">1.0×</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="toolbar">
+        <button
+          id="testVoice"
+          class="audio-button"
+          type="button"
+        >
+          🔊 Test voice
+        </button>
+
+        <button id="reloadVoices" type="button">
+          ↻ Reload voices
+        </button>
+      </div>
+
+      <p id="voiceMessage" class="voice-message">
+        Loading English voices…
+      </p>
+
+      <p class="voice-message" lang="zh-Hant">
+        所有部分共用以上聲音及語速設定。如果沒有聲音，請先按
+        Test voice，或按 Reload voices。
+      </p>
+    </section>
+
+    <!-- Part 1 -->
+    <section id="part1" class="panel" aria-labelledby="part1Title">
+      <span class="part-label">PART 1</span>
+
+      <h2 id="part1Title">Verb Table 1 — 8 Verbs</h2>
+
+      <p class="introduction">
+        Listen to the hidden base form. Type the base form and complete
+        the verb table.
+      </p>
+
+      <div class="instruction-box">
+        <p>
+          <strong>Present continuous:</strong>
+          type the <strong>-ing form</strong> only.
+        </p>
+
+        <p>
+          <strong>Present perfect:</strong>
+          type the <strong>past participle</strong> only.
+        </p>
+
+        <p lang="zh-Hant">
+          按 Listen 只會讀出基本形。學生需要自行填寫各個動詞形式。
+          「be」的 Present continuous 按原有工作紙保留為「—」，不計分。
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <button id="part1Shuffle" type="button">
+          🔀 Reshuffle
+        </button>
+
+        <button
+          id="part1Play"
+          class="audio-button"
+          type="button"
+        >
+          ▶ Play all base forms
+        </button>
+
+        <button
+          id="part1Check"
+          class="primary-button"
+          type="button"
+        >
+          ✅ Check all
+        </button>
+
+        <button
+          id="part1Show"
+          class="secondary-button"
+          type="button"
+        >
+          👀 Show all answers
+        </button>
+
+        <button id="part1Reset" type="button">
+          ♻ Reset
+        </button>
+      </div>
+
+      <div
+        id="part1Score"
+        class="score"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <div
+        id="verbGrid"
+        class="question-grid verb-grid"
+      ></div>
+    </section>
+
+    <!-- Part 2 -->
+    <section id="part2" class="panel" aria-labelledby="part2Title">
+      <span class="part-label">PART 2 · PASSAGE DICTATION</span>
+
+      <h2 id="part2Title">An interview with Farmer Lam</h2>
+
+      <p class="introduction">
+        The longer sentences have been divided into short chunks.
+        Listen to each chunk and type the words you hear.
+      </p>
+
+      <div class="instruction-box">
+        <p lang="zh-Hant">
+          文章已分成較短的句子片段，讓學生逐段聆聽及默寫。
+        </p>
+
+        <p>
+          Capital letters and ordinary punctuation are not counted.
+          Apostrophes in contractions such as
+          <strong>it's</strong>, <strong>I've</strong> and
+          <strong>what's</strong> are checked.
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <button
+          id="part2Play"
+          class="audio-button"
+          type="button"
+        >
+          ▶ Play all chunks
+        </button>
+
+        <button
+          id="part2Whole"
+          class="audio-button"
+          type="button"
+        >
+          ▶ Play whole passage
+        </button>
+
+        <button
+          id="part2Check"
+          class="primary-button"
+          type="button"
+        >
+          ✅ Check all
+        </button>
+
+        <button
+          id="part2Show"
+          class="secondary-button"
+          type="button"
+        >
+          👀 Show all answers
+        </button>
+
+        <button id="part2Reset" type="button">
+          ♻ Reset
+        </button>
+      </div>
+
+      <div
+        id="part2Score"
+        class="score"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <div
+        id="sentenceGrid"
+        class="question-grid sentence-grid"
+      ></div>
+    </section>
+
+    <!-- Part 3 -->
+    <section id="part3" class="panel" aria-labelledby="part3Title">
+      <span class="part-label">
+        PART 3 · VERBS AND VERB PHRASES
+      </span>
+
+      <h2 id="part3Title">
+        What do we do when we are happy?
+      </h2>
+
+      <p class="introduction">
+        Listen to each verb or verb phrase. Type exactly what you hear.
+      </p>
+
+      <div class="instruction-box">
+        <p lang="zh-Hant">
+          按 Listen 聆聽開心時的動作或動詞詞組，然後輸入答案。
+          斜線及括號內的不同表達方式已分成獨立題目。
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <button id="part3Shuffle" type="button">
+          🔀 Reshuffle
+        </button>
+
+        <button
+          id="part3Play"
+          class="audio-button"
+          type="button"
+        >
+          ▶ Play all phrases
+        </button>
+
+        <button
+          id="part3Check"
+          class="primary-button"
+          type="button"
+        >
+          ✅ Check all
+        </button>
+
+        <button
+          id="part3Show"
+          class="secondary-button"
+          type="button"
+        >
+          👀 Show all answers
+        </button>
+
+        <button id="part3Reset" type="button">
+          ♻ Reset
+        </button>
+      </div>
+
+      <div
+        id="part3Score"
+        class="score"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <div
+        id="phraseGrid"
+        class="question-grid phrase-grid"
+      ></div>
+    </section>
+  </main>
+
+  <footer class="page-width">
+    <p>
+      J.5 English Dictation · Listen, type, check and improve
+    </p>
+
+    <p lang="zh-Hant">
+      顯示答案不會覆蓋學生已輸入的內容。重新整理網頁會清除所有作答。
+    </p>
+  </footer>
+
+  <!-- Fixed audio status -->
+  <div class="audio-status-bar" aria-label="Audio status">
+    <p id="audioStatus" role="status" aria-live="polite">
+      Ready. Choose a Listen button to begin.
+    </p>
+
+    <button id="stopAudio" type="button" disabled>
+      ■ Stop audio
+    </button>
+  </div>
+
+  <script>
+    "use strict";
+
+    /*
+     * =========================================================
+     * TEACHING CONTENT
+     * Edit these arrays if you want to change the questions.
+     * =========================================================
+     */
+
+    const VERBS = [
+      {
+        id: "arrive",
+        icon: "🛬",
+        base: "arrive",
+        ing: "arriving",
+        past: "arrived",
+        participle: "arrived"
+      },
+      {
+        id: "be",
+        icon: "🧍",
+        base: "be",
+
+        // Change null to "being" if you want students to practise it.
+        // null follows the supplied verb-table worksheet.
+        ing: null,
+
+        past: "was / were",
+        participle: "been"
+      },
+      {
+        id: "become",
+        icon: "🐛➡️🦋",
+        base: "become",
+        ing: "becoming",
+        past: "became",
+        participle: "become"
+      },
+      {
+        id: "have",
+        icon: "🎒",
+        base: "have",
+        ing: "having",
+        past: "had",
+        participle: "had"
+      },
+      {
+        id: "break",
+        icon: "💔",
+        base: "break",
+        ing: "breaking",
+        past: "broke",
+        participle: "broken"
+      },
+      {
+        id: "catch",
+        icon: "🧤⚾",
+        base: "catch",
+        ing: "catching",
+        past: "caught",
+        participle: "caught"
+      },
+      {
+        id: "buy",
+        icon: "🛍️",
+        base: "buy",
+        ing: "buying",
+        past: "bought",
+        participle: "bought"
+      },
+      {
+        id: "carry",
+        icon: "📦",
+        base: "carry",
+        ing: "carrying",
+        past: "carried",
+        participle: "carried"
+      }
+    ];
+
+    /*
+     * Part 2 is divided into short chunks.
+     * Speaker names are displayed but are not part of the answer.
+     */
+    const SENTENCE_CHUNKS = [
+      {
+        id: "chunk-01",
+        speaker: "Narrator",
+        text: "Many families like going to holiday farms"
+      },
+      {
+        id: "chunk-02",
+        speaker: "Narrator",
+        text: "at the weekend"
+      },
+      {
+        id: "chunk-03",
+        speaker: "Narrator",
+        text: "to escape from the beeps and honks"
+      },
+      {
+        id: "chunk-04",
+        speaker: "Narrator",
+        text: "of the noisy city."
+      },
+      {
+        id: "chunk-05",
+        speaker: "Narrator",
+        text: "Last week, our reporter Kim visited Sunny Family Farm,"
+      },
+      {
+        id: "chunk-06",
+        speaker: "Narrator",
+        text: "the winner of this year's Kidz Magazine Great Day Out Award."
+      },
+      {
+        id: "chunk-07",
+        speaker: "Narrator",
+        text: "He interviewed the farm's owner Farmer Lam."
+      },
+      {
+        id: "chunk-08",
+        speaker: "K · Kim",
+        text: "Congratulations on winning the award."
+      },
+      {
+        id: "chunk-09",
+        speaker: "K · Kim",
+        text: "Lots of readers voted for you."
+      },
+      {
+        id: "chunk-10",
+        speaker: "K · Kim",
+        text: "They loved the craft activities"
+      },
+      {
+        id: "chunk-11",
+        speaker: "K · Kim",
+        text: "such as making candles and soap."
+      },
+      {
+        id: "chunk-12",
+        speaker: "FL · Farmer Lam",
+        text: "The Craft Corner is popular on our farm."
+      },
+      {
+        id: "chunk-13",
+        speaker: "FL · Farmer Lam",
+        text: "And many kids run straight to the Adventure Park"
+      },
+      {
+        id: "chunk-14",
+        speaker: "FL · Farmer Lam",
+        text: "to play golf or play in the tree houses."
+      },
+      {
+        id: "chunk-15",
+        speaker: "K · Kim",
+        text: "Kids really love your farm."
+      },
+      {
+        id: "chunk-16",
+        speaker: "FL · Farmer Lam",
+        text: "It's because they can try new things here,"
+      },
+      {
+        id: "chunk-17",
+        speaker: "FL · Farmer Lam",
+        text: "like hearing the cows moo"
+      },
+      {
+        id: "chunk-18",
+        speaker: "FL · Farmer Lam",
+        text: "and getting close to them."
+      },
+      {
+        id: "chunk-19",
+        speaker: "FL · Farmer Lam",
+        text: "Kids find these interesting."
+      },
+      {
+        id: "chunk-20",
+        speaker: "FL · Farmer Lam",
+        text: "Have you been to the Petting Zoo?"
+      },
+      {
+        id: "chunk-21",
+        speaker: "K · Kim",
+        text: "Yes, I've just been there."
+      },
+      {
+        id: "chunk-22",
+        speaker: "K · Kim",
+        text: "What's special about it?"
+      }
+    ];
+
+    const WHOLE_PASSAGE = [
+      "An interview with Farmer Lam.",
+      "Many families like going to holiday farms at the weekend to escape from the beeps and honks of the noisy city.",
+      "Last week, our reporter Kim visited Sunny Family Farm, the winner of this year's Kidz Magazine Great Day Out Award.",
+      "He interviewed the farm's owner Farmer Lam.",
+      "Congratulations on winning the award.",
+      "Lots of readers voted for you.",
+      "They loved the craft activities such as making candles and soap.",
+      "The Craft Corner is popular on our farm.",
+      "And many kids run straight to the Adventure Park to play golf or play in the tree houses.",
+      "Kids really love your farm.",
+      "It's because they can try new things here, like hearing the cows moo and getting close to them.",
+      "Kids find these interesting.",
+      "Have you been to the Petting Zoo?",
+      "Yes, I've just been there.",
+      "What's special about it?"
+    ];
+
+    const HAPPY_PHRASES = [
+      {
+        id: "phrase-01",
+        icon: "🦘",
+        text: "jump for joy"
+      },
+      {
+        id: "phrase-02",
+        icon: "⬆️⬇️",
+        text: "jump up and down"
+      },
+      {
+        id: "phrase-03",
+        icon: "🌀",
+        text: "spin around"
+      },
+      {
+        id: "phrase-04",
+        icon: "✊",
+        text: "do a fist pump"
+      },
+      {
+        id: "phrase-05",
+        icon: "✊",
+        text: "give a fist pump"
+      },
+      {
+        id: "phrase-06",
+        icon: "🙌",
+        text: "wave our arms"
+      },
+      {
+        id: "phrase-07",
+        icon: "🙌",
+        text: "wave our arms in the air"
+      },
+      {
+        id: "phrase-08",
+        icon: "😊",
+        text: "smile"
+      },
+      {
+        id: "phrase-09",
+        icon: "😆",
+        text: "laugh"
+      },
+      {
+        id: "phrase-10",
+        icon: "✋🤚",
+        text: "give someone a high five"
+      },
+      {
+        id: "phrase-11",
+        icon: "🤗",
+        text: "wrap our arms around someone"
+      },
+      {
+        id: "phrase-12",
+        icon: "🥹",
+        text: "cry tears of joy"
+      },
+      {
+        id: "phrase-13",
+        icon: "🎉",
+        text: "cheer"
+      },
+      {
+        id: "phrase-14",
+        icon: "📣",
+        text: "scream with joy"
+      },
+      {
+        id: "phrase-15",
+        icon: "🎵",
+        text: "hum"
+      },
+      {
+        id: "phrase-16",
+        icon: "🎶",
+        text: "whistle"
+      },
+      {
+        id: "phrase-17",
+        icon: "🐕",
+        text: "wag its tail"
+      }
+    ];
+
+    /*
+     * =========================================================
+     * GENERAL HELPERS
+     * =========================================================
+     */
+
+    const $ = id => document.getElementById(id);
+
+    const speechSupported =
+      "speechSynthesis" in window &&
+      "SpeechSynthesisUtterance" in window;
+
+    function createElement(tag, className = "", text = null) {
+      const element = document.createElement(tag);
+
+      if (className) {
+        element.className = className;
+      }
+
+      if (text !== null) {
+        element.textContent = text;
+      }
+
+      return element;
+    }
+
+    function createButton(
+      text,
+      className,
+      handler,
+      isAudioButton = false
+    ) {
+      const button = createElement("button", className, text);
+      button.type = "button";
+
+      if (isAudioButton) {
+        button.dataset.audioButton = "";
+        button.disabled = !speechSupported;
+      }
+
+      button.addEventListener("click", handler);
+      return button;
+    }
+
+    function announce(message) {
+      $("audioStatus").textContent = message;
+    }
+
+    function tidy(value) {
+      return String(value ?? "")
+        .normalize("NFKC")
+        .replace(/[‘’]/g, "'")
+        .replace(/[“”]/g, "\"")
+        .replace(/[‐‑–—]/g, "-")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    /*
+     * This ignores ordinary punctuation and capital letters.
+     * Apostrophes inside words are retained:
+     * "its" and "it's" are therefore different.
+     */
+    function wordKey(value) {
+      const words = tidy(value)
+        .toLowerCase()
+        .match(/[a-z0-9]+(?:'[a-z0-9]+)*/g);
+
+      return words ? words.join(" ") : "";
+    }
+
+    function shuffled(items, forceChange = false) {
+      const result = [...items];
+
+      for (let index = result.length - 1; index > 0; index--) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+
+        [result[index], result[randomIndex]] = [
+          result[randomIndex],
+          result[index]
+        ];
+      }
+
+      if (
+        forceChange &&
+        result.length > 1 &&
+        result.every((item, index) => item === items[index])
+      ) {
+        result.push(result.shift());
+      }
+
+      return result;
+    }
+
+    /*
+     * =========================================================
+     * SPEECH SYNTHESIS
+     * =========================================================
+     */
+
+    let englishVoices = [];
+    let playbackToken = 0;
+    let playbackTimer = null;
+    let activeUtterance = null;
+    let activeAudioButton = null;
+    let activeQuestionCard = null;
+
+    function populateVoices() {
+      if (!speechSupported) {
+        $("voiceSelect").disabled = true;
+        $("speedSelect").disabled = true;
+        $("testVoice").disabled = true;
+        $("reloadVoices").disabled = true;
+
+        $("voiceMessage").textContent =
+          "Speech is not supported in this browser. " +
+          "Typing and answer checking will still work.";
+
+        return;
+      }
+
+      const previousValue = $("voiceSelect").value;
+
+      englishVoices = window.speechSynthesis
+        .getVoices()
+        .filter(voice => /^en(?:[-_]|$)/i.test(voice.lang))
+        .sort((voiceA, voiceB) => {
+          return (
+            voiceA.lang.localeCompare(voiceB.lang) ||
+            voiceA.name.localeCompare(voiceB.name)
+          );
+        });
+
+      $("voiceSelect").replaceChildren();
+
+      const automaticOption = createElement(
+        "option",
+        "",
+        "Automatic English voice"
+      );
+
+      automaticOption.value = "";
+      $("voiceSelect").append(automaticOption);
+
+      englishVoices.forEach(voice => {
+        const option = createElement(
+          "option",
+          "",
+          `${voice.name} — ${voice.lang}`
+        );
+
+        option.value = voice.voiceURI;
+        $("voiceSelect").append(option);
+      });
+
+      const previousStillExists = englishVoices.some(
+        voice => voice.voiceURI === previousValue
+      );
+
+      if (previousStillExists) {
+        $("voiceSelect").value = previousValue;
+      } else if (englishVoices.length) {
+        const preferredVoice =
+          englishVoices.find(voice =>
+            /^en[-_]GB$/i.test(voice.lang)
+          ) ||
+          englishVoices.find(voice => voice.default) ||
+          englishVoices.find(voice =>
+            /^en[-_]US$/i.test(voice.lang)
+          ) ||
+          englishVoices[0];
+
+        $("voiceSelect").value = preferredVoice.voiceURI;
+      }
+
+      $("voiceMessage").textContent = englishVoices.length
+        ? `${englishVoices.length} English voice(s) available.`
+        : "No English voice is listed yet. Automatic mode will be used.";
+    }
+
+    function getSelectedVoice() {
+      return englishVoices.find(
+        voice => voice.voiceURI === $("voiceSelect").value
+      ) || null;
+    }
+
+    function clearPlaybackDisplay() {
+      if (activeAudioButton) {
+        activeAudioButton.classList.remove("playing");
+        activeAudioButton.removeAttribute("aria-busy");
+      }
+
+      if (activeQuestionCard) {
+        activeQuestionCard.classList.remove("listening");
+      }
+
+      activeAudioButton = null;
+      activeQuestionCard = null;
+      activeUtterance = null;
+
+      $("stopAudio").disabled = true;
+    }
+
+    function stopAudio(message = "Audio stopped.") {
+      playbackToken++;
+
+      window.clearTimeout(playbackTimer);
+      playbackTimer = null;
+
+      if (speechSupported) {
+        window.speechSynthesis.cancel();
+      }
+
+      clearPlaybackDisplay();
+
+      if (message) {
+        announce(message);
+      }
+    }
+
+    function finishPlayback(message) {
+      window.clearTimeout(playbackTimer);
+      playbackTimer = null;
+
+      clearPlaybackDisplay();
+      announce(message);
+    }
+
+    function playSequence(entries, button, label) {
+      if (!speechSupported) {
+        announce("Speech is not supported in this browser.");
+        return;
+      }
+
+      if (!entries.length) {
+        return;
+      }
+
+      stopAudio("");
+
+      const thisPlaybackToken = playbackToken;
+      const selectedVoice = getSelectedVoice();
+      const selectedRate = Number($("speedSelect").value);
+
+      let currentIndex = 0;
+
+      activeAudioButton = button;
+      activeAudioButton.classList.add("playing");
+      activeAudioButton.setAttribute("aria-busy", "true");
+
+      $("stopAudio").disabled = false;
+
+      function speakNext() {
+        if (thisPlaybackToken !== playbackToken) {
+          return;
+        }
+
+        if (currentIndex >= entries.length) {
+          finishPlayback(`${label} finished. / 播放完畢。`);
+          return;
+        }
+
+        const entry = entries[currentIndex];
+
+        if (
+          activeQuestionCard &&
+          activeQuestionCard !== entry.card
+        ) {
+          activeQuestionCard.classList.remove("listening");
+        }
+
+        activeQuestionCard = entry.card || null;
+
+        if (activeQuestionCard) {
+          activeQuestionCard.classList.add("listening");
+        }
+
+        const utterance = new SpeechSynthesisUtterance(entry.text);
+
+        if (selectedVoice) {
+          utterance.voice = selectedVoice;
+          utterance.lang = selectedVoice.lang;
+        } else {
+          utterance.lang = "en-GB";
+        }
+
+        utterance.rate = selectedRate;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        activeUtterance = utterance;
+
+        announce(
+          `${label} · Item ${currentIndex + 1} of ${entries.length}`
+        );
+
+        utterance.onend = () => {
+          if (thisPlaybackToken !== playbackToken) {
+            return;
+          }
+
+          activeUtterance = null;
+          currentIndex++;
+
+          playbackTimer = window.setTimeout(
+            speakNext,
+            450
+          );
+        };
+
+        utterance.onerror = event => {
+          if (thisPlaybackToken !== playbackToken) {
+            return;
+          }
+
+          stopAudio(
+            "Audio could not be played. " +
+            `Please try another voice. (${event.error || "unknown error"})`
+          );
+        };
+
+        try {
+          if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+          }
+
+          window.speechSynthesis.speak(utterance);
+        } catch (error) {
+          stopAudio(
+            "Audio could not be played. Please reload the voices."
+          );
+        }
+      }
+
+      speakNext();
+    }
+
+    /*
+     * =========================================================
+     * ANSWER CHECKING
+     * =========================================================
+     */
+
+    const FEEDBACK_TEXT = {
+      correct: "✓ Correct!",
+      wrong: "✗ Listen again and try once more.",
+      empty: "○ Please type an answer first."
+    };
+
+    function isCorrectForm(answer, expected) {
+      if (expected === "was / were") {
+        const words = (
+          tidy(answer)
+            .toLowerCase()
+            .match(/[a-z]+/g) || []
+        ).filter(word => word !== "and" && word !== "or");
+
+        return (
+          words.length === 2 &&
+          words.includes("was") &&
+          words.includes("were")
+        );
+      }
+
+      return wordKey(answer) === wordKey(expected);
+    }
+
+    function evaluateField(field) {
+      const answer = tidy(field.input.value);
+
+      if (!answer) {
+        return "empty";
+      }
+
+      if (field.kind === "form") {
+        return isCorrectForm(answer, field.expected)
+          ? "correct"
+          : "wrong";
+      }
+
+      return wordKey(answer) === wordKey(field.expected)
+        ? "correct"
+        : "wrong";
+    }
+
+    function clearFieldResult(field) {
+      field.state = null;
+
+      field.input.classList.remove(
+        "is-correct",
+        "is-wrong",
+        "is-empty"
+      );
+
+      field.input.removeAttribute("aria-invalid");
+
+      field.feedback.className = "field-feedback";
+      field.feedback.textContent = "";
+    }
+
+    function markField(field) {
+      field.state = evaluateField(field);
+
+      field.input.classList.remove(
+        "is-correct",
+        "is-wrong",
+        "is-empty"
+      );
+
+      field.input.classList.add(`is-${field.state}`);
+
+      field.feedback.className =
+        `field-feedback ${field.state}`;
+
+      field.feedback.textContent =
+        FEEDBACK_TEXT[field.state];
+
+      if (field.state === "correct") {
+        field.input.removeAttribute("aria-invalid");
+      } else {
+        field.input.setAttribute("aria-invalid", "true");
+      }
+    }
+
+    function refreshCardResult(card) {
+      const states = card.fields.map(field => field.state);
+
+      card.element.removeAttribute("data-result");
+
+      if (!states.some(state => state !== null)) {
+        return;
+      }
+
+      if (states.every(state => state === "correct")) {
+        card.element.dataset.result = "correct";
+        return;
+      }
+
+      if (states.some(state => state === "wrong")) {
+        card.element.dataset.result = "wrong";
+        return;
+      }
+
+      card.element.dataset.result = "partial";
+    }
+
+    function updateScore(part) {
+      const fields = part.cards.flatMap(card => card.fields);
+
+      const correctCount = fields.filter(
+        field => field.state === "correct"
+      ).length;
+
+      const checkedCount = fields.filter(
+        field => field.state !== null
+      ).length;
+
+      const total = fields.length;
+
+      part.score.textContent =
+        `Correct: ${correctCount}/${total}` +
+        ` · Checked: ${checkedCount}/${total}`;
+
+      part.score.classList.toggle(
+        "complete",
+        total > 0 && correctCount === total
+      );
+
+      updateShowAllButton(part);
+
+      return part.score.textContent;
+    }
+
+    function checkCard(card, part, report = true) {
+      card.fields.forEach(markField);
+      refreshCardResult(card);
+
+      const correctCount = card.fields.filter(
+        field => field.state === "correct"
+      ).length;
+
+      const total = card.fields.length;
+
+      card.message.textContent =
+        correctCount === total
+          ? `${correctCount}/${total} correct — well done!`
+          : `${correctCount}/${total} correct — keep practising.`;
+
+      if (report) {
+        updateScore(part);
+
+        announce(
+          `${part.name}, ${card.number.textContent}: ` +
+          card.message.textContent
+        );
+      }
+    }
+
+    function checkAll(part) {
+      part.cards.forEach(card => {
+        checkCard(card, part, false);
+      });
+
+      const summary = updateScore(part);
+      announce(`${part.name}: ${summary}`);
+    }
+
+    /*
+     * =========================================================
+     * ANSWER DISPLAY, RESET AND RESHUFFLE
+     * =========================================================
+     */
+
+    function setAnswerVisible(card, visible) {
+      card.reference.hidden = !visible;
+
+      card.showButton.textContent = visible
+        ? "🙈 Hide answer"
+        : "👁 Show answer";
+
+      card.showButton.setAttribute(
+        "aria-expanded",
+        String(visible)
+      );
+    }
+
+    function updateShowAllButton(part) {
+      if (!part.showAllButton) {
+        return;
+      }
+
+      const allAnswersVisible =
+        part.cards.length > 0 &&
+        part.cards.every(card => !card.reference.hidden);
+
+      part.showAllButton.textContent = allAnswersVisible
+        ? "🙈 Hide all answers"
+        : "👀 Show all answers";
+
+      part.showAllButton.setAttribute(
+        "aria-expanded",
+        String(allAnswersVisible)
+      );
+    }
+
+    function toggleAllAnswers(part) {
+      const shouldShow = part.cards.some(
+        card => card.reference.hidden
+      );
+
+      part.cards.forEach(card => {
+        setAnswerVisible(card, shouldShow);
+      });
+
+      updateShowAllButton(part);
+
+      announce(
+        shouldShow
+          ? `${part.name}: all reference answers are shown.`
+          : `${part.name}: all reference answers are hidden.`
+      );
+    }
+
+    function resetPart(part) {
+      const hasWork = part.cards.some(card => {
+        const hasTypedAnswer = card.fields.some(
+          field => field.input.value.trim() !== ""
+        );
+
+        const hasCheckedAnswer = card.fields.some(
+          field => field.state !== null
+        );
+
+        return (
+          hasTypedAnswer ||
+          hasCheckedAnswer ||
+          !card.reference.hidden
+        );
+      });
+
+      if (
+        hasWork &&
+        !window.confirm(
+          "Clear all answers and checking results in this part?\n" +
+          "清除本部分所有作答及核對結果？"
+        )
+      ) {
+        return;
+      }
+
+      stopAudio("");
+
+      part.cards.forEach(card => {
+        card.fields.forEach(field => {
+          field.input.value = "";
+          clearFieldResult(field);
+        });
+
+        card.message.textContent = "";
+        card.element.removeAttribute("data-result");
+
+        setAnswerVisible(card, false);
+      });
+
+      updateScore(part);
+      announce(`${part.name} reset. / 本部分已重設。`);
+    }
+
+    function renumberPart(part) {
+      part.cards.forEach((card, index) => {
+        const questionNumber = index + 1;
+
+        card.number.textContent = `Q${questionNumber}`;
+
+        card.listenButton.setAttribute(
+          "aria-label",
+          `${part.name}, question ${questionNumber}: listen`
+        );
+
+        card.fields.forEach(field => {
+          field.input.setAttribute(
+            "aria-label",
+            `${part.name}, question ${questionNumber}, ${field.label}`
+          );
+        });
+      });
+    }
+
+    function renderPartOrder(part) {
+      part.grid.replaceChildren(
+        ...part.cards.map(card => card.element)
+      );
+
+      renumberPart(part);
+      updateScore(part);
+    }
+
+    function reshufflePart(part) {
+      stopAudio("");
+
+      part.cards = shuffled(part.cards, true);
+      renderPartOrder(part);
+
+      announce(
+        `${part.name} reshuffled. Your answers are kept. ` +
+        "/ 已重新排序並保留作答。"
+      );
+    }
+
+    /*
+     * =========================================================
+     * CARD BUILDERS
+     * =========================================================
+     */
+
+    function connectFieldInput(field, card, part, isTextarea) {
+      field.input.addEventListener("input", () => {
+        clearFieldResult(field);
+
+        card.message.textContent = "";
+        refreshCardResult(card);
+        updateScore(part);
+      });
+
+      field.input.addEventListener("keydown", event => {
+        if (event.isComposing || event.key !== "Enter") {
+          return;
+        }
+
+        if (
+          isTextarea &&
+          !event.ctrlKey &&
+          !event.metaKey
+        ) {
+          return;
+        }
+
+        event.preventDefault();
+        checkCard(card, part);
+      });
+    }
+
+    function addCardActions(card, part, answerText) {
+      const actions = createElement("div", "card-actions");
+
+      const checkButton = createButton(
+        "✓ Check",
+        "secondary-button",
+        () => checkCard(card, part)
+      );
+
+      card.showButton = createButton(
+        "👁 Show answer",
+        "",
+        () => {
+          setAnswerVisible(
+            card,
+            card.reference.hidden
+          );
+
+          updateShowAllButton(part);
+        }
+      );
+
+      card.showButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      actions.append(
+        checkButton,
+        card.showButton
+      );
+
+      card.message = createElement(
+        "p",
+        "card-message"
+      );
+
+      card.reference = createElement(
+        "div",
+        "reference-answer"
+      );
+
+      card.reference.hidden = true;
+
+      card.reference.append(
+        createElement(
+          "strong",
+          "",
+          "Reference answer / 參考答案"
+        )
+      );
+
+      card.reference.append(
+        createElement("p", "", answerText)
+      );
+
+      card.element.append(
+        actions,
+        card.message,
+        card.reference
+      );
+    }
+
+    function buildVerbCard(item, part) {
+      const card = {
+        item,
+        audioText: item.base,
+        fields: []
+      };
+
+      card.element = createElement(
+        "article",
+        "question-card"
+      );
+
+      const header = createElement(
+        "div",
+        "question-header"
+      );
+
+      const meta = createElement(
+        "div",
+        "question-meta"
+      );
+
+      card.number = createElement(
+        "span",
+        "question-number"
+      );
+
+      const icon = createElement(
+        "span",
+        "picture-clue",
+        item.icon
+      );
+
+      icon.setAttribute("aria-hidden", "true");
+
+      meta.append(card.number, icon);
+
+      card.listenButton = createButton(
+        "🔊 Base form",
+        "audio-button",
+        event => {
+          playSequence(
+            [{
+              text: item.base,
+              card: card.element
+            }],
+            event.currentTarget,
+            `${part.name} ${card.number.textContent}`
+          );
+        },
+        true
+      );
+
+      header.append(meta, card.listenButton);
+      card.element.append(header);
+
+      const fieldGrid = createElement(
+        "div",
+        "answer-fields verb-fields"
+      );
+
+      const definitions = [
+        {
+          key: "base",
+          label: "Simple present",
+          hint: "Base form / 基本形",
+          expected: item.base
+        },
+        {
+          key: "ing",
+          label: "Present continuous",
+          hint: "-ing form only",
+          expected: item.ing
+        },
+        {
+          key: "past",
+          label: "Simple past",
+          hint: "過去式",
+          expected: item.past
+        },
+        {
+          key: "participle",
+          label: "Present perfect",
+          hint: "Past participle only / 過去分詞",
+          expected: item.participle
+        }
+      ];
+
+      definitions.forEach(definition => {
+        const wrapper = createElement(
+          "div",
+          "answer-field"
+        );
+
+        const label = createElement(
+          "label",
+          "field-label",
+          definition.label
+        );
+
+        label.append(
+          createElement(
+            "small",
+            "",
+            definition.hint
+          )
+        );
+
+        wrapper.append(label);
+
+        if (definition.expected === null) {
+          const notRequired = createElement(
+            "div",
+            "not-required",
+            "—"
+          );
+
+          notRequired.append(
+            createElement(
+              "small",
+              "",
+              "Not required in the supplied table / 不計分"
+            )
+          );
+
+          wrapper.append(notRequired);
+          fieldGrid.append(wrapper);
+          return;
+        }
+
+        const input = createElement(
+          "input",
+          "answer-input"
+        );
+
+        input.type = "text";
+        input.lang = "en";
+        input.spellcheck = false;
+        input.autocomplete = "off";
+        input.setAttribute("autocorrect", "off");
+        input.setAttribute("autocapitalize", "none");
+        input.placeholder = "Type the verb form…";
+
+        const inputId =
+          `verb-${item.id}-${definition.key}`;
+
+        input.id = inputId;
+        label.htmlFor = inputId;
+
+        const feedback = createElement(
+          "p",
+          "field-feedback"
+        );
+
+        const field = {
+          input,
+          feedback,
+          expected: definition.expected,
+          label: definition.label,
+          kind: "form",
+          state: null
+        };
+
+        card.fields.push(field);
+
+        connectFieldInput(
+          field,
+          card,
+          part,
+          false
+        );
+
+        wrapper.append(input, feedback);
+        fieldGrid.append(wrapper);
+      });
+
+      card.element.append(fieldGrid);
+
+      const answerText = [
+        `Simple present: ${item.base}`,
+        `Present continuous: ${item.ing ?? "—"}`,
+        `Simple past: ${item.past}`,
+        `Present perfect: ${item.participle}`
+      ].join("\n");
+
+      addCardActions(card, part, answerText);
+
+      return card;
+    }
+
+    function buildSingleAnswerCard(
+      item,
+      part,
+      cardType
+    ) {
+      const isSentence = cardType === "sentence";
+
+      const card = {
+        item,
+        audioText: item.text,
+        fields: []
+      };
+
+      card.element = createElement(
+        "article",
+        "question-card"
+      );
+
+      const header = createElement(
+        "div",
+        "question-header"
+      );
+
+      const meta = createElement(
+        "div",
+        "question-meta"
+      );
+
+      card.number = createElement(
+        "span",
+        "question-number"
+      );
+
+      meta.append(card.number);
+
+      if (item.icon) {
+        const icon = createElement(
+          "span",
+          "picture-clue",
+          item.icon
+        );
+
+        icon.setAttribute("aria-hidden", "true");
+        meta.append(icon);
+      }
+
+      if (item.speaker) {
+        meta.append(
+          createElement(
+            "span",
+            "speaker",
+            item.speaker
+          )
+        );
+      }
+
+      card.listenButton = createButton(
+        "🔊 Listen",
+        "audio-button",
+        event => {
+          playSequence(
+            [{
+              text: item.text,
+              card: card.element
+            }],
+            event.currentTarget,
+            `${part.name} ${card.number.textContent}`
+          );
+        },
+        true
+      );
+
+      header.append(meta, card.listenButton);
+      card.element.append(header);
+
+      const fieldGrid = createElement(
+        "div",
+        "answer-fields"
+      );
+
+      const wrapper = createElement(
+        "div",
+        "answer-field"
+      );
+
+      const fieldLabelText = isSentence
+        ? "Type the words you hear"
+        : "Type the verb or verb phrase";
+
+      const label = createElement(
+        "label",
+        "field-label",
+        fieldLabelText
+      );
+
+      const input = createElement(
+        isSentence ? "textarea" : "input",
+        "answer-input"
+      );
+
+      if (isSentence) {
+        input.rows = 2;
+      } else {
+        input.type = "text";
+      }
+
+      input.lang = "en";
+      input.spellcheck = false;
+      input.autocomplete = "off";
+      input.setAttribute("autocorrect", "off");
+      input.setAttribute("autocapitalize", "none");
+
+      input.placeholder = isSentence
+        ? "Type the sentence chunk…"
+        : "Type the word or phrase…";
+
+      const inputId =
+        `${part.key}-${item.id}-answer`;
+
+      input.id = inputId;
+      label.htmlFor = inputId;
+
+      const feedback = createElement(
+        "p",
+        "field-feedback"
+      );
+
+      const field = {
+        input,
+        feedback,
+        expected: item.text,
+        label: fieldLabelText,
+        kind: "text",
+        state: null
+      };
+
+      card.fields.push(field);
+
+      connectFieldInput(
+        field,
+        card,
+        part,
+        isSentence
+      );
+
+      wrapper.append(label, input, feedback);
+      fieldGrid.append(wrapper);
+
+      card.element.append(fieldGrid);
+
+      addCardActions(card, part, item.text);
+
+      return card;
+    }
+
+    /*
+     * =========================================================
+     * CREATE THE THREE PARTS
+     * =========================================================
+     */
+
+    const part1 = {
+      key: "part1",
+      name: "Part 1",
+      grid: $("verbGrid"),
+      score: $("part1Score"),
+      cards: [],
+      showAllButton: null
+    };
+
+    part1.cards = shuffled(
+      VERBS.map(item => buildVerbCard(item, part1))
+    );
+
+    const part2 = {
+      key: "part2",
+      name: "Part 2",
+      grid: $("sentenceGrid"),
+      score: $("part2Score"),
+      cards: [],
+      showAllButton: null
+    };
+
+    part2.cards = SENTENCE_CHUNKS.map(item =>
+      buildSingleAnswerCard(
+        item,
+        part2,
+        "sentence"
+      )
+    );
+
+    const part3 = {
+      key: "part3",
+      name: "Part 3",
+      grid: $("phraseGrid"),
+      score: $("part3Score"),
+      cards: [],
+      showAllButton: null
+    };
+
+    part3.cards = shuffled(
+      HAPPY_PHRASES.map(item =>
+        buildSingleAnswerCard(
+          item,
+          part3,
+          "phrase"
+        )
+      )
+    );
+
+    renderPartOrder(part1);
+    renderPartOrder(part2);
+    renderPartOrder(part3);
+
+    /*
+     * =========================================================
+     * CONNECT SECTION TOOLBARS
+     * =========================================================
+     */
+
+    function connectPartControls(part, controls) {
+      part.showAllButton = $(controls.show);
+
+      if (controls.shuffle) {
+        $(controls.shuffle).addEventListener(
+          "click",
+          () => reshufflePart(part)
+        );
+      }
+
+      $(controls.play).addEventListener(
+        "click",
+        event => {
+          const entries = part.cards.map(card => ({
+            text: card.audioText,
+            card: card.element
+          }));
+
+          playSequence(
+            entries,
+            event.currentTarget,
+            controls.playbackLabel
+          );
+        }
+      );
+
+      $(controls.check).addEventListener(
+        "click",
+        () => checkAll(part)
+      );
+
+      $(controls.show).addEventListener(
+        "click",
+        () => toggleAllAnswers(part)
+      );
+
+      $(controls.reset).addEventListener(
+        "click",
+        () => resetPart(part)
+      );
+
+      updateScore(part);
+    }
+
+    connectPartControls(part1, {
+      shuffle: "part1Shuffle",
+      play: "part1Play",
+      check: "part1Check",
+      show: "part1Show",
+      reset: "part1Reset",
+      playbackLabel: "Part 1 base forms"
+    });
+
+    connectPartControls(part2, {
+      play: "part2Play",
+      check: "part2Check",
+      show: "part2Show",
+      reset: "part2Reset",
+      playbackLabel: "Part 2 sentence chunks"
+    });
+
+    connectPartControls(part3, {
+      shuffle: "part3Shuffle",
+      play: "part3Play",
+      check: "part3Check",
+      show: "part3Show",
+      reset: "part3Reset",
+      playbackLabel: "Part 3 verbs and verb phrases"
+    });
+
+    $("part2Whole").addEventListener(
+      "click",
+      event => {
+        playSequence(
+          WHOLE_PASSAGE.map(text => ({
+            text,
+            card: null
+          })),
+          event.currentTarget,
+          "Whole passage"
+        );
+      }
+    );
+
+    /*
+     * =========================================================
+     * GLOBAL AUDIO CONTROLS
+     * =========================================================
+     */
+
+    $("testVoice").addEventListener(
+      "click",
+      event => {
+        playSequence(
+          [{
+            text: "Hello. Let's practise English dictation.",
+            card: null
+          }],
+          event.currentTarget,
+          "Voice test"
+        );
+      }
+    );
+
+    $("reloadVoices").addEventListener(
+      "click",
+      () => {
+        stopAudio("");
+        populateVoices();
+
+        window.setTimeout(
+          populateVoices,
+          400
+        );
+
+        announce(
+          "Voice list refreshed. Please try Test voice."
+        );
+      }
+    );
+
+    $("stopAudio").addEventListener(
+      "click",
+      () => {
+        stopAudio(
+          "Audio stopped. / 播放已停止。"
+        );
+      }
+    );
+
+    $("voiceSelect").addEventListener(
+      "change",
+      () => {
+        stopAudio(
+          "Voice changed. Press Listen to play again."
+        );
+      }
+    );
+
+    $("speedSelect").addEventListener(
+      "change",
+      () => {
+        stopAudio(
+          `Speed changed to ${$("speedSelect").value}×.`
+        );
+      }
+    );
+
+    /*
+     * =========================================================
+     * INITIALISE VOICES
+     * =========================================================
+     */
+
+    if (speechSupported) {
+      populateVoices();
+
+      window.setTimeout(
+        populateVoices,
+        300
+      );
+
+      window.setTimeout(
+        populateVoices,
+        1200
+      );
+
+      if (
+        typeof window.speechSynthesis.addEventListener ===
+        "function"
+      ) {
+        window.speechSynthesis.addEventListener(
+          "voiceschanged",
+          populateVoices
+        );
+      } else {
+        window.speechSynthesis.onvoiceschanged =
+          populateVoices;
+      }
+    } else {
+      populateVoices();
+
+      document
+        .querySelectorAll("[data-audio-button]")
+        .forEach(button => {
+          button.disabled = true;
+        });
+
+      announce(
+        "Audio is unavailable in this browser. " +
+        "Typing and checking still work."
+      );
+    }
+
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+        if (
+          document.hidden &&
+          activeAudioButton
+        ) {
+          stopAudio(
+            "Audio stopped while the page was hidden."
+          );
+        }
+      }
+    );
+
+    window.addEventListener(
+      "pagehide",
+      () => stopAudio("")
+    );
+  </script>
+</body>
+</html>
