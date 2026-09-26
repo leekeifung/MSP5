@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>金句默書練習</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct { border-color: #16a34a; box-shadow: 0 0 0 1px #16a34a66; }
+    .wrong { border-color: #dc2626; box-shadow: 0 0 0 1px #dc262666; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <div class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+    <header class="space-y-2">
+      <h1 class="text-2xl font-bold">金句默書練習</h1>
+      <p class="text-sm text-slate-600">若未出聲，請先點擊頁面；部分裝置需使用者互動後才可播放語音。</p>
+    </header>
+
+    <section class="bg-white rounded-lg shadow p-4 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-semibold">金句默書（隨機順序）</h2>
+          <p class="text-xs text-slate-600">可聽金句與經文出處，並查看提示。</p>
+        </div>
+        <div class="flex items-center gap-2 text-sm flex-wrap">
+          <span class="text-slate-700">語速：</span>
+          <div class="flex items-center gap-2 flex-wrap" id="rate-group"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 text-sm">
+        <button id="btnShuffle" class="px-3 py-1.5 rounded bg-emerald-600 text-white hover:bg-emerald-700">🔀 重排</button>
+        <button id="btnPlayAllVerses" class="px-3 py-1.5 rounded bg-emerald-600 text-white hover:bg-emerald-700">▶ 播放全部金句</button>
+        <button id="btnPlayAllRefs" class="px-3 py-1.5 rounded bg-emerald-600 text-white hover:bg-emerald-700">▶ 播放全部出處</button>
+        <button id="btnStop" class="px-3 py-1.5 rounded bg-slate-200 text-slate-800 hover:bg-slate-300">⏹ 停止語音</button>
+        <button id="btnGrade" class="px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-700">✅ 批改</button>
+        <button id="btnShowAll" class="px-3 py-1.5 rounded bg-amber-500 text-white hover:bg-amber-600">👀 顯示全部答案</button>
+        <button id="btnHintsAll" class="px-3 py-1.5 rounded bg-teal-500 text-white hover:bg-teal-600">💡 顯示/隱藏全部提示</button>
+        <button id="btnReset" class="px-3 py-1.5 rounded bg-slate-200 text-slate-800 hover:bg-slate-300">♻️ 重設</button>
+      </div>
+
+      <p id="status" class="text-sm text-slate-600">尚未批改。</p>
+      <div id="verseContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+    </section>
+  </div>
+
+  <script>
+    // Data
+    const verses = [
+      { text: "你們祈求，就給你們；尋找，就找到；叩門，就給你們開門。", ref: "《馬太福音》7章7節" },
+      { text: "你們當悔改歸正，使你們的罪得以塗去。", ref: "《使徒行傳》3章19節" },
+      { text: "上帝抵擋驕傲的人，但賜恩給謙卑的人。", ref: "《雅各書》4章6節" },
+      { text: "你的手若有行善的力量，不可推辭，要施與那應得的人。", ref: "《箴言》3章27節" },
+      { text: "你們要作行道的人，不要只作聽道的人。", ref: "《雅各書》1章22節" },
+      { text: "你們要彼此接納，如同基督接納你們一樣。", ref: "《羅馬書》15章7節" }
+    ];
+
+    // Helpers
+    const normalize = (str) => str
+      .replace(/[\s\r\n\t]/g, "")
+      .replace(/[，。、．。？！；：「」『』（）()‧,.;:!?《》]/g, "")
+      .toLowerCase();
+
+    const preferredVoices = ["yue-Hant-HK","yue-HK","zh-HK","zh-TW","zh-CN"];
+    const pickVoice = () => {
+      const voices = speechSynthesis.getVoices();
+      return voices.find(v => preferredVoices.includes(v.lang)) ||
+             voices.find(v => v.lang && v.lang.startsWith("yue")) ||
+             voices.find(v => v.lang && v.lang.startsWith("zh")) || null;
+    };
+
+    const getRate = () => {
+      const r = document.querySelector('input[name="rate-group"]:checked');
+      return r ? Number(r.value) : 1;
+    };
+
+    const speak = (text) => {
+      if (!("speechSynthesis" in window) || !text) return;
+      const u = new SpeechSynthesisUtterance(text);
+      const v = pickVoice();
+      if (v) u.voice = v;
+      u.lang = v ? v.lang : "zh-HK";
+      u.rate = getRate();
+      speechSynthesis.speak(u);
+    };
+
+    const shuffle = (arr) => {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    };
+
+    // Rate selectors
+    const rateOptions = [0.2, 0.3, 0.5, 0.7, 0.9, 1];
+    function renderRate() {
+      const wrap = document.getElementById("rate-group");
+      wrap.innerHTML = "";
+      rateOptions.forEach(r => {
+        const label = document.createElement("label");
+        label.className = "flex items-center gap-1 cursor-pointer";
+        label.innerHTML = `<input type="radio" name="rate-group" value="${r}" class="accent-emerald-600" ${r===1?'checked':''}><span>${r.toFixed(1)}×</span>`;
+        wrap.appendChild(label);
+      });
+    }
+    renderRate();
+
+    // Render verses
+    let currentOrder = shuffle(verses);
+    const container = document.getElementById("verseContainer");
+
+    function renderVerses() {
+      container.innerHTML = "";
+      currentOrder.forEach((item, idx) => {
+        const firstChar = item.text.trim().charAt(0) || "";
+        const card = document.createElement("div");
+        card.className = "bg-slate-100 rounded border border-slate-200 p-3 space-y-2";
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <div class="text-sm font-semibold text-slate-700">第 ${idx + 1} 句</div>
+            <div class="flex items-center gap-3 text-sm flex-wrap">
+              <button data-play-verse="${idx}" class="text-emerald-700 hover:underline">🔊 金句</button>
+              <button data-play-ref="${idx}" class="text-emerald-700 hover:underline">🔊 出處</button>
+              <button data-show-ans="${idx}" class="text-amber-600 hover:underline">👀 答案</button>
+              <button data-toggle-hint="${idx}" class="text-teal-600 hover:underline">💡 提示</button>
+            </div>
+          </div>
+          <textarea rows="2" data-input="${idx}" class="w-full rounded border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring focus:ring-emerald-200" placeholder="請默寫此金句"></textarea>
+          <div class="space-y-1 text-sm">
+            <div class="text-emerald-700 hidden ans-line">${item.text}</div>
+            <div class="text-teal-700 hidden hint-line">提示1（首字）：${firstChar}｜提示2（經文）：${item.ref}</div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+    renderVerses();
+
+    // Events
+    document.addEventListener("click", (e) => {
+      const playVerse = e.target.closest("[data-play-verse]");
+      if (playVerse) {
+        const idx = Number(playVerse.getAttribute("data-play-verse"));
+        const text = currentOrder[idx]?.text || "";
+        speechSynthesis.cancel();
+        speak(text);
+        return;
+      }
+
+      const playRef = e.target.closest("[data-play-ref]");
+      if (playRef) {
+        const idx = Number(playRef.getAttribute("data-play-ref"));
+        const ref = currentOrder[idx]?.ref || "";
+        speechSynthesis.cancel();
+        speak(ref);
+        return;
+      }
+
+      const showAns = e.target.closest("[data-show-ans]");
+      if (showAns) {
+        const idx = Number(showAns.getAttribute("data-show-ans"));
+        const ansEl = container.querySelectorAll(".ans-line")[idx];
+        if (ansEl) ansEl.classList.toggle("hidden");
+        return;
+      }
+
+      const toggleHint = e.target.closest("[data-toggle-hint]");
+      if (toggleHint) {
+        const idx = Number(toggleHint.getAttribute("data-toggle-hint"));
+        const hintEl = container.querySelectorAll(".hint-line")[idx];
+        if (hintEl) hintEl.classList.toggle("hidden");
+        return;
+      }
+    });
+
+    // Control buttons
+    document.getElementById("btnShuffle").onclick = () => {
+      currentOrder = shuffle(verses);
+      renderVerses();
+      document.getElementById("status").textContent = "已重排，尚未批改。";
+    };
+
+    document.getElementById("btnPlayAllVerses").onclick = () => {
+      speechSynthesis.cancel();
+      currentOrder.forEach(v => speak(v.text));
+    };
+
+    document.getElementById("btnPlayAllRefs").onclick = () => {
+      speechSynthesis.cancel();
+      currentOrder.forEach(v => speak(v.ref));
+    };
+
+    document.getElementById("btnStop").onclick = () => speechSynthesis.cancel();
+
+    document.getElementById("btnShowAll").onclick = () => {
+      container.querySelectorAll(".ans-line").forEach(el => el.classList.toggle("hidden"));
+    };
+
+    document.getElementById("btnHintsAll").onclick = () => {
+      container.querySelectorAll(".hint-line").forEach(el => el.classList.toggle("hidden"));
+    };
+
+    document.getElementById("btnReset").onclick = () => {
+      container.querySelectorAll("textarea").forEach(t => {
+        t.value = ""; t.classList.remove("correct","wrong");
+      });
+      container.querySelectorAll(".ans-line, .hint-line").forEach(el => el.classList.add("hidden"));
+      document.getElementById("status").textContent = "尚未批改。";
+    };
+
+    document.getElementById("btnGrade").onclick = () => {
+      let total = 0, correct = 0;
+      currentOrder.forEach((v, idx) => {
+        const field = container.querySelector(`textarea[data-input="${idx}"]`);
+        total++;
+        if (normalize(field.value) === normalize(v.text)) {
+          correct++; field.classList.add("correct"); field.classList.remove("wrong");
+        } else {
+          field.classList.add("wrong"); field.classList.remove("correct");
+        }
+      });
+      document.getElementById("status").textContent = `已批改：${correct} / ${total}。`;
+    };
+
+    // Warm up voices (may require user interaction)
+    if (window.speechSynthesis) {
+      speechSynthesis.getVoices();
+      if (typeof speechSynthesis.onvoiceschanged !== "undefined") {
+        speechSynthesis.onvoiceschanged = () => {};
+      }
+    }
+  </script>
+</body>
+</html>
