@@ -1,0 +1,3424 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4338ca">
+  <title>J.5 English Dictation — Verb Table 3</title>
+
+  <style>
+    :root {
+      --bg: #f3f6fc;
+      --paper: #fff;
+      --ink: #172033;
+      --muted: #58677c;
+      --line: #d9e2ef;
+      --primary: #4338ca;
+      --primary-light: #eef2ff;
+      --blue: #075985;
+      --blue-light: #e0f2fe;
+      --green: #166534;
+      --green-light: #f0fdf4;
+      --red: #b91c1c;
+      --red-light: #fff1f2;
+      --amber: #854d0e;
+      --amber-light: #fffbeb;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      padding-bottom: 105px;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    [hidden] { display: none !important; }
+
+    button, input, textarea, select { font: inherit; }
+
+    button, select, input[type="text"] {
+      min-height: 44px;
+    }
+
+    button {
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: white;
+      color: var(--ink);
+      font-weight: 750;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    button:hover:not(:disabled) {
+      background: #f4f6ff;
+      border-color: #a5b4fc;
+    }
+
+    button:disabled {
+      opacity: .48;
+      cursor: not-allowed;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    summary:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #818cf8;
+      outline-offset: 3px;
+    }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #cbd5e1;
+      border-radius: 9px;
+      background: white;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 85px;
+      resize: vertical;
+    }
+
+    input[type="checkbox"] {
+      width: 19px;
+      height: 19px;
+      accent-color: var(--primary);
+      flex: 0 0 auto;
+    }
+
+    a { color: var(--primary); }
+
+    h1, h2, h3 { line-height: 1.3; }
+
+    h1 {
+      margin: 5px 0 10px;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+    }
+
+    h2 { margin: 0 0 10px; }
+    h3 { margin: 0; font-size: 1.04rem; }
+    p { margin: 8px 0 12px; }
+
+    .width {
+      width: min(1160px, calc(100% - 28px));
+      margin-inline: auto;
+    }
+
+    .hero {
+      padding: 30px 0;
+      color: white;
+      background: linear-gradient(130deg, #312e81, #4f46e5);
+    }
+
+    .hero p { color: #eef2ff; }
+
+    .eyebrow {
+      font-size: .85rem;
+      letter-spacing: .07em;
+      font-weight: 850;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      background: #ffffffed;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav .width {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .nav a {
+      padding: 8px 12px;
+      border-radius: 9px;
+      background: var(--primary-light);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: .92rem;
+    }
+
+    main { padding-top: 22px; }
+
+    .panel {
+      padding: clamp(17px, 3vw, 28px);
+      margin-bottom: 22px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--paper);
+      box-shadow: 0 5px 22px #24315008;
+      scroll-margin-top: 130px;
+    }
+
+    .part-label {
+      color: var(--primary);
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+    }
+
+    .muted, .small { color: var(--muted); }
+    .small { font-size: .86rem; }
+
+    .notice {
+      margin: 14px 0;
+      padding: 12px 15px;
+      border-left: 4px solid #818cf8;
+      border-radius: 9px;
+      background: #f5f6ff;
+    }
+
+    .warning {
+      background: var(--amber-light);
+      border-left-color: #d97706;
+      color: #713f12;
+    }
+
+    .toolbar, .inline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .toolbar { margin: 14px 0; }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+      margin: 14px 0;
+    }
+
+    .audio-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .check-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .91rem;
+      cursor: pointer;
+    }
+
+    .primary {
+      color: white;
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .primary:hover:not(:disabled) {
+      background: #312e81;
+      color: white;
+    }
+
+    .audio {
+      color: var(--blue);
+      background: var(--blue-light);
+      border-color: #bae6fd;
+    }
+
+    .playing {
+      color: white !important;
+      background: var(--blue) !important;
+    }
+
+    .danger {
+      color: #991b1b;
+      background: #fff1f2;
+      border-color: #fecaca;
+    }
+
+    .score {
+      padding: 11px 14px;
+      margin: 12px 0 16px;
+      border-radius: 10px;
+      color: #334155;
+      background: #f1f5f9;
+      font-size: .92rem;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .sentence-grid { grid-template-columns: 1fr; }
+
+    .card {
+      min-width: 0;
+      padding: 17px;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      scroll-margin-top: 140px;
+    }
+
+    .card[data-grade="correct"] { border-color: #79c691; }
+    .card[data-grade="wrong"] { border-color: #e79b9b; }
+
+    .card.listening {
+      outline: 3px solid #38bdf8;
+      outline-offset: 2px;
+      background: #f5fbff;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 850;
+      font-size: .85rem;
+    }
+
+    .clue {
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .field { min-width: 0; }
+
+    .answer[data-result="correct"] {
+      background: var(--green-light);
+      border-color: #43a66d;
+    }
+
+    .answer[data-result="wrong"] {
+      background: var(--red-light);
+      border-color: #dc7777;
+    }
+
+    .answer[data-result="format"],
+    .answer[data-result="empty"] {
+      background: var(--amber-light);
+      border-color: #d5a832;
+    }
+
+    .feedback {
+      min-height: 23px;
+      margin: 4px 0 8px;
+      font-size: .84rem;
+      font-weight: 750;
+    }
+
+    .feedback[data-result="correct"] { color: var(--green); }
+    .feedback[data-result="wrong"] { color: var(--red); }
+
+    .feedback[data-result="format"],
+    .feedback[data-result="empty"] { color: var(--amber); }
+
+    .reference {
+      padding: 13px;
+      margin: 12px 0;
+      border: 1px solid #c4b5fd;
+      border-radius: 10px;
+      background: #f7f4ff;
+      overflow-wrap: anywhere;
+    }
+
+    .reference p { margin: 5px 0; }
+    .reference strong { color: #5b21b6; }
+
+    .review-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 10px;
+      margin-top: 10px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .help-badge {
+      color: var(--amber);
+      font-size: .8rem;
+    }
+
+    details.subpanel {
+      margin-top: 13px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    details[open] > summary { margin-bottom: 13px; }
+
+    .notes-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .not-required {
+      padding: 10px;
+      color: var(--muted);
+      background: #f1f5f9;
+      border-radius: 9px;
+    }
+
+    .empty {
+      padding: 18px;
+      text-align: center;
+      color: var(--muted);
+      background: #f8fafc;
+      border-radius: 10px;
+    }
+
+    .table-wrap {
+      margin: 15px 0;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .87rem;
+    }
+
+    th, td {
+      padding: 11px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+
+    th { background: var(--primary-light); }
+    td { min-width: 120px; }
+
+    .teacher-editor {
+      min-height: 220px;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      line-height: 1.7;
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #eef2f7;
+      overflow-wrap: anywhere;
+    }
+
+    .audio-bar {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 60;
+      border-top: 1px solid #c7d2fe;
+      background: #f8faff;
+      box-shadow: 0 -4px 18px #24315014;
+      padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+    }
+
+    .audio-bar .width {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    #audioStatus {
+      margin: 0;
+      font-size: .88rem;
+    }
+
+    #stopAudio { flex: 0 0 auto; }
+
+    #toast {
+      position: fixed;
+      z-index: 80;
+      left: 50%;
+      bottom: 100px;
+      transform: translateX(-50%);
+      max-width: min(92vw, 700px);
+      padding: 11px 16px;
+      border-radius: 11px;
+      color: white;
+      background: #172033;
+      box-shadow: 0 8px 25px #0002;
+    }
+
+    #toast:empty { display: none; }
+
+    .skip {
+      position: fixed;
+      top: 7px;
+      left: 7px;
+      z-index: 100;
+      padding: 10px;
+      background: white;
+      transform: translateY(-150%);
+    }
+
+    .skip:focus { transform: translateY(0); }
+
+    footer {
+      padding: 5px 10px 25px;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      .settings-grid { grid-template-columns: 1fr 1fr; }
+      .settings-grid > button { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 540px) {
+      .width { width: calc(100% - 18px); }
+      .panel { padding: 17px 12px; }
+      .card { padding: 14px; }
+      .settings-grid, .audio-grid, .field-grid {
+        grid-template-columns: 1fr;
+      }
+      .toolbar > button { flex: 1 1 135px; }
+      .nav a { padding: 7px 9px; font-size: .84rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip">跳到練習</a>
+
+  <header class="hero">
+    <div class="width">
+      <div class="eyebrow">2026/27 · FIRST TERM · J.5</div>
+      <h1>English Dictation Studio</h1>
+      <p>🔊 Listen → ✍️ Type → ✅ Check → ⭐ Practise again</p>
+      <div>Verb Table 3 · Wax Museum · Adjectives · Expressions</div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="練習部份">
+    <div class="width">
+      <a href="#part1">Part 1 動詞</a>
+      <a href="#part2">Part 2 文章</a>
+      <a href="#part3">Part 3 形容詞</a>
+      <a href="#part4">Part 4 詞組</a>
+      <a href="#teacher">老師工作台</a>
+    </div>
+  </nav>
+
+  <main id="main" class="width">
+    <section class="panel" aria-labelledby="settingsTitle">
+      <h2 id="settingsTitle">學生及發音設定</h2>
+
+      <div class="settings-grid">
+        <label>
+          <span class="label">目前學生代號</span>
+          <select id="studentSelect"></select>
+        </label>
+
+        <label>
+          <span class="label">新增學生代號／暱稱</span>
+          <input
+            id="newStudent"
+            type="text"
+            maxlength="60"
+            placeholder="例如：5A-08"
+            autocomplete="off"
+          >
+        </label>
+
+        <button id="addStudent" type="button">＋ 新增／切換</button>
+      </div>
+
+      <p class="small">
+        每個代號分開保存作答及老師記錄。建議使用學號或暱稱，
+        不必輸入全名。這不是登入系統；共用裝置上的人可以切換查看記錄。
+      </p>
+
+      <div class="audio-grid">
+        <label>
+          <span class="label">English voice / 英語聲音</span>
+          <select id="voiceSelect">
+            <option value="">自動選擇英語聲音</option>
+          </select>
+        </label>
+
+        <label>
+          <span class="label">Speed / 語速</span>
+          <select id="speedSelect">
+            <option value="0.2">0.2×</option>
+            <option value="0.3">0.3×</option>
+            <option value="0.5">0.5×</option>
+            <option value="0.6">0.6×</option>
+            <option value="0.8" selected>0.8×</option>
+            <option value="1">1×</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="toolbar">
+        <button id="testVoice" type="button" class="audio">
+          🔊 Test voice
+        </button>
+        <button id="reloadVoices" type="button">重新載入聲音</button>
+      </div>
+
+      <p id="voiceStatus" class="small">正在載入聲音……</p>
+
+      <div class="notice">
+        <strong>連續播放：每項完成後停頓 3 秒。</strong>
+        <div class="small">
+          語速數值會交給語音引擎處理，實際效果依聲音而異。
+          如沒有聲音，請先試聽、換聲音，並確認裝置音量。
+        </div>
+      </div>
+
+      <div class="inline">
+        <label class="check-label">
+          <input id="checkPunctuation" type="checkbox" checked>
+          文章／例句核對標點
+        </label>
+
+        <label class="check-label">
+          <input id="checkCase" type="checkbox" checked>
+          文章／例句核對大小寫
+        </label>
+
+        <label class="check-label">
+          <input id="apostropheHints" type="checkbox" checked>
+          默書時補讀 apostrophe 提示
+        </label>
+      </div>
+
+      <p class="small">
+        直／彎引號視為相同，單／雙對話引號均接受。
+        即使關閉一般標點核對，it's 與 its 仍視為不同。
+        單字及詞組答案不計大小寫。
+      </p>
+
+      <p id="saveStatus" class="small" role="status"></p>
+    </section>
+
+    <section id="part1" class="panel" aria-labelledby="title1">
+      <div class="part-label">PART 1 · VERB TABLE 3</div>
+      <h2 id="title1">Hidden Base Form — Listen &amp; Type</h2>
+
+      <p class="muted">
+        聽隱藏的 base form，輸入基本形及另外三個形式。
+        動詞題目會隨機排列，圖示只作提示。
+      </p>
+
+      <div class="notice">
+        <div><strong>Present continuous：</strong>只填 -ing form。</div>
+        <div><strong>Present perfect：</strong>只填 past participle。</div>
+        <div class="small">
+          如同欄需要兩個形式，兩個都要填。
+          老師設定為「—」的欄位不計分。
+        </div>
+      </div>
+
+      <div id="missingVerbs" class="notice warning" hidden>
+        尚未加入 Verb Table 3 的 8 個動詞。
+        請老師到下方「老師工作台 → 第一部份題庫」設定。
+        本頁沒有把其他動詞表當作 Table 3。
+      </div>
+
+      <div id="tools1"></div>
+      <div id="score1" class="score" role="status"></div>
+      <div id="grid1" class="grid"></div>
+      <p id="empty1" class="empty" hidden></p>
+    </section>
+
+    <section id="part2" class="panel" aria-labelledby="title2">
+      <div class="part-label">PART 2 · PASSAGE DICTATION</div>
+      <h2 id="title2">A Visit to the Wax Museum</h2>
+
+      <p class="muted">
+        29 個短片段，按文章次序排列。
+        每題約 2–9 個英文字詞；只需默寫本題的片段。
+      </p>
+
+      <div class="notice">
+        <strong>請把聽到的標點名稱寫成符號。</strong>
+        <div class="small">
+          例如 comma → ,；full stop → .；question mark → ?；
+          exclamation mark → !。
+          開、關引號亦會讀出。
+          單字內的 apostrophe 會在片段後補讀提示，不把縮寫拆散。
+        </div>
+        <div class="small">
+          「聽上下文」會自然讀出前、本、後三個片段，不讀標點名稱；
+          作答仍只填本題。
+        </div>
+      </div>
+
+      <div id="tools2"></div>
+      <div id="score2" class="score" role="status"></div>
+      <div id="grid2" class="grid sentence-grid"></div>
+      <p id="empty2" class="empty" hidden></p>
+    </section>
+
+    <section id="part3" class="panel" aria-labelledby="title3">
+      <div class="part-label">PART 3 · ADJECTIVES · 14–18</div>
+      <h2 id="title3">Happy Adjectives</h2>
+
+      <p class="muted">
+        主要答案只填一個形容詞。可另外聽完整例句，
+        或展開「選做：例句默書」練習整句。
+      </p>
+
+      <div class="notice">
+        例句加練與主要字詞分開計分。
+        有一題會以簡短短語提供發音語境，仍只需填形容詞。
+      </div>
+
+      <div id="tools3"></div>
+      <div id="score3" class="score" role="status"></div>
+      <div id="grid3" class="grid"></div>
+      <p id="empty3" class="empty" hidden></p>
+    </section>
+
+    <section id="part4" class="panel" aria-labelledby="title4">
+      <div class="part-label">PART 4 · IDIOMS &amp; EXPRESSIONS</div>
+      <h2 id="title4">Idioms and Interesting Expressions</h2>
+
+      <p class="muted">
+        聽詞組、意思及例句。主要答案請填主音檔讀出的基本詞組；
+        例句中的時態變化留在例句加練中處理。
+      </p>
+
+      <div class="notice">
+        括號中的代名詞會自然讀出，不會朗讀括號名稱。
+        「顯示答案」會同時提供詞組、英文意思及例句。
+      </div>
+
+      <div id="tools4"></div>
+      <div id="score4" class="score" role="status"></div>
+      <div id="grid4" class="grid"></div>
+      <p id="empty4" class="empty" hidden></p>
+    </section>
+
+    <details id="teacher" class="panel">
+      <summary>🧑‍🏫 老師工作台：題庫、學習記錄及下次重練</summary>
+
+      <div class="notice warning">
+        這個工作台包含參考答案，並沒有密碼保護。
+        適合作為練習教材，不是防作弊考試系統。
+      </div>
+
+      <details id="verbSetup" class="subpanel">
+        <summary>第一部份題庫：輸入 Verb Table 3 的 8 個動詞</summary>
+
+        <p>
+          每行一個動詞，共 8 行。欄位順序：
+          <strong>基本形 | -ing | 過去式 | 過去分詞 | 圖示</strong>
+        </p>
+
+        <p class="small">
+          可用直線 | 或從試算表貼上的 Tab 分欄。
+          第五欄圖示可省略；程式會嘗試使用相關 emoji。
+          同欄的兩個必填形式用 / 分開；不考的形式填 —。
+        </p>
+
+        <p class="small">
+          以下只是格式示例，<strong>不是 Table 3 題庫</strong>：
+          <code>go | going | went | gone | 🚶</code>
+        </p>
+
+        <label>
+          <span class="label">8 行動詞資料</span>
+          <textarea
+            id="verbEditor"
+            class="teacher-editor"
+            spellcheck="false"
+            placeholder="請依原圖填入 8 行資料，每行 4 或 5 欄。"
+          ></textarea>
+        </label>
+
+        <div class="toolbar">
+          <button id="saveVerbs" type="button" class="primary">
+            儲存 8 個動詞
+          </button>
+          <button id="downloadLesson" type="button">
+            下載已設定題庫的學生版 HTML
+          </button>
+        </div>
+
+        <p id="verbMessage" class="small" role="status"></p>
+
+        <p class="small">
+          學生版 HTML 只內嵌題庫，不內嵌學生代號、答案或老師備註。
+          修改已有題庫時，程式會先詢問是否清除舊的第一部份記錄；
+          其他部份不受影響。
+        </p>
+      </details>
+
+      <h3 style="margin-top:22px">本生的針對性練習</h3>
+
+      <p class="small">
+        非空白錯答會自動標記為待練；空白不算錯答。
+        老師可逐題填寫不熟悉字詞及備註。
+        改對後仍保留待練標記，直到老師手動標記已掌握。
+      </p>
+
+      <div class="toolbar">
+        <button id="reviewOnly" type="button" class="primary">
+          ⭐ 只顯示待重練題目
+        </button>
+        <button id="showEverything" type="button">顯示全部題目</button>
+        <button id="restartReview" type="button">
+          清空待練題目的答案，開始新一輪
+        </button>
+        <button id="refreshReport" type="button">更新記錄表</button>
+      </div>
+
+      <p id="teacherSummary" class="score" tabindex="-1"></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>部份／原題號</th>
+              <th>參考目標</th>
+              <th>待練及不熟字詞</th>
+              <th>過往錯答</th>
+              <th>老師備註</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="reportBody"></tbody>
+        </table>
+      </div>
+
+      <div class="toolbar">
+        <button id="exportCSV" type="button">匯出此生完整 CSV</button>
+        <button id="exportJSON" type="button">備份所有學生 JSON</button>
+        <button id="importJSON" type="button">還原 JSON 備份</button>
+        <button id="deleteStudent" type="button" class="danger">
+          刪除此生資料
+        </button>
+      </div>
+
+      <input
+        id="importFile"
+        type="file"
+        accept=".json,application/json"
+        hidden
+      >
+
+      <p class="small">
+        JSON 還原會取代目前這份教材的學生資料及動詞題庫，不是合併功能。
+        請先備份。CSV 供老師檢視；JSON 才能還原作答及待練狀態。
+      </p>
+    </details>
+
+    <footer class="small">
+      <p>
+        答案及備註由本頁保存在目前瀏覽器，不會由本程式上傳至伺服器。
+        語音可能由裝置或遠端語音服務提供。
+      </p>
+      <p>
+        本機記錄不會自動跨裝置同步。
+        清除瀏覽資料、無痕模式或更換檔案位置可能影響保存；
+        請定期匯出 JSON。
+      </p>
+    </footer>
+
+    <noscript>
+      <div class="panel warning">
+        請啟用 JavaScript，才能使用發音、作答及記錄功能。
+      </div>
+    </noscript>
+  </main>
+
+  <div class="audio-bar">
+    <div class="width">
+      <p id="audioStatus" role="status" aria-live="polite">
+        Ready. 請按聆聽按鈕開始。
+      </p>
+      <button id="stopAudio" type="button" class="danger" disabled>
+        ■ 停止播放
+      </button>
+    </div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!--
+    原圖未提供，因此不預填任何 Table 3 動詞。
+    下載學生版時，程式只會把老師確認的題庫寫入這個資料區。
+  -->
+  <script id="lessonSeed" type="application/json">
+    {"storageId":"j5-table3-wax-v1","verbs":[]}
+  </script>
+
+  <script>
+  "use strict";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    /*
+     * 在建立動態介面前保存乾淨的原始頁面。
+     * 匯出學生版時不會把目前學生資料或動態表格一起匯出。
+     */
+    const ORIGINAL_HTML =
+      "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+    const $ = id => document.getElementById(id);
+    const LESSON_ID = "j5-table3-wax-v1";
+    const SCHEMA_VERSION = 1;
+    const GAP_MS = 3000;
+    const RATES = ["0.2", "0.3", "0.5", "0.6", "0.8", "1"];
+
+    const SEED = JSON.parse($("lessonSeed").textContent);
+    const STORAGE_KEY = "dictation:" + SEED.storageId;
+
+    const speechSupported =
+      "speechSynthesis" in window &&
+      "SpeechSynthesisUtterance" in window;
+
+    const synth = speechSupported ? window.speechSynthesis : null;
+
+    /* =====================================================
+       1. 教學內容
+       ===================================================== */
+
+    const PASSAGE = [
+      ["Julia", "'That's interesting!"],
+      ["Julia", "Where can I find the wax museum?'"],
+      ["Narrator", "asked Julia."],
+      ["Julia's dad", "'It's in the Peak Tower,'"],
+      ["Narrator", "answered Julia's dad."],
+      ["Julia's dad", "'Walk through Peak Road Garden"],
+      ["Julia's dad", "and walk across the road."],
+
+      // 原來的「40」先按疑似行號移除。
+      ["Julia's dad", "The Peak Tower is in front of you."],
+
+      ["Julia's dad", "It takes only a few minutes."],
+      ["Julia's dad", "Let's go!'"],
+      ["Narrator", "They saw a lot of wax figures of"],
+      ["Narrator", "famous people in the museum."],
+      ["Narrator", "Julia's dad liked"],
+      ["Narrator", "Bruce Lee very much."],
+      ["Narrator", "He took a lot of photos with 'him'."],
+      ["Narrator", "Julia loved science and"],
+      ["Narrator", "was very happy to see"],
+      ["Narrator", "her idol Albert Einstein there."],
+      ["Narrator", "Then she held up her camera"],
+      ["Narrator", "and asked the man sitting on the bench,"],
+      ["Julia", "'Excuse me."],
+      ["Julia", "Could you take a photo of"],
+      ["Julia", "me and Albert Einstein, please?'"],
+      ["Narrator", "The man did not respond."],
+      ["Narrator", "A lady came up to her and said,"],
+      ["A lady", "'He's not a real person"],
+      ["A lady", "and can't speak to you."],
+      ["A lady", "Let me help you.'"],
+      ["Narrator", "Julia blushed and wanted to leave at once!"]
+    ];
+
+    const ADJECTIVES = [
+      {
+        number: 14,
+        target: "cheery",
+        icon: "😊",
+        example:
+          "The children always sound cheery when they sing the 'Good morning' song with their teacher."
+      },
+      {
+        number: 15,
+        target: "content",
+        icon: "😌",
+
+        // 用短語提供形容詞語境；學生仍只填 content。
+        spokenTarget: "feel content",
+        contextHint: true,
+
+        example:
+          "Grandma doesn't have a lot but she seems content with her life."
+      },
+      {
+        number: 16,
+        target: "glad",
+        icon: "🙂",
+        example:
+          "I am glad that I have many friends at school."
+      },
+      {
+        number: 17,
+        target: "jubilant",
+        icon: "🏆",
+        meaning: "happy because of a success",
+        example:
+          "Sam's team was jubilant after winning the football match."
+      },
+      {
+        number: 18,
+        target: "proud",
+        icon: "🎓",
+        example:
+          "I am proud to be a student of this school."
+      }
+    ];
+
+    const EXPRESSIONS = [
+      {
+        number: 1,
+        target: "as happy as a clam",
+        icon: "🦪",
+        meaning: "to be very joyful",
+        example:
+          "My dad bought a model plane for me so I am now as happy as a clam."
+      },
+      {
+        number: 2,
+        target: "over the moon",
+        icon: "🌙",
+        meaning: "to be extremely pleased",
+        example:
+          "I found out today that I won the drawing competition. I am over the moon!"
+      },
+      {
+        number: 3,
+        target: "walk on air",
+        icon: "🚶☁️",
+        meaning: "to feel extremely happy",
+        example:
+          "I won the Outstanding Student Award! I am walking on air."
+      },
+      {
+        number: 4,
+        target: "make my day",
+        displayTarget: "make (my) day",
+        icon: "🎁",
+        meaning: "to make someone very happy",
+        example:
+          "My friend gave me a birthday present at recess. It really made my day!"
+      },
+      {
+        number: 5,
+        target: "on cloud nine",
+        icon: "☁️9️⃣",
+        meaning: "to be extremely happy",
+        example:
+          "Dad told me he was on cloud nine the day I was born."
+      },
+      {
+        number: 6,
+        target: "in high spirits",
+        icon: "🎉",
+        meaning: "to feel happy or cheerful",
+        example:
+          "Billy is in high spirits because his test results are excellent."
+      }
+    ];
+
+    const VERB_ICONS = {
+      arrive: "🛬", be: "🧍", become: "🐛🦋", begin: "🏁",
+      bite: "🍎", blow: "🌬️", break: "💔", bring: "🎁",
+      build: "🧱", buy: "🛍️", carry: "📦", catch: "🧤⚾",
+      choose: "👉", come: "🚶", cook: "🍳", cut: "✂️",
+      do: "🛠️", draw: "🎨", drink: "🥛", drive: "🚗",
+      eat: "🍽️", fall: "🍂", feed: "🐥", feel: "💗",
+      fight: "🥊", find: "🔎", fly: "✈️", forget: "💭",
+      get: "📥", give: "🎁", go: "🚶", grow: "🌱",
+      have: "🎒", hear: "👂", help: "🤝", hide: "🫣",
+      hit: "🏏", hold: "🤲", jump: "🦘", keep: "📦",
+      know: "🧠", laugh: "😆", learn: "📚", leave: "🚪",
+      lend: "🤲📘", let: "✅", lie: "🛏️", lose: "🔍",
+      make: "🛠️", meet: "🤝", open: "🚪", pay: "💳",
+      play: "⚽", put: "📥", read: "📖", ride: "🚲",
+      ring: "🔔", rise: "🌅", run: "🏃", say: "💬",
+      see: "👀", sell: "🏷️", send: "📨", shake: "🤝",
+      shine: "☀️", sing: "🎤", sit: "🪑", sleep: "😴",
+      speak: "🗣️", spend: "💰", stand: "🧍", steal: "🥷",
+      swim: "🏊", take: "🤲", teach: "🧑‍🏫", tell: "💬",
+      think: "🤔", throw: "🤾", understand: "💡",
+      wake: "⏰", walk: "🚶", wear: "👕", win: "🏆",
+      write: "✍️"
+    };
+
+    /* =====================================================
+       2. DOM、文字正規化及標點朗讀
+       ===================================================== */
+
+    function element(tag, className = "", text = null) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== null) node.textContent = text;
+      return node;
+    }
+
+    function button(label, action, className = "", isAudio = false) {
+      const node = element("button", className, label);
+      node.type = "button";
+      node.addEventListener("click", action);
+
+      if (isAudio) {
+        node.dataset.audio = "1";
+        node.disabled = !speechSupported;
+      }
+      return node;
+    }
+
+    function tidy(value) {
+      return String(value ?? "")
+        .normalize("NFKC")
+        .replace(/[‘’]/g, "'")
+        .replace(/[“”]/g, '"')
+        .replace(/[‐‑‒–—]/g, "-")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    const IGNORED_PUNCTUATION =
+      new Set(Array.from(".,!?;:'\"()[]{}-/"));
+
+    /*
+     * 把內部 apostrophe 留在字詞中：
+     * it's 是一個 token，its 是另一個。
+     *
+     * 單、雙對話引號正規化為同一種符號。
+     * 不直接移除全部空格，避免把 a lot 與 alot 當作相同。
+     */
+    function answerKey(value, punctuation = false, caseSensitive = false) {
+      let text = tidy(value).replace(/"/g, "'");
+      let tokens =
+        text.match(/[A-Za-z0-9]+(?:'[A-Za-z0-9]+)*|[^\s]/g) || [];
+
+      if (!punctuation) {
+        tokens = tokens.filter(token => !IGNORED_PUNCTUATION.has(token));
+      }
+
+      const result = tokens.join("\u001f");
+      return caseSensitive ? result : result.toLowerCase();
+    }
+
+    /*
+     * 一次處理整篇的引號狀態，避免跨片段的 closing quote
+     * 被錯當作 opening quote。
+     */
+    function punctuationPlans(texts) {
+      let quotationOpen = false;
+
+      const names = {
+        ",": "Comma.",
+        ".": "Full stop.",
+        "?": "Question mark.",
+        "!": "Exclamation mark.",
+        ":": "Colon.",
+        ";": "Semicolon."
+      };
+
+      return texts.map(original => {
+        const text = tidy(original);
+        const speech = [];
+        let buffer = "";
+
+        function flush() {
+          if (buffer.trim()) speech.push(buffer.trim());
+          buffer = "";
+        }
+
+        for (let i = 0; i < text.length; i++) {
+          const ch = text[i];
+
+          const internalApostrophe =
+            ch === "'" &&
+            /[A-Za-z0-9]/.test(text[i - 1] || "") &&
+            /[A-Za-z0-9]/.test(text[i + 1] || "");
+
+          if (internalApostrophe) {
+            buffer += ch;
+          } else if (ch === "'" || ch === '"') {
+            flush();
+            speech.push(
+              quotationOpen
+                ? "Closing quotation mark."
+                : "Opening quotation mark."
+            );
+            quotationOpen = !quotationOpen;
+          } else if (names[ch]) {
+            buffer += ch;
+            flush();
+            speech.push(names[ch]);
+          } else {
+            buffer += ch;
+          }
+        }
+
+        flush();
+
+        const apostrophes = [
+          ...new Set(
+            text.match(/\b[A-Za-z0-9]+(?:'[A-Za-z0-9]+)+\b/g) || []
+          )
+        ];
+
+        return {
+          main: speech.join(" "),
+          apostrophes
+        };
+      });
+    }
+
+    const PASSAGE_PLANS =
+      punctuationPlans(PASSAGE.map(row => row[1]));
+
+    function shuffle(array) {
+      const result = [...array];
+
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+
+      if (
+        result.length > 1 &&
+        result.every((value, index) => value === array[index])
+      ) {
+        result.push(result.shift());
+      }
+
+      return result;
+    }
+
+    function uid() {
+      return "s" + Date.now().toString(36) +
+        Math.random().toString(36).slice(2, 9);
+    }
+
+    function shortText(value, limit = 4000) {
+      return typeof value === "string" ? value.slice(0, limit) : "";
+    }
+
+    function nonNegativeInteger(value) {
+      return Number.isFinite(value)
+        ? Math.max(0, Math.min(100000000, Math.floor(value)))
+        : 0;
+    }
+
+    /* =====================================================
+       3. 資料驗證及本機儲存
+       ===================================================== */
+
+    function cleanVerbs(rows) {
+      if (
+        !Array.isArray(rows) ||
+        (rows.length !== 0 && rows.length !== 8)
+      ) {
+        throw new Error("動詞題庫必須是 8 行，或尚未設定的空題庫。");
+      }
+
+      const seen = new Set();
+
+      return rows.map((row, index) => {
+        if (!row || typeof row !== "object") {
+          throw new Error(`第 ${index + 1} 行資料不完整。`);
+        }
+
+        const base = tidy(row.base).toLowerCase();
+
+        if (!/^[a-z]+$/.test(base)) {
+          throw new Error(`第 ${index + 1} 行的基本形須為一個英文字。`);
+        }
+
+        if (seen.has(base)) {
+          throw new Error(`基本形 ${base} 重複，請核對原表。`);
+        }
+        seen.add(base);
+
+        function form(value, label) {
+          if (value === null) return null;
+
+          const text = tidy(value).toLowerCase();
+
+          if (text === "-") return null;
+
+          if (
+            !text ||
+            text.length > 100 ||
+            !/^[a-z]+(?:[ /-]+[a-z]+)*$/.test(text)
+          ) {
+            throw new Error(
+              `第 ${index + 1} 行的 ${label} 格式不正確。`
+            );
+          }
+          return text;
+        }
+
+        return {
+          base,
+          ing: form(row.ing, "-ing"),
+          past: form(row.past, "過去式"),
+          pp: form(row.pp, "過去分詞"),
+          icon: shortText(row.icon, 40).trim()
+        };
+      });
+    }
+
+    function newFieldState() {
+      return {
+        value: "",
+        result: null,
+        attempts: 0,
+        misses: 0,
+        lastWrong: "",
+        lastChecked: "",
+        signature: ""
+      };
+    }
+
+    function newRecord() {
+      return {
+        review: false,
+        difficult: "",
+        note: "",
+        round: 1,
+        helpThisRound: false,
+        helpCount: 0,
+        fields: Object.create(null)
+      };
+    }
+
+    function newProfile(name = "學生1") {
+      return {
+        id: uid(),
+        name,
+        records: Object.create(null)
+      };
+    }
+
+    function defaultPreferences() {
+      return {
+        rate: "0.8",
+        voice: "",
+        punctuation: true,
+        caseSensitive: true,
+        apostropheHints: true
+      };
+    }
+
+    function defaultState() {
+      const profile = newProfile();
+
+      return {
+        schema: SCHEMA_VERSION,
+        lesson: LESSON_ID,
+        verbs: cleanVerbs(SEED.verbs || []),
+        prefs: defaultPreferences(),
+        active: profile.id,
+        profiles: [profile],
+        updated: ""
+      };
+    }
+
+    /*
+     * JSON 匯入只採用已知欄位。
+     * 不把匯入文字當作 HTML 或 JavaScript 執行。
+     */
+    function validateState(raw) {
+      if (
+        !raw ||
+        raw.schema !== SCHEMA_VERSION ||
+        raw.lesson !== LESSON_ID ||
+        !Array.isArray(raw.profiles) ||
+        raw.profiles.length < 1 ||
+        raw.profiles.length > 500
+      ) {
+        throw new Error("這不是本教材支援的 JSON 備份。");
+      }
+
+      const verbs = cleanVerbs(raw.verbs);
+      const prefs = defaultPreferences();
+      const p = raw.prefs || {};
+
+      if (RATES.includes(String(p.rate))) prefs.rate = String(p.rate);
+      prefs.voice = shortText(p.voice, 500);
+
+      ["punctuation", "caseSensitive", "apostropheHints"].forEach(key => {
+        if (typeof p[key] === "boolean") prefs[key] = p[key];
+      });
+
+      const usedIds = new Set();
+
+      const profiles = raw.profiles.map(source => {
+        if (!source || typeof source !== "object") {
+          throw new Error("備份中的學生資料格式不正確。");
+        }
+
+        const id = shortText(source.id, 80);
+        const name = shortText(source.name, 60).trim();
+
+        if (
+          !/^[A-Za-z0-9_-]+$/.test(id) ||
+          !name ||
+          usedIds.has(id)
+        ) {
+          throw new Error("備份中有無效或重複的學生代號。");
+        }
+
+        usedIds.add(id);
+
+        const profile = {
+          id,
+          name,
+          records: Object.create(null)
+        };
+
+        const recordSource =
+          source.records && typeof source.records === "object"
+            ? source.records
+            : {};
+
+        Object.entries(recordSource).forEach(([itemId, sourceRecord]) => {
+          if (
+            !/^p[1-4]-\d{1,3}$/.test(itemId) ||
+            !sourceRecord ||
+            typeof sourceRecord !== "object"
+          ) return;
+
+          const record = newRecord();
+
+          record.review = sourceRecord.review === true;
+          record.difficult = shortText(sourceRecord.difficult);
+          record.note = shortText(sourceRecord.note);
+          record.round =
+            Math.max(1, nonNegativeInteger(sourceRecord.round));
+          record.helpThisRound = sourceRecord.helpThisRound === true;
+          record.helpCount = nonNegativeInteger(sourceRecord.helpCount);
+
+          ["base", "ing", "past", "pp", "answer", "example"].forEach(key => {
+            const sourceField = sourceRecord.fields?.[key];
+            if (!sourceField || typeof sourceField !== "object") return;
+
+            const field = newFieldState();
+
+            field.value = shortText(sourceField.value);
+            field.result =
+              ["correct", "wrong", "format", "empty"].includes(sourceField.result)
+                ? sourceField.result
+                : null;
+
+            field.attempts = nonNegativeInteger(sourceField.attempts);
+            field.misses = nonNegativeInteger(sourceField.misses);
+            field.lastWrong = shortText(sourceField.lastWrong);
+            field.lastChecked = shortText(sourceField.lastChecked, 80);
+            field.signature = shortText(sourceField.signature, 5000);
+
+            record.fields[key] = field;
+          });
+
+          profile.records[itemId] = record;
+        });
+
+        return profile;
+      });
+
+      return {
+        schema: SCHEMA_VERSION,
+        lesson: LESSON_ID,
+        verbs,
+        prefs,
+        active: usedIds.has(raw.active) ? raw.active : profiles[0].id,
+        profiles,
+        updated: shortText(raw.updated, 80)
+      };
+    }
+
+    let storageAvailable = true;
+    let storageMessage = "";
+    let state;
+
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      state = saved ? validateState(JSON.parse(saved)) : defaultState();
+    } catch (error) {
+      state = defaultState();
+      storageAvailable = false;
+      storageMessage =
+        "無法讀取本機記錄；本次暫存在記憶體。請匯出 JSON 備份。" +
+        "原有儲存資料不會被本頁自動覆蓋。";
+    }
+
+    let saveTimer = null;
+    let toastTimer = null;
+
+    function toast(message) {
+      clearTimeout(toastTimer);
+      $("toast").textContent = message;
+      toastTimer = setTimeout(() => {
+        $("toast").textContent = "";
+      }, 4200);
+    }
+
+    function saveNow() {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+
+      if (!storageAvailable) {
+        $("saveStatus").textContent =
+          "⚠ " + (storageMessage || "本機儲存不可用，請匯出 JSON。");
+        return;
+      }
+
+      state.updated = new Date().toISOString();
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        $("saveStatus").textContent =
+          "✓ 本機已儲存 · " + new Date().toLocaleTimeString();
+      } catch (error) {
+        storageAvailable = false;
+        storageMessage = "儲存失敗；目前資料仍在本頁，請立即匯出 JSON。";
+        $("saveStatus").textContent = "⚠ " + storageMessage;
+      }
+    }
+
+    function scheduleSave() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => {
+        saveNow();
+        if ($("teacher").open) renderReport();
+      }, 350);
+    }
+
+    function currentProfile() {
+      return state.profiles.find(profile => profile.id === state.active);
+    }
+
+    function recordFor(item, profile = currentProfile()) {
+      if (!profile.records[item.id]) {
+        profile.records[item.id] = newRecord();
+      }
+      return profile.records[item.id];
+    }
+
+    function fieldState(item, definition, profile = currentProfile()) {
+      const record = recordFor(item, profile);
+
+      if (!record.fields[definition.key]) {
+        record.fields[definition.key] = newFieldState();
+      }
+
+      return record.fields[definition.key];
+    }
+
+    /* =====================================================
+       4. 建立統一題目資料
+       ===================================================== */
+
+    let items = [];
+    let itemMap = new Map();
+    let orders = {};
+    let views = new Map();
+    let controls = {};
+    const filters = {1: false, 2: false, 3: false, 4: false};
+
+    function buildCatalog() {
+      items = [];
+
+      state.verbs.forEach((verb, index) => {
+        const definitions = [
+          ["base", "Base form / 基本形", verb.base],
+          ["ing", "Present continuous / -ing form", verb.ing],
+          ["past", "Simple past / 過去式", verb.past],
+          ["pp", "Present perfect / Past participle", verb.pp]
+        ];
+
+        items.push({
+          id: `p1-${index + 1}`,
+          part: 1,
+          number: index + 1,
+          label: `Verb ${index + 1}`,
+          target: verb.base,
+          icon: verb.icon || VERB_ICONS[verb.base] || "🔤",
+          fields: definitions.map(([key, label, answer]) => ({
+            key, label, answer,
+            kind: "form",
+            optional: false
+          }))
+        });
+      });
+
+      PASSAGE.forEach(([speaker, text], index) => {
+        items.push({
+          id: `p2-${index + 1}`,
+          part: 2,
+          number: index + 1,
+          label: `Chunk ${String(index + 1).padStart(2, "0")}`,
+          target: text,
+          speaker,
+          plan: PASSAGE_PLANS[index],
+          fields: [{
+            key: "answer",
+            label: "默寫本片段，包括標點",
+            answer: text,
+            kind: "sentence",
+            optional: false
+          }]
+        });
+      });
+
+      ADJECTIVES.forEach(data => {
+        items.push({
+          ...data,
+          id: `p3-${data.number}`,
+          part: 3,
+          label: `Adjective ${data.number}`,
+          examplePlan: punctuationPlans([data.example])[0],
+          fields: [
+            {
+              key: "answer",
+              label: "Adjective / 只填形容詞",
+              answer: data.target,
+              kind: "target",
+              optional: false
+            },
+            {
+              key: "example",
+              label: "選做：默寫完整例句",
+              answer: data.example,
+              kind: "sentence",
+              optional: true
+            }
+          ]
+        });
+      });
+
+      EXPRESSIONS.forEach(data => {
+        items.push({
+          ...data,
+          id: `p4-${data.number}`,
+          part: 4,
+          label: `Expression ${data.number}`,
+          examplePlan: punctuationPlans([data.example])[0],
+          fields: [
+            {
+              key: "answer",
+              label: "Idiom / Expression — 填基本詞組",
+              answer: data.target,
+              kind: "target",
+              optional: false
+            },
+            {
+              key: "example",
+              label: "選做：默寫完整例句",
+              answer: data.example,
+              kind: "sentence",
+              optional: true
+            }
+          ]
+        });
+      });
+
+      itemMap = new Map(items.map(item => [item.id, item]));
+
+      [1, 2, 3, 4].forEach(part => {
+        orders[part] = items
+          .filter(item => item.part === part)
+          .map(item => item.id);
+      });
+
+      orders[1] = shuffle(orders[1]);
+    }
+
+    /* =====================================================
+       5. 發音：統一語速、停止、項目間 3 秒
+       ===================================================== */
+
+    let voices = [];
+    let playbackToken = 0;
+    let gapTimer = null;
+    let activeUtterance = null;
+    let activeButton = null;
+    let activeCard = null;
+
+    function populateVoices() {
+      if (!speechSupported) {
+        $("voiceSelect").disabled = true;
+        $("speedSelect").disabled = true;
+        $("testVoice").disabled = true;
+        $("reloadVoices").disabled = true;
+        $("voiceStatus").textContent =
+          "此瀏覽器未提供語音合成功能；輸入、核對及記錄仍可使用。";
+        return;
+      }
+
+      voices = synth.getVoices()
+        .filter(voice => /^en(?:[-_]|$)/i.test(voice.lang))
+        .sort((a, b) =>
+          a.lang.localeCompare(b.lang) || a.name.localeCompare(b.name)
+        );
+
+      const select = $("voiceSelect");
+      select.replaceChildren();
+
+      const automatic = element("option", "", "自動選擇英語聲音");
+      automatic.value = "";
+      select.append(automatic);
+
+      voices.forEach(voice => {
+        const option = element(
+          "option",
+          "",
+          `${voice.name} · ${voice.lang} · ${
+            voice.localService ? "本機" : "遠端"
+          }`
+        );
+        option.value = voice.voiceURI;
+        select.append(option);
+      });
+
+      select.value =
+        voices.some(voice => voice.voiceURI === state.prefs.voice)
+          ? state.prefs.voice
+          : "";
+
+      $("voiceStatus").textContent = voices.length
+        ? `已找到 ${voices.length} 個英語聲音。請先按 Test voice。`
+        : "尚未列出英語聲音，將使用自動模式；可稍後重新載入。";
+    }
+
+    function selectedVoice() {
+      return voices.find(voice => voice.voiceURI === state.prefs.voice) ||
+        voices.find(voice =>
+          /^en[-_]GB$/i.test(voice.lang) && voice.localService
+        ) ||
+        voices.find(voice => /^en[-_]GB$/i.test(voice.lang)) ||
+        voices.find(voice => voice.default) ||
+        voices[0] ||
+        null;
+    }
+
+    function stopAudio(message = "播放已停止。") {
+      playbackToken++;
+      clearTimeout(gapTimer);
+      gapTimer = null;
+
+      if (synth) synth.cancel();
+
+      if (activeButton) {
+        activeButton.classList.remove("playing");
+        activeButton.removeAttribute("aria-busy");
+      }
+
+      if (activeCard) activeCard.classList.remove("listening");
+
+      activeButton = null;
+      activeCard = null;
+      activeUtterance = null;
+      $("stopAudio").disabled = true;
+
+      if (message) $("audioStatus").textContent = message;
+    }
+
+    function withPunctuation(plan) {
+      let text = plan.main;
+
+      if (state.prefs.apostropheHints && plan.apostrophes.length) {
+        text += " " + plan.apostrophes.map(word =>
+          `Apostrophe in the word ${word}.`
+        ).join(" ");
+      }
+
+      return text;
+    }
+
+    function audioJob(item, kind = "target") {
+      let text;
+
+      if (kind === "example") {
+        text = item.example;
+      } else if (kind === "exampleDictation") {
+        text = withPunctuation(item.examplePlan);
+      } else if (kind === "meaning") {
+        text = item.meaning;
+      } else if (kind === "natural") {
+        text = item.target;
+      } else if (item.part === 2) {
+        text = withPunctuation(item.plan);
+      } else {
+        text = item.spokenTarget || item.target;
+      }
+
+      return {
+        text,
+        itemId: item.id,
+        label: `Part ${item.part} · ${item.label}`
+      };
+    }
+
+    function playJobs(jobs, trigger) {
+      if (!speechSupported) {
+        toast("此瀏覽器沒有可用的語音合成功能。");
+        return;
+      }
+
+      jobs = jobs.filter(job => job && job.text);
+      if (!jobs.length) return;
+
+      stopAudio("");
+
+      const token = playbackToken;
+      const voice = selectedVoice();
+      const rate = Number(state.prefs.rate);
+      let index = 0;
+
+      activeButton = trigger || null;
+
+      if (activeButton) {
+        activeButton.classList.add("playing");
+        activeButton.setAttribute("aria-busy", "true");
+      }
+
+      $("stopAudio").disabled = false;
+
+      function speakNext() {
+        if (token !== playbackToken) return;
+
+        if (activeCard) activeCard.classList.remove("listening");
+
+        const job = jobs[index];
+        activeCard = job.itemId
+          ? views.get(job.itemId)?.node || null
+          : null;
+
+        if (activeCard) activeCard.classList.add("listening");
+
+        const utterance = new SpeechSynthesisUtterance(job.text);
+        utterance.lang = voice ? voice.lang : "en-GB";
+        if (voice) utterance.voice = voice;
+
+        utterance.rate = rate;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        // 保留參照，直到該 utterance 完成或停止。
+        activeUtterance = utterance;
+
+        $("audioStatus").textContent =
+          `${job.label} · ${index + 1}/${jobs.length} · 正在播放`;
+
+        utterance.onend = () => {
+          if (token !== playbackToken) return;
+
+          activeUtterance = null;
+
+          if (index === jobs.length - 1) {
+            stopAudio("✓ 播放完畢。");
+            return;
+          }
+
+          $("audioStatus").textContent =
+            `${job.label} 已完成。停頓 3 秒，可輸入答案……`;
+
+          /*
+           * 由「目前項目真正讀完」開始計算。
+           * 不是在開始發音時預先排定下一題。
+           */
+          gapTimer = setTimeout(() => {
+            if (token !== playbackToken) return;
+            index++;
+            speakNext();
+          }, GAP_MS);
+        };
+
+        utterance.onerror = event => {
+          if (token !== playbackToken) return;
+
+          stopAudio(
+            "未能播放，請試聽或換另一個聲音。錯誤：" +
+            (event.error || "unknown")
+          );
+        };
+
+        try {
+          if (synth.paused) synth.resume();
+          synth.speak(utterance);
+        } catch (error) {
+          stopAudio("未能啟動發音，請重新載入聲音後再試。");
+        }
+      }
+
+      // 第一項直接由使用者點擊事件啟動。
+      speakNext();
+    }
+
+    function playContext(item, trigger) {
+      const passageItems = items.filter(candidate => candidate.part === 2);
+      const position = passageItems.findIndex(candidate => candidate.id === item.id);
+      const neighbours = passageItems.slice(
+        Math.max(0, position - 1),
+        Math.min(passageItems.length, position + 2)
+      );
+
+      playJobs(
+        neighbours.map(candidate => audioJob(candidate, "natural")),
+        trigger
+      );
+    }
+
+    /* =====================================================
+       6. 核對規則及歷史記錄
+       ===================================================== */
+
+    function formMatches(value, expected) {
+      if (!expected.includes("/")) {
+        return answerKey(value) === answerKey(expected);
+      }
+
+      // / 表示兩個形式都要填；接受 was/were、was and were 等。
+      function parts(text) {
+        return answerKey(
+          tidy(text)
+            .replace(/\b(?:and|or)\b/gi, " ")
+            .replace(/\//g, " ")
+        ).split("\u001f").filter(Boolean).sort().join("\u001f");
+      }
+
+      return parts(value) === parts(expected);
+    }
+
+    function evaluate(definition, value) {
+      if (!tidy(value)) return "empty";
+
+      if (definition.kind === "form") {
+        return formMatches(value, definition.answer)
+          ? "correct"
+          : "wrong";
+      }
+
+      if (definition.kind === "sentence") {
+        const exact =
+          answerKey(
+            value,
+            state.prefs.punctuation,
+            state.prefs.caseSensitive
+          ) ===
+          answerKey(
+            definition.answer,
+            state.prefs.punctuation,
+            state.prefs.caseSensitive
+          );
+
+        if (exact) return "correct";
+
+        if (answerKey(value) === answerKey(definition.answer)) {
+          return "format";
+        }
+
+        return "wrong";
+      }
+
+      return answerKey(value) === answerKey(definition.answer)
+        ? "correct"
+        : "wrong";
+    }
+
+    const FEEDBACK = {
+      correct: "✓ 正確！",
+      wrong: "✗ 字詞尚未完全相符，請再聽一次。",
+      format: "△ 字詞正確，請檢查標點或大小寫。",
+      empty: "○ 請先輸入答案。"
+    };
+
+    function assessField(item, definition) {
+      const record = recordFor(item);
+      const saved = fieldState(item, definition);
+      const result = evaluate(definition, saved.value);
+
+      saved.result = result;
+
+      // 空白只作提示，不記成一次錯答。
+      if (result === "empty") return;
+
+      const signature = [
+        record.round,
+        state.prefs.punctuation,
+        state.prefs.caseSensitive,
+        tidy(saved.value)
+      ].join("\u001e");
+
+      /*
+       * 同一輪、同一答案、同一核對設定連按 Check，
+       * 不會重複增加嘗試次數。
+       */
+      if (saved.signature !== signature) {
+        saved.attempts++;
+        saved.lastChecked = new Date().toISOString();
+        saved.signature = signature;
+
+        if (result !== "correct") {
+          saved.misses++;
+          saved.lastWrong = saved.value;
+        }
+      }
+
+      if (result !== "correct") record.review = true;
+    }
+
+    function checkItem(item, onlyField = null, silent = false) {
+      item.fields.forEach(definition => {
+        if (definition.answer === null) return;
+        if (onlyField && definition.key !== onlyField) return;
+
+        const saved = fieldState(item, definition);
+
+        if (!onlyField && definition.optional && !tidy(saved.value)) {
+          return;
+        }
+
+        assessField(item, definition);
+      });
+
+      const view = views.get(item.id);
+      if (view) paintView(view);
+
+      if (!silent) {
+        refreshMeta();
+        scheduleSave();
+        toast(`${item.label} 已核對。錯答會保留在待練清單。`);
+      }
+    }
+
+    function checkPart(part) {
+      visibleViews(part).forEach(view => {
+        checkItem(view.item, null, true);
+      });
+
+      refreshMeta();
+      scheduleSave();
+      toast(`Part ${part} 目前顯示的題目已核對。`);
+    }
+
+    /* =====================================================
+       7. 題目介面
+       ===================================================== */
+
+    function makeField(item, definition, view) {
+      const wrapper = element("div", "field");
+      const label = element("label", "label", definition.label);
+      const id = `${item.id}-${definition.key}`;
+      label.htmlFor = id;
+      wrapper.append(label);
+
+      if (definition.answer === null) {
+        wrapper.append(element("div", "not-required", "— 本欄不計分"));
+        return wrapper;
+      }
+
+      const saved = fieldState(item, definition);
+      const isSentence = definition.kind === "sentence";
+
+      const input = element(
+        isSentence ? "textarea" : "input",
+        "answer"
+      );
+
+      if (!isSentence) input.type = "text";
+      else input.rows = 2;
+
+      input.id = id;
+      input.lang = "en";
+      input.value = saved.value;
+      input.maxLength = 4000;
+      input.spellcheck = false;
+      input.autocomplete = "off";
+      input.setAttribute("autocorrect", "off");
+      input.setAttribute("autocapitalize", "none");
+      input.placeholder = isSentence
+        ? "Type the words and punctuation you hear…"
+        : "Type your answer…";
+
+      const feedback = element("p", "feedback");
+      feedback.id = id + "-feedback";
+      input.setAttribute("aria-describedby", feedback.id);
+
+      input.addEventListener("input", () => {
+        const current = fieldState(item, definition);
+        current.value = input.value;
+        current.result = null;
+
+        paintView(view);
+        updateScore(item.part);
+        scheduleSave();
+      });
+
+      input.addEventListener("keydown", event => {
+        if (event.isComposing || event.key !== "Enter") return;
+        if (isSentence && !event.ctrlKey && !event.metaKey) return;
+
+        event.preventDefault();
+
+        checkItem(
+          item,
+          definition.optional ? definition.key : null
+        );
+      });
+
+      view.fields.set(definition.key, {input, feedback, definition});
+      wrapper.append(input, feedback);
+
+      return wrapper;
+    }
+
+    function makeCard(item) {
+      const record = recordFor(item);
+
+      const view = {
+        item,
+        node: element("article", "card"),
+        fields: new Map(),
+        reference: null,
+        showButton: null,
+        review: null,
+        helpBadge: null
+      };
+
+      view.node.id = "card-" + item.id;
+
+      const head = element("div", "card-head");
+      const title = element("div", "card-title");
+
+      title.append(element("span", "badge", item.label));
+
+      if (item.icon) {
+        const icon = element("span", "clue", item.icon);
+        icon.setAttribute("aria-hidden", "true");
+        title.append(icon);
+      }
+
+      if (item.speaker) {
+        title.append(element("span", "small", item.speaker));
+      }
+
+      head.append(title);
+      view.node.append(head);
+
+      if (item.part === 2) {
+        const count =
+          (item.target.match(/[A-Za-z]+(?:'[A-Za-z]+)*/g) || []).length;
+
+        view.node.append(
+          element("p", "small", `${count} words · 只填本片段`)
+        );
+      }
+
+      const listening = element("div", "toolbar");
+
+      let mainLabel = "🔊 聽詞組";
+      if (item.part === 1) mainLabel = "🔊 聽 Base form";
+      if (item.part === 2) mainLabel = "🔊 聽默書＋標點";
+      if (item.part === 3) {
+        mainLabel = item.contextHint
+          ? "🔊 聽單字（短語語境）"
+          : "🔊 聽形容詞";
+      }
+
+      listening.append(button(
+        mainLabel,
+        event => playJobs([audioJob(item)], event.currentTarget),
+        "audio",
+        true
+      ));
+
+      if (item.part === 2) {
+        listening.append(button(
+          "🔊 聽上下文",
+          event => playContext(item, event.currentTarget),
+          "audio",
+          true
+        ));
+      }
+
+      if (item.example) {
+        listening.append(button(
+          "🔊 聽自然例句",
+          event => playJobs(
+            [audioJob(item, "example")],
+            event.currentTarget
+          ),
+          "audio",
+          true
+        ));
+      }
+
+      if (item.meaning) {
+        listening.append(button(
+          "🔊 聽英文意思",
+          event => playJobs(
+            [audioJob(item, "meaning")],
+            event.currentTarget
+          ),
+          "audio",
+          true
+        ));
+      }
+
+      view.node.append(listening);
+
+      const mainFields = element(
+        "div",
+        item.part === 1 ? "field-grid" : ""
+      );
+
+      item.fields.filter(definition => !definition.optional)
+        .forEach(definition => {
+          mainFields.append(makeField(item, definition, view));
+        });
+
+      view.node.append(mainFields);
+
+      item.fields.filter(definition => definition.optional)
+        .forEach(definition => {
+          const optional = element("details", "subpanel");
+          optional.append(
+            element("summary", "", "選做：例句默書（與主答案分開計分）")
+          );
+
+          const extraAudio = button(
+            "🔊 例句默書＋標點",
+            event => playJobs(
+              [audioJob(item, "exampleDictation")],
+              event.currentTarget
+            ),
+            "audio",
+            true
+          );
+
+          optional.append(
+            extraAudio,
+            makeField(item, definition, view),
+            button(
+              "核對這個例句",
+              () => checkItem(item, definition.key)
+            )
+          );
+
+          view.node.append(optional);
+        });
+
+      const actions = element("div", "toolbar");
+
+      actions.append(button(
+        "✓ 核對本題",
+        () => checkItem(item),
+        "primary"
+      ));
+
+      view.showButton = button(
+        "👁 顯示答案",
+        () => {
+          setReference(view, view.reference.hidden);
+          refreshMeta();
+          scheduleSave();
+        }
+      );
+
+      view.showButton.setAttribute("aria-expanded", "false");
+      view.showButton.setAttribute("aria-controls", item.id + "-reference");
+
+      actions.append(view.showButton);
+      view.node.append(actions);
+
+      view.reference = element("div", "reference");
+      view.reference.id = item.id + "-reference";
+      view.reference.hidden = true;
+
+      view.reference.append(
+        element("strong", "", "參考答案 / Reference")
+      );
+
+      if (item.part === 1) {
+        item.fields.forEach(definition => {
+          const line = element(
+            "p",
+            "",
+            `${definition.label}: ${definition.answer ?? "—"}`
+          );
+          view.reference.append(line);
+        });
+      } else {
+        const answer = element(
+          "p",
+          "",
+          item.displayTarget || item.target
+        );
+        answer.lang = "en";
+        view.reference.append(answer);
+
+        if (item.displayTarget && item.displayTarget !== item.target) {
+          view.reference.append(
+            element("p", "small", "本練習主答案：" + item.target)
+          );
+        }
+
+        if (item.meaning) {
+          const meaning = element("p", "", "Meaning: " + item.meaning);
+          meaning.lang = "en";
+          view.reference.append(meaning);
+        }
+
+        if (item.example) {
+          const example = element("p", "", "Example: " + item.example);
+          example.lang = "en";
+          view.reference.append(example);
+        }
+      }
+
+      view.node.append(view.reference);
+
+      const reviewLine = element("div", "review-line");
+      const reviewLabel = element("label", "check-label");
+      view.review = element("input");
+      view.review.type = "checkbox";
+      view.review.checked = record.review;
+
+      reviewLabel.append(
+        view.review,
+        element("span", "", "⭐ 下次重練")
+      );
+
+      view.helpBadge = element("span", "help-badge");
+
+      reviewLine.append(reviewLabel, view.helpBadge);
+      view.node.append(reviewLine);
+
+      view.review.addEventListener("change", () => {
+        recordFor(item).review = view.review.checked;
+
+        applyFilter(item.part);
+
+        if (view.node.hidden) {
+          controls[item.part].filter.focus();
+        }
+
+        refreshMeta();
+        scheduleSave();
+      });
+
+      const notes = element("details", "subpanel");
+      notes.append(
+        element("summary", "", "記錄不熟悉字詞／老師備註")
+      );
+
+      const notesGrid = element("div", "notes-grid");
+
+      function noteField(labelText, key, placeholder) {
+        const label = element("label");
+        label.append(element("span", "label", labelText));
+
+        const input = element("textarea");
+        input.rows = 2;
+        input.maxLength = 4000;
+        input.value = record[key];
+        input.placeholder = placeholder;
+
+        input.addEventListener("input", () => {
+          const current = recordFor(item);
+          current[key] = input.value;
+
+          if (key === "difficult" && input.value.trim()) {
+            current.review = true;
+            view.review.checked = true;
+          }
+
+          updateScore(item.part);
+          scheduleSave();
+        });
+
+        label.append(input);
+        return label;
+      }
+
+      notesGrid.append(
+        noteField(
+          "不熟悉的字／詞／句（每行一項）",
+          "difficult",
+          "請老師或學生逐項記錄，例如不熟悉的單字、詞組或句子。"
+        ),
+        noteField(
+          "老師觀察／下次練習目標",
+          "note",
+          "例如：分不清過去式和過去分詞；遺漏 apostrophe。"
+        )
+      );
+
+      notes.append(notesGrid);
+      view.node.append(notes);
+
+      paintView(view);
+      return view;
+    }
+
+    function paintView(view) {
+      const record = recordFor(view.item);
+
+      view.fields.forEach(({input, feedback, definition}) => {
+        const saved = fieldState(view.item, definition);
+
+        if (input.value !== saved.value) input.value = saved.value;
+
+        if (saved.result) {
+          input.dataset.result = saved.result;
+          feedback.dataset.result = saved.result;
+          feedback.textContent = FEEDBACK[saved.result];
+        } else {
+          delete input.dataset.result;
+          delete feedback.dataset.result;
+          feedback.textContent = "";
+        }
+
+        if (saved.result === "wrong" || saved.result === "format") {
+          input.setAttribute("aria-invalid", "true");
+        } else {
+          input.removeAttribute("aria-invalid");
+        }
+      });
+
+      const required = view.item.fields.filter(
+        definition => !definition.optional && definition.answer !== null
+      );
+
+      const results = required.map(
+        definition => fieldState(view.item, definition).result
+      );
+
+      delete view.node.dataset.grade;
+
+      if (results.length && results.every(result => result === "correct")) {
+        view.node.dataset.grade = "correct";
+      } else if (results.some(result => result === "wrong" || result === "format")) {
+        view.node.dataset.grade = "wrong";
+      }
+
+      if (view.review) view.review.checked = record.review;
+
+      if (view.helpBadge) {
+        view.helpBadge.textContent =
+          record.helpThisRound ? "本輪曾顯示答案" : "";
+      }
+    }
+
+    function setReference(view, visible) {
+      view.reference.hidden = !visible;
+      view.showButton.textContent =
+        visible ? "🙈 隱藏答案" : "👁 顯示答案";
+      view.showButton.setAttribute("aria-expanded", String(visible));
+
+      if (visible) {
+        const record = recordFor(view.item);
+
+        if (!record.helpThisRound) {
+          record.helpThisRound = true;
+          record.helpCount++;
+        }
+      }
+
+      paintView(view);
+    }
+
+    function visibleViews(part) {
+      return orders[part]
+        .map(id => views.get(id))
+        .filter(view => view && !view.node.hidden);
+    }
+
+    function makeControls(part) {
+      const container = $("tools" + part);
+      container.replaceChildren();
+
+      const bar = element("div", "toolbar");
+      const actionButtons = [];
+
+      function add(label, action, className = "", audio = false) {
+        const node = button(label, action, className, audio);
+        actionButtons.push(node);
+        bar.append(node);
+        return node;
+      }
+
+      const playLabels = {
+        1: "▶ 全部基本形",
+        2: "▶ 全部片段＋標點",
+        3: "▶ 全部形容詞",
+        4: "▶ 全部詞組"
+      };
+
+      add(
+        playLabels[part],
+        event => playJobs(
+          visibleViews(part).map(view => audioJob(view.item)),
+          event.currentTarget
+        ),
+        "audio",
+        true
+      );
+
+      if (part === 3 || part === 4) {
+        add(
+          "▶ 全部自然例句",
+          event => playJobs(
+            visibleViews(part).map(view => audioJob(view.item, "example")),
+            event.currentTarget
+          ),
+          "audio",
+          true
+        );
+      }
+
+      if (part === 1) {
+        add("🔀 隨機排序", () => {
+          stopAudio("");
+          orders[1] = shuffle(orders[1]);
+
+          $("grid1").replaceChildren(
+            ...orders[1].map(id => views.get(id).node)
+          );
+
+          toast("動詞已重新排序；作答及記錄保留。");
+        });
+      }
+
+      add("✓ 核對目前題目", () => checkPart(part), "primary");
+
+      const show = add("顯示目前答案", () => {
+        const visible = visibleViews(part);
+        const shouldShow = visible.some(view => view.reference.hidden);
+
+        visible.forEach(view => setReference(view, shouldShow));
+
+        refreshMeta();
+        scheduleSave();
+      });
+
+      add("重做目前題目", () => resetVisiblePart(part));
+
+      const filterLabel = element("label", "check-label");
+      const filter = element("input");
+      filter.type = "checkbox";
+      filter.checked = filters[part];
+
+      filter.addEventListener("change", () => {
+        stopAudio("");
+        filters[part] = filter.checked;
+        applyFilter(part);
+      });
+
+      filterLabel.append(
+        filter,
+        element("span", "", "只顯示待重練題目")
+      );
+
+      container.append(bar, filterLabel);
+
+      controls[part] = {
+        buttons: actionButtons,
+        filter,
+        show
+      };
+    }
+
+    function applyFilter(part) {
+      orders[part].forEach(id => {
+        const view = views.get(id);
+        view.node.hidden =
+          filters[part] && !recordFor(view.item).review;
+      });
+
+      const visible = visibleViews(part);
+      const empty = $("empty" + part);
+
+      empty.hidden = visible.length > 0;
+      empty.textContent =
+        part === 1 && !orders[1].length
+          ? "等待老師加入 8 個動詞。"
+          : "目前沒有待重練題目。取消篩選可顯示全部。";
+
+      controls[part].buttons.forEach(node => {
+        node.disabled =
+          visible.length === 0 ||
+          (node.dataset.audio === "1" && !speechSupported);
+      });
+
+      updateScore(part);
+    }
+
+    function updateScore(part) {
+      const visible = visibleViews(part);
+      let total = 0;
+      let correct = 0;
+      let checked = 0;
+      let extraTotal = 0;
+      let extraCorrect = 0;
+
+      visible.forEach(view => {
+        view.item.fields.forEach(definition => {
+          if (definition.answer === null) return;
+
+          const result = fieldState(view.item, definition).result;
+
+          if (definition.optional) {
+            extraTotal++;
+            if (result === "correct") extraCorrect++;
+          } else {
+            total++;
+            if (result === "correct") correct++;
+            if (["correct", "wrong", "format"].includes(result)) checked++;
+          }
+        });
+      });
+
+      const marked = orders[part].filter(
+        id => recordFor(itemMap.get(id)).review
+      ).length;
+
+      $("score" + part).textContent =
+        `顯示 ${visible.length} 題 · 必做正確 ${correct}/${total}` +
+        ` · 已核對 ${checked}/${total}` +
+        (extraTotal
+          ? ` · 選做例句 ${extraCorrect}/${extraTotal}（不計主分）`
+          : "") +
+        ` · 本部份待練 ${marked} 題`;
+
+      if (controls[part]) {
+        const allShown =
+          visible.length > 0 &&
+          visible.every(view => !view.reference.hidden);
+
+        controls[part].show.textContent =
+          allShown ? "隱藏目前答案" : "顯示目前答案";
+      }
+    }
+
+    function refreshMeta() {
+      [1, 2, 3, 4].forEach(updateScore);
+      if ($("teacher").open) renderReport();
+    }
+
+    function renderProfile() {
+      views = new Map();
+      controls = {};
+
+      [1, 2, 3, 4].forEach(part => {
+        makeControls(part);
+        const grid = $("grid" + part);
+        grid.replaceChildren();
+
+        orders[part].forEach(id => {
+          const view = makeCard(itemMap.get(id));
+          views.set(id, view);
+          grid.append(view.node);
+        });
+      });
+
+      $("missingVerbs").hidden = state.verbs.length === 8;
+
+      [1, 2, 3, 4].forEach(applyFilter);
+      renderStudents();
+      renderReport();
+    }
+
+    /* =====================================================
+       8. 重做：清空本輪，保留歷史及老師記錄
+       ===================================================== */
+
+    function clearRound(item) {
+      const record = recordFor(item);
+      record.round++;
+      record.helpThisRound = false;
+
+      item.fields.forEach(definition => {
+        if (definition.answer === null) return;
+
+        const saved = fieldState(item, definition);
+        saved.value = "";
+        saved.result = null;
+        saved.signature = "";
+
+        // attempts、misses、lastWrong、lastChecked 保留。
+      });
+
+      const view = views.get(item.id);
+
+      if (view) {
+        setReference(view, false);
+        paintView(view);
+      }
+    }
+
+    function resetVisiblePart(part) {
+      const selected = visibleViews(part);
+      if (!selected.length) return;
+
+      if (!confirm(
+        `清空 Part ${part} 目前顯示的 ${selected.length} 題答案？\n` +
+        "過往錯答、待練標記及老師備註會保留。"
+      )) return;
+
+      stopAudio("");
+      selected.forEach(view => clearRound(view.item));
+      refreshMeta();
+      saveNow();
+      toast("已開始新一輪；老師記錄及錯答歷史保留。");
+    }
+
+    function setAllFilters(enabled) {
+      stopAudio("");
+
+      [1, 2, 3, 4].forEach(part => {
+        filters[part] = enabled;
+        controls[part].filter.checked = enabled;
+        applyFilter(part);
+      });
+    }
+
+    function restartMarked() {
+      const marked = items.filter(item => recordFor(item).review);
+
+      if (!marked.length) {
+        toast("目前沒有待重練題目。");
+        return;
+      }
+
+      if (!confirm(
+        `清空 ${marked.length} 題待練題目的答案，開始新一輪？\n` +
+        "待練標記、不熟悉字詞、老師備註及過往錯答會保留。"
+      )) return;
+
+      stopAudio("");
+      marked.forEach(clearRound);
+      setAllFilters(true);
+      refreshMeta();
+      saveNow();
+
+      const first = views.get(marked[0].id);
+      first.node.scrollIntoView({block: "start"});
+      toast("已準備好本生的針對性練習。");
+    }
+
+    /* =====================================================
+       9. 學生管理及老師報告
+       ===================================================== */
+
+    function renderStudents() {
+      const select = $("studentSelect");
+      select.replaceChildren();
+
+      state.profiles.forEach(profile => {
+        const option = element("option", "", profile.name);
+        option.value = profile.id;
+        select.append(option);
+      });
+
+      select.value = state.active;
+    }
+
+    function switchStudent(id) {
+      if (!state.profiles.some(profile => profile.id === id)) return;
+
+      stopAudio("");
+      saveNow();
+      state.active = id;
+
+      [1, 2, 3, 4].forEach(part => filters[part] = false);
+
+      renderProfile();
+      saveNow();
+      toast("已切換至：" + currentProfile().name);
+    }
+
+    function addStudent() {
+      const name = $("newStudent").value.trim();
+
+      if (!name) {
+        toast("請先輸入學生代號或暱稱。");
+        $("newStudent").focus();
+        return;
+      }
+
+      const existing = state.profiles.find(
+        profile => profile.name.toLowerCase() === name.toLowerCase()
+      );
+
+      if (existing) {
+        switchStudent(existing.id);
+      } else {
+        if (state.profiles.length >= 500) {
+          toast("本份備份最多容納 500 個學生代號。");
+          return;
+        }
+
+        const profile = newProfile(name);
+        state.profiles.push(profile);
+        switchStudent(profile.id);
+      }
+
+      $("newStudent").value = "";
+    }
+
+    function itemHasWork(item, profile) {
+      const record = recordFor(item, profile);
+
+      return record.review ||
+        !!record.difficult.trim() ||
+        !!record.note.trim() ||
+        record.helpCount > 0 ||
+        item.fields.some(definition => {
+          if (definition.answer === null) return false;
+          const saved = fieldState(item, definition, profile);
+          return !!saved.value.trim() || saved.attempts > 0;
+        });
+    }
+
+    function jumpToItem(item) {
+      filters[item.part] = false;
+      controls[item.part].filter.checked = false;
+      applyFilter(item.part);
+
+      const view = views.get(item.id);
+      view.node.scrollIntoView({block: "start"});
+
+      const firstInput = [...view.fields.values()][0]?.input;
+      if (firstInput) firstInput.focus({preventScroll: true});
+    }
+
+    function renderReport() {
+      const profile = currentProfile();
+      const marked = items.filter(item => recordFor(item, profile).review);
+
+      $("teacherSummary").textContent =
+        `學生：${profile.name} · 待重練 ${marked.length} 題` +
+        " · 以下列出已有作答、標記或備註的題目";
+
+      const body = $("reportBody");
+      body.replaceChildren();
+
+      const recorded = items.filter(item => itemHasWork(item, profile));
+
+      if (!recorded.length) {
+        const row = element("tr");
+        const cell = element("td", "", "尚未有學習記錄。");
+        cell.colSpan = 6;
+        row.append(cell);
+        body.append(row);
+        return;
+      }
+
+      recorded.forEach(item => {
+        const record = recordFor(item, profile);
+        const row = element("tr");
+
+        row.append(
+          element("td", "", `Part ${item.part}\n${item.label}`),
+          element("td", "", item.displayTarget || item.target)
+        );
+
+        row.append(element(
+          "td",
+          "",
+          (record.review ? "⭐ 待重練" : "已移出待練") +
+          (record.difficult ? "\n\n" + record.difficult : "")
+        ));
+
+        const mistakes = item.fields
+          .filter(definition => definition.answer !== null)
+          .map(definition => {
+            const saved = fieldState(item, definition, profile);
+            if (!saved.misses) return "";
+
+            return `${definition.label}\n` +
+              `最近錯答：${saved.lastWrong}\n` +
+              `錯誤 ${saved.misses} 次／核對 ${saved.attempts} 次`;
+          })
+          .filter(Boolean);
+
+        row.append(element(
+          "td",
+          "",
+          mistakes.length ? mistakes.join("\n\n") : "尚無錯答核對"
+        ));
+
+        row.append(element(
+          "td",
+          "",
+          (record.note || "—") +
+          `\n\n曾顯示答案：${record.helpCount} 輪`
+        ));
+
+        const actions = element("td");
+
+        actions.append(button(
+          "前往此題",
+          () => jumpToItem(item)
+        ));
+
+        actions.append(document.createElement("br"));
+
+        actions.append(button(
+          record.review ? "標記已掌握" : "加入待練",
+          () => {
+            record.review = !record.review;
+            paintView(views.get(item.id));
+            applyFilter(item.part);
+            renderReport();
+            saveNow();
+            $("teacherSummary").focus();
+          }
+        ));
+
+        row.append(actions);
+        body.append(row);
+      });
+    }
+
+    /* =====================================================
+       10. 匯出、備份、還原
+       ===================================================== */
+
+    function downloadFile(name, content, type) {
+      const blob = new Blob([content], {type});
+      const url = URL.createObjectURL(blob);
+      const link = element("a");
+
+      link.href = url;
+      link.download = name;
+      link.hidden = true;
+
+      document.body.append(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+    }
+
+    function timestampName() {
+      return new Date().toISOString().replace(/[:.]/g, "-");
+    }
+
+    function csvCell(value) {
+      let text = String(value ?? "");
+
+      // 避免老師輸入的文字被試算表當作公式執行。
+      if (/^[\s\uFEFF]*[=+\-@]/.test(text) || /^[\t\r]/.test(text)) {
+        text = "'" + text;
+      }
+
+      return '"' + text.replace(/"/g, '""') + '"';
+    }
+
+    function exportCSV() {
+      const profile = currentProfile();
+
+      const rows = [[
+        "學生代號", "部份", "原題號", "練習欄",
+        "標準答案", "目前輸入", "本次結果",
+        "核對次數", "錯誤次數", "最近錯答",
+        "需重練", "不熟悉字詞", "老師備註",
+        "曾顯示答案回合數", "最近核對時間"
+      ]];
+
+      const resultNames = {
+        correct: "正確",
+        wrong: "字詞未符",
+        format: "標點或大小寫",
+        empty: "空白"
+      };
+
+      items.forEach(item => {
+        const record = recordFor(item, profile);
+
+        item.fields.forEach(definition => {
+          if (definition.answer === null) return;
+
+          const saved = fieldState(item, definition, profile);
+
+          rows.push([
+            profile.name,
+            `Part ${item.part}`,
+            item.label,
+            definition.label,
+            definition.answer,
+            saved.value,
+            resultNames[saved.result] || "未核對／已修改",
+            saved.attempts,
+            saved.misses,
+            saved.lastWrong,
+            record.review ? "是" : "否",
+            record.difficult,
+            record.note,
+            record.helpCount,
+            saved.lastChecked
+          ]);
+        });
+      });
+
+      const safeName = profile.name
+        .replace(/[^\w\u3400-\u9fff-]/g, "_")
+        .slice(0, 50);
+
+      const csv = "\uFEFF" +
+        rows.map(row => row.map(csvCell).join(",")).join("\r\n");
+
+      downloadFile(
+        `J5-${safeName}-${timestampName()}.csv`,
+        csv,
+        "text/csv;charset=utf-8"
+      );
+
+      toast("已建立 CSV 下載檔案，請儲存。");
+    }
+
+    function exportJSON() {
+      saveNow();
+
+      downloadFile(
+        `J5-records-${timestampName()}.json`,
+        JSON.stringify(state, null, 2),
+        "application/json;charset=utf-8"
+      );
+
+      toast("已建立包含所有學生記錄及題庫的 JSON 備份。");
+    }
+
+    async function importJSONFile(file) {
+      if (!file) return;
+
+      try {
+        if (file.size > 10 * 1024 * 1024) {
+          throw new Error("檔案超過 10 MB，請確認是否選錯檔案。");
+        }
+
+        const imported = validateState(JSON.parse(await file.text()));
+
+        if (!confirm(
+          `此備份有 ${imported.profiles.length} 個學生代號。\n` +
+          "還原會取代目前這份教材的全部學生資料和動詞題庫。\n" +
+          "這不是合併功能。確定已備份目前資料並繼續？"
+        )) return;
+
+        stopAudio("");
+        clearTimeout(saveTimer);
+
+        state = imported;
+        storageAvailable = true;
+        storageMessage = "";
+
+        [1, 2, 3, 4].forEach(part => filters[part] = false);
+
+        buildCatalog();
+        restoreSettings();
+        renderProfile();
+        refreshVerbEditor();
+        populateVoices();
+        saveNow();
+
+        toast("備份已還原。");
+      } catch (error) {
+        toast("未能匯入：" + error.message);
+      } finally {
+        $("importFile").value = "";
+      }
+    }
+
+    function hashText(text) {
+      let hash = 2166136261;
+      for (let i = 0; i < text.length; i++) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      return (hash >>> 0).toString(36);
+    }
+
+    function downloadStudentHTML() {
+      if (state.verbs.length !== 8) {
+        toast("請先依原圖儲存 8 個動詞，才下載完整學生版。");
+        $("verbSetup").open = true;
+        $("verbEditor").focus();
+        return;
+      }
+
+      const cleanDocument = new DOMParser().parseFromString(
+        ORIGINAL_HTML,
+        "text/html"
+      );
+
+      const seed = {
+        storageId: LESSON_ID + "-" + hashText(JSON.stringify(state.verbs)),
+        verbs: state.verbs
+      };
+
+      /*
+       * 只替換題庫種子；不使用目前含學生資料的動態 DOM。
+       * 將 < 轉義，避免破壞 JSON script 區塊。
+       */
+      cleanDocument.getElementById("lessonSeed").textContent =
+        JSON.stringify(seed).replace(/</g, "\\u003c");
+
+      downloadFile(
+        "J5-Dictation-Table3-Student.html",
+        "<!DOCTYPE html>\n" + cleanDocument.documentElement.outerHTML,
+        "text/html;charset=utf-8"
+      );
+
+      toast("已建立學生版 HTML；檔案只內嵌題庫，不內嵌學生記錄。");
+    }
+
+    /* =====================================================
+       11. 第一部份題庫編輯
+       ===================================================== */
+
+    function refreshVerbEditor() {
+      $("verbEditor").value = state.verbs.map(verb => [
+        verb.base,
+        verb.ing ?? "—",
+        verb.past ?? "—",
+        verb.pp ?? "—",
+        verb.icon || VERB_ICONS[verb.base] || "🔤"
+      ].join(" | ")).join("\n");
+
+      $("verbMessage").textContent = state.verbs.length === 8
+        ? "目前已設定 8 個動詞。請老師核對是否與原圖一致。"
+        : "尚未設定：請依 Verb Table 3 原圖填入，程式不會猜測內容。";
+    }
+
+    function parseVerbEditor() {
+      const lines = $("verbEditor").value
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+
+      if (lines.length !== 8) {
+        throw new Error(`目前有 ${lines.length} 行，請輸入剛好 8 行。`);
+      }
+
+      const rows = lines.map((line, index) => {
+        const columns = line
+          .split(line.includes("\t") ? /\t/ : /\|/)
+          .map(column => column.trim());
+
+        if (columns.length !== 4 && columns.length !== 5) {
+          throw new Error(
+            `第 ${index + 1} 行應有 4 或 5 欄，以 | 或 Tab 分開。`
+          );
+        }
+
+        return {
+          base: columns[0],
+          ing: columns[1],
+          past: columns[2],
+          pp: columns[3],
+          icon: columns[4] || ""
+        };
+      });
+
+      return cleanVerbs(rows);
+    }
+
+    function saveVerbEditor() {
+      try {
+        const verbs = parseVerbEditor();
+
+        if (JSON.stringify(verbs) === JSON.stringify(state.verbs)) {
+          toast("題庫沒有改動。");
+          return;
+        }
+
+        const hasOldRecords = state.profiles.some(profile =>
+          Object.keys(profile.records).some(id => id.startsWith("p1-"))
+        );
+
+        if (hasOldRecords && !confirm(
+          "更換第一部份題庫會清除所有學生舊的第一部份記錄，" +
+          "避免把新題目與舊答案混在一起。\n" +
+          "第二至四部份不受影響。建議先匯出 JSON。\n繼續？"
+        )) return;
+
+        stopAudio("");
+
+        state.profiles.forEach(profile => {
+          Object.keys(profile.records).forEach(id => {
+            if (id.startsWith("p1-")) delete profile.records[id];
+          });
+        });
+
+        state.verbs = verbs;
+        buildCatalog();
+        renderProfile();
+        refreshVerbEditor();
+        saveNow();
+
+        toast("8 個動詞已儲存，第一部份可以開始練習。");
+      } catch (error) {
+        $("verbMessage").textContent = "⚠ " + error.message;
+        toast(error.message);
+      }
+    }
+
+    /* =====================================================
+       12. 設定及事件
+       ===================================================== */
+
+    function restoreSettings() {
+      $("speedSelect").value = state.prefs.rate;
+      $("checkPunctuation").checked = state.prefs.punctuation;
+      $("checkCase").checked = state.prefs.caseSensitive;
+      $("apostropheHints").checked = state.prefs.apostropheHints;
+    }
+
+    function changeMarkingPreference(key, value) {
+      state.prefs[key] = value;
+
+      /*
+       * 改核對準則後，只清除文章／例句的「本次結果」。
+       * 不自動增加錯誤次數，也不刪除過往記錄。
+       */
+      state.profiles.forEach(profile => {
+        items.forEach(item => {
+          const record = profile.records[item.id];
+          if (!record) return;
+
+          item.fields.forEach(definition => {
+            if (
+              definition.kind === "sentence" &&
+              record.fields[definition.key]
+            ) {
+              record.fields[definition.key].result = null;
+            }
+          });
+        });
+      });
+
+      views.forEach(paintView);
+      refreshMeta();
+      saveNow();
+
+      toast("核對準則已更新，文章及例句請重新按核對。");
+    }
+
+    $("testVoice").addEventListener("click", event => {
+      playJobs([{
+        text: "Hello. Let's practise English dictation.",
+        label: "Voice test"
+      }], event.currentTarget);
+    });
+
+    $("reloadVoices").addEventListener("click", () => {
+      stopAudio("");
+      populateVoices();
+      setTimeout(populateVoices, 500);
+      toast("聲音清單已重新載入，請再試聽。");
+    });
+
+    $("stopAudio").addEventListener("click", () => stopAudio());
+
+    $("voiceSelect").addEventListener("change", event => {
+      state.prefs.voice = event.target.value;
+      stopAudio("聲音已更改，請重新按聆聽。");
+      scheduleSave();
+    });
+
+    $("speedSelect").addEventListener("change", event => {
+      state.prefs.rate = event.target.value;
+      stopAudio(`語速已更改為 ${event.target.value}×。`);
+      scheduleSave();
+    });
+
+    $("apostropheHints").addEventListener("change", event => {
+      state.prefs.apostropheHints = event.target.checked;
+      stopAudio("Apostrophe 提示設定已更改。");
+      scheduleSave();
+    });
+
+    $("checkPunctuation").addEventListener("change", event => {
+      changeMarkingPreference("punctuation", event.target.checked);
+    });
+
+    $("checkCase").addEventListener("change", event => {
+      changeMarkingPreference("caseSensitive", event.target.checked);
+    });
+
+    $("studentSelect").addEventListener("change", event => {
+      switchStudent(event.target.value);
+    });
+
+    $("addStudent").addEventListener("click", addStudent);
+
+    $("newStudent").addEventListener("keydown", event => {
+      if (event.key === "Enter" && !event.isComposing) {
+        event.preventDefault();
+        addStudent();
+      }
+    });
+
+    $("teacher").addEventListener("toggle", () => {
+      if ($("teacher").open) renderReport();
+    });
+
+    $("reviewOnly").addEventListener("click", () => {
+      setAllFilters(true);
+      toast("目前只顯示此生的待重練題目。");
+    });
+
+    $("showEverything").addEventListener("click", () => {
+      setAllFilters(false);
+    });
+
+    $("restartReview").addEventListener("click", restartMarked);
+    $("refreshReport").addEventListener("click", renderReport);
+    $("exportCSV").addEventListener("click", exportCSV);
+    $("exportJSON").addEventListener("click", exportJSON);
+
+    $("importJSON").addEventListener("click", () => {
+      $("importFile").click();
+    });
+
+    $("importFile").addEventListener("change", event => {
+      importJSONFile(event.target.files[0]);
+    });
+
+    $("saveVerbs").addEventListener("click", saveVerbEditor);
+    $("downloadLesson").addEventListener("click", downloadStudentHTML);
+
+    $("deleteStudent").addEventListener("click", () => {
+      const profile = currentProfile();
+
+      if (!confirm(
+        `永久刪除「${profile.name}」的作答、錯答歷史及老師備註？\n` +
+        "此動作不能復原，除非你已有 JSON 備份。"
+      )) return;
+
+      stopAudio("");
+      clearTimeout(saveTimer);
+
+      state.profiles = state.profiles.filter(
+        candidate => candidate.id !== profile.id
+      );
+
+      if (!state.profiles.length) state.profiles.push(newProfile());
+
+      state.active = state.profiles[0].id;
+      [1, 2, 3, 4].forEach(part => filters[part] = false);
+
+      renderProfile();
+      saveNow();
+      toast("該學生資料已刪除。");
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        if (activeButton || activeUtterance || gapTimer) {
+          stopAudio("頁面已切到背景，播放已停止。");
+        }
+        saveNow();
+      }
+    });
+
+    window.addEventListener("pagehide", () => {
+      stopAudio("");
+      saveNow();
+    });
+
+    /*
+     * 避免兩個分頁同時編輯同一份本機資料而互相覆蓋。
+     */
+    window.addEventListener("storage", event => {
+      if (event.key !== STORAGE_KEY) return;
+
+      storageAvailable = false;
+      storageMessage =
+        "另一個分頁更新了同一份教材。為免覆蓋，" +
+        "本頁已停止自動儲存；請先匯出備份，再重新載入。";
+
+      clearTimeout(saveTimer);
+      $("saveStatus").textContent = "⚠ " + storageMessage;
+      toast(storageMessage);
+    });
+
+    /* =====================================================
+       13. 啟動
+       ===================================================== */
+
+    buildCatalog();
+    restoreSettings();
+    renderProfile();
+    refreshVerbEditor();
+    populateVoices();
+
+    if (speechSupported) {
+      if (typeof synth.addEventListener === "function") {
+        synth.addEventListener("voiceschanged", populateVoices);
+      } else {
+        synth.onvoiceschanged = populateVoices;
+      }
+
+      setTimeout(populateVoices, 300);
+      setTimeout(populateVoices, 1200);
+    }
+
+    saveNow();
+  });
+  </script>
+</body>
+</html>
