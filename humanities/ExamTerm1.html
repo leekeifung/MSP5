@@ -1,0 +1,3439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+  <meta name="theme-color" content="#0f766e">
+  <title>人文科詞語溫習表（一）｜聽讀與默寫</title>
+
+  <style>
+    :root {
+      --bg: #f2f7f8;
+      --paper: #ffffff;
+      --text: #19313b;
+      --muted: #617480;
+      --line: #d8e4e8;
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --primary-light: #e9f8f4;
+      --blue: #075985;
+      --blue-light: #eaf6ff;
+      --green: #166534;
+      --green-light: #effbf2;
+      --red: #b91c1c;
+      --red-light: #fff3f3;
+      --amber: #854d0e;
+      --amber-light: #fffbeb;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 145px;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        system-ui, -apple-system, "PingFang HK",
+        "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      line-height: 1.75;
+    }
+
+    [hidden] { display: none !important; }
+
+    button, input, select, textarea { font: inherit; }
+
+    button {
+      min-height: 44px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #fff;
+      color: var(--text);
+      font-weight: 750;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    button:hover:not(:disabled) {
+      border-color: #70b7ac;
+      background: #f0fbf8;
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    :is(button, input, select, textarea, a, summary):focus-visible {
+      outline: 3px solid #38a89a;
+      outline-offset: 3px;
+    }
+
+    input:not([type="checkbox"]),
+    select,
+    textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 11px;
+      border: 1px solid #b9cbd2;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    textarea { resize: vertical; }
+
+    input[type="checkbox"] {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+      accent-color: var(--primary);
+      vertical-align: middle;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 28px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 500;
+      top: 8px;
+      left: 8px;
+      padding: 10px 15px;
+      background: #fff;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus { transform: none; }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding-top: env(safe-area-inset-top);
+      border-bottom: 1px solid #bcded7;
+      background: rgb(255 255 255 / 97%);
+      box-shadow: 0 3px 14px rgb(20 58 62 / 7%);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-block: 10px;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      flex: 0 0 auto;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 850;
+      font-size: .9rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 31px 0;
+      color: #fff;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgb(255 255 255 / 16%),
+          transparent 40%
+        ),
+        linear-gradient(135deg, #134e4a, #0f766e, #0891b2);
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      color: #c8f8ed;
+      font-size: .86rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      line-height: 1.3;
+    }
+
+    .hero p:last-child {
+      margin-bottom: 0;
+      color: #ecfeff;
+    }
+
+    main { margin-top: 23px; }
+
+    .panel {
+      margin-bottom: 24px;
+      padding: clamp(18px, 3vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 8px 26px rgb(30 64 69 / 6%);
+      scroll-margin-top: 10px;
+    }
+
+    .part-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--primary);
+      font-size: .83rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+      line-height: 1.45;
+    }
+
+    h3 { margin-top: 0; }
+    p { margin-block: 8px; }
+    .muted { color: var(--muted); }
+    .small { font-size: .87rem; }
+    .intro { margin-bottom: 16px; color: var(--muted); }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+      font-size: .92rem;
+      font-weight: 800;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #f7fbfc;
+    }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 14px;
+      margin-block: 17px;
+    }
+
+    .check-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-block: 10px;
+      font-size: .92rem;
+    }
+
+    .notice {
+      margin-block: 16px;
+      padding: 13px 16px;
+      border-left: 4px solid #42a999;
+      border-radius: 11px;
+      background: #f0faf7;
+    }
+
+    .notice.warning {
+      border-left-color: #eab308;
+      background: var(--amber-light);
+      color: #713f12;
+    }
+
+    .toolbar, .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-block: 15px;
+    }
+
+    .primary {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .primary:hover:not(:disabled) {
+      background: var(--primary-dark);
+      color: #fff;
+    }
+
+    .secondary {
+      border-color: #b7ddd3;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .speak {
+      border-color: #bfdef2;
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .speak.playing {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .danger {
+      border-color: #fecaca;
+      color: #991b1b;
+    }
+
+    .bank {
+      margin-block: 15px;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #f7fbfc;
+    }
+
+    .bank summary {
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .bank-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .word-button {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: #fff;
+      font-size: 1.08rem;
+    }
+
+    .word-number {
+      color: #77909b;
+      font-size: .8rem;
+      font-weight: 800;
+    }
+
+    /*
+      專名號及指定底線：
+      使用 CSS 繪製，不是答案文字的一部分。
+    */
+    .proper-name,
+    .format-underline {
+      text-decoration-line: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: .22em;
+      text-decoration-skip-ink: none;
+    }
+
+    .score {
+      margin-block: 15px 18px;
+      padding: 11px 14px;
+      border-radius: 11px;
+      background: #eef3f6;
+      color: #35505f;
+      font-size: .92rem;
+      font-weight: 850;
+    }
+
+    .score.complete {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 16px;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .card[data-result="correct"] { border-color: #76c28a; }
+    .card[data-result="wrong"] { border-color: #eea1a1; }
+    .card[data-result="empty"] { border-color: #e3c265; }
+
+    .card.listening {
+      outline: 3px solid #38bdf8;
+      outline-offset: 2px;
+      background: #f4fbff;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: .96rem;
+      font-weight: 900;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f0f4f6;
+      color: #637783;
+      font-size: .8rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .answer-label {
+      display: block;
+      margin-block: 11px 5px;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .answer {
+      min-height: 52px !important;
+      border: 2px solid #c9d6de !important;
+      font-size: 1.18rem !important;
+      line-height: 1.8;
+    }
+
+    .answer.correct {
+      border-color: #47a466 !important;
+      background: var(--green-light);
+    }
+
+    .answer.wrong {
+      border-color: #df7d7d !important;
+      background: var(--red-light);
+    }
+
+    .answer.empty {
+      border-color: #d4ad41 !important;
+      background: var(--amber-light);
+    }
+
+    .feedback {
+      min-height: 26px;
+      margin-top: 5px;
+      font-size: .87rem;
+      font-weight: 800;
+    }
+
+    .feedback.correct { color: var(--green); }
+    .feedback.wrong { color: var(--red); }
+    .feedback.empty { color: var(--amber); }
+
+    .reference {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border: 1px solid #a8d4c9;
+      border-radius: 10px;
+      background: #eefbf6;
+      overflow-wrap: anywhere;
+      font-size: 1.12rem;
+    }
+
+    .reference-label {
+      color: var(--primary-dark);
+      font-size: .9rem;
+      font-weight: 850;
+    }
+
+    .entry-form {
+      margin-block: 20px;
+      padding: 17px;
+      border: 1px solid #b7ddd3;
+      border-radius: 13px;
+      background: #f6fcfa;
+    }
+
+    .entry-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: 12px;
+      margin-block: 13px;
+    }
+
+    .record-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 12px;
+      margin-block: 17px;
+    }
+
+    .record-controls .field { min-width: 200px; }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: .88rem;
+    }
+
+    th, td {
+      padding: 11px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      background: #eaf6f2;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    .item-cell { min-width: 170px; max-width: 280px; }
+    .source-cell { min-width: 180px; max-width: 240px; }
+    .status-cell { min-width: 140px; }
+    .wrong-cell { min-width: 160px; max-width: 260px; }
+    .note-cell { min-width: 210px; }
+    .record-word { font-size: 1.02rem; font-weight: 850; }
+    td textarea { min-height: 80px; font-size: .87rem; }
+    td select { font-size: .88rem; }
+    .table-empty { padding: 22px; color: var(--muted); }
+
+    .target-panel {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 2px dashed #b7ddd3;
+      scroll-margin-top: 95px;
+    }
+
+    .audio-bar {
+      position: fixed;
+      z-index: 200;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding:
+        11px max(14px, calc((100vw - 1130px) / 2))
+        calc(11px + env(safe-area-inset-bottom));
+      border-top: 1px solid #b7ddd3;
+      background: rgb(248 253 252 / 98%);
+      box-shadow: 0 -4px 20px rgb(30 64 69 / 10%);
+    }
+
+    .player-info { min-width: 0; }
+    #audioStatus { margin: 0; font-size: .93rem; font-weight: 850; }
+    #actionStatus { margin: 3px 0 0; font-size: .84rem; color: var(--muted); }
+    #stopAudio { flex: 0 0 auto; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    @media (max-width: 850px) {
+      .profile-grid, .settings-grid, .entry-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .wrap { width: calc(100% - 18px); }
+      .panel { padding: 18px 13px; }
+      .grid { grid-template-columns: 1fr; }
+      .toolbar > button { flex: 1 1 145px; }
+      .card { padding: 14px; }
+      .nav-links a { font-size: .83rem; padding: 7px 11px; }
+      .audio-bar { align-items: stretch; flex-direction: column; gap: 8px; }
+      body { padding-bottom: 185px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+        color: #000;
+      }
+
+      body > :not(#printReport) { display: none !important; }
+
+      #printReport {
+        display: block !important;
+        padding: 10px;
+        font-size: 11pt;
+      }
+
+      #printReport h1 { font-size: 20pt; }
+      #printReport h2 { font-size: 14pt; }
+
+      #printReport table {
+        table-layout: fixed;
+        font-size: 9pt;
+      }
+
+      #printReport th, #printReport td {
+        padding: 6px;
+        border: 1px solid #999;
+      }
+
+      #printReport th { background: #eee; color: #000; }
+      #printReport tr { break-inside: avoid; }
+      #printReport .print-note { white-space: pre-wrap; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">跳到練習內容</a>
+
+  <!-- 最頂部：直接選擇各部分 -->
+  <nav class="top-nav" aria-label="各部分導覽">
+    <div class="wrap nav-links">
+      <a href="#part1">一、預防意外</a>
+      <a href="#part2">二、危機四伏</a>
+      <a href="#part3">三、生理變化</a>
+      <a href="#part4">四、心理變化</a>
+      <a href="#settings">🔊 聲音／學生</a>
+      <a href="#records">📝 老師紀錄</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">應用詞語 · 認讀 · 聽讀 · 默寫</p>
+      <h1>人文科詞語溫習表（一）</h1>
+      <p>🔊 聽讀 → ✍️ 默寫 → ✅ 批改 → 📝 記錄難點 → 🎯 重練</p>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <noscript>
+      <section class="panel">
+        請啟用 JavaScript，才能使用聽讀、批改及紀錄功能。
+      </section>
+    </noscript>
+
+    <section id="settings" class="panel" aria-labelledby="settingsHeading">
+      <span class="part-label">開始前的設定</span>
+      <h2 id="settingsHeading">🔊 聲音設定與學生紀錄</h2>
+
+      <div class="profile-grid">
+        <label class="field" for="profileSelect">
+          目前學生代號
+          <select id="profileSelect"></select>
+        </label>
+
+        <label class="field" for="newProfileName">
+          新增或切換學生代號
+          <input
+            id="newProfileName"
+            type="text"
+            maxlength="40"
+            placeholder="例如：5A-08，建議不用全名"
+            autocomplete="off"
+          >
+        </label>
+
+        <button id="addProfile" type="button" class="secondary">
+          新增／切換
+        </button>
+      </div>
+
+      <p class="small muted">
+        各學生的作答、難點及老师備註分開保存。
+        紀錄不會自動傳送給老師；請使用下方匯出功能。
+      </p>
+
+      <div class="settings-grid">
+        <label class="field" for="languageSelect">
+          朗讀語言
+          <select id="languageSelect">
+            <option value="zh-HK">粵語（香港）</option>
+            <option value="zh-TW">國語（臺灣）</option>
+            <option value="zh-CN">普通話</option>
+          </select>
+        </label>
+
+        <label class="field" for="voiceSelect">
+          可用聲音
+          <select id="voiceSelect">
+            <option value="">自動選擇合適聲音</option>
+          </select>
+        </label>
+
+        <label class="field" for="speedSelect">
+          語速
+          <select id="speedSelect">
+            <option value="0.2">0.2×</option>
+            <option value="0.3">0.3×</option>
+            <option value="0.5">0.5×</option>
+            <option value="0.6">0.6×</option>
+            <option value="0.8" selected>0.8×</option>
+            <option value="1">1×</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="check-label">
+        <input id="acceptVariants" type="checkbox" checked>
+        <span>批改時接受「衞／衛、羣／群、泄／洩」字形差異</span>
+      </label>
+
+      <div class="toolbar">
+        <button id="testVoice" type="button" class="speak">
+          🔊 測試聲音
+        </button>
+
+        <button id="reloadVoices" type="button">
+          ↻ 重新載入聲音
+        </button>
+
+        <button id="playAll" type="button" class="speak">
+          ▶ 四部分全部播放
+        </button>
+      </div>
+
+      <p id="voiceHint" class="small muted" role="status">
+        正在載入聲音……
+      </p>
+
+      <div class="notice small">
+        <p>
+          <strong>播放規則：</strong>
+          每個項目播完後停頓3秒，包括最後一項。
+          更改聲音、語言或語速會停止目前播放，請重新按播放。
+        </p>
+        <p>
+          <strong>批改規則：</strong>
+          本教材核對詞語文字，忽略空格及一般標點。
+          不會自動接受簡體字、近義詞或缺漏的字。
+          顯示答案不會代填或覆蓋作答。
+        </p>
+        <p>
+          詞表預設收起；溫習時可展開，
+          默寫時可收起，並使用各题的「聽讀」按鈕。
+        </p>
+      </div>
+
+      <details class="notice warning" open>
+        <summary><strong>老師編排提示：詞語拆分與底線</strong></summary>
+
+        <label class="check-label">
+          <input id="splitOil" type="checkbox" checked>
+          <span>
+            把原稿「油膩因人而異」分成「油膩」及「因人而異」兩項
+          </span>
+        </label>
+
+        <p class="small">
+          預設拆分後共32項；取消勾選後共31項。
+          切換只改題目編排，不會刪除已保存的作答或難點紀錄。
+        </p>
+
+        <p class="small">
+          <span class="proper-name">香港警務處</span>及
+          <span class="proper-name">香港消防處</span>
+          以底線標示機構專名。
+          <span class="format-underline">使用升降機</span>
+          不是專名，這裏依原稿要求加底線，僅作指定排版。
+        </p>
+
+        <p class="small">
+          <strong>學生不用輸入底線。</strong>
+          底線由網頁顯示，朗讀及批改都只處理詞語文字。
+        </p>
+      </details>
+
+      <p id="storageHint" class="small muted" role="status"></p>
+
+      <p class="small muted">
+        本頁沒有上傳作答或紀錄的功能，也沒有外部程式庫。
+        若使用雲端聲音，朗讀文字可能由該語音服務處理。
+        請定期匯出JSON；直接開啟HTML檔時，本機儲存行為可能因瀏覽器而異。
+      </p>
+    </section>
+
+    <!-- 四部分會由下方資料表建立 -->
+    <div id="lessonSections"></div>
+
+    <section id="records" class="panel" aria-labelledby="recordsHeading">
+      <span class="part-label">老師使用 · 難點跟進</span>
+      <h2 id="recordsHeading">📝 老師紀錄與針對性練習</h2>
+
+      <div class="notice small">
+        <p>
+          <strong>答錯不等於不認識。</strong>
+          非空白錯答會自動加入「待確認」；
+          老師再判定為「不認識、需鞏固或已掌握」。
+          空白答案不會自動加入難點。
+        </p>
+        <p>
+          可記錄整個詞語，也可只記錄其中一個字。
+          例如按「老師記錄」後，把「燙傷」改為「燙」。
+        </p>
+        <p>
+          重設練習不會刪除難點、老師備註及已累計的錯誤核對次數。
+          答對不會自動改成「已掌握」，仍由老師確認。
+        </p>
+        <p>
+          這是教學練習頁，老師紀錄區並非密碼保護的考試後台。
+        </p>
+      </div>
+
+      <div
+        id="recordSummary"
+        class="score"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <div class="toolbar">
+        <button id="exportJson" type="button" class="secondary">
+          💾 匯出學生JSON備份
+        </button>
+
+        <button id="importJson" type="button">
+          📂 匯入JSON備份
+        </button>
+
+        <input
+          id="importFile"
+          type="file"
+          accept=".json,application/json"
+          hidden
+        >
+
+        <button id="exportCsv" type="button">
+          📊 匯出全部難點CSV
+        </button>
+
+        <button id="printRecords" type="button">
+          🖨️ 列印全部難點
+        </button>
+
+        <button id="deleteProfile" type="button" class="danger">
+          刪除目前學生紀錄
+        </button>
+      </div>
+
+      <p class="small muted">
+        JSON包含目前學生的作答、批改結果、已加入難點及老師備註。
+        匯入時會建立另一份學生紀錄，不覆蓋原有紀錄，
+        並恢復備份的拆分及字形選項；不更改語音設定。
+        CSV供查看及整理，不能還原本頁作答。
+      </p>
+
+      <div class="entry-form">
+        <h3>➕ 老師手動加入難點</h3>
+
+        <label class="field" for="recordText">
+          要記錄的字／詞／短句（每行一項，一次最多50項）
+          <textarea
+            id="recordText"
+            rows="3"
+            maxlength="10000"
+            placeholder="例如：燙&#10;警覺&#10;非言語行為"
+          ></textarea>
+        </label>
+
+        <div class="entry-options">
+          <label class="field" for="recordKind">
+            項目種類
+            <select id="recordKind">
+              <option>字</option>
+              <option selected>詞語</option>
+              <option>短句</option>
+            </select>
+          </label>
+
+          <label class="field" for="recordStatus">
+            掌握情況
+            <select id="recordStatus">
+              <option value="pending">待確認</option>
+              <option value="unknown">不認識</option>
+              <option value="review">需鞏固</option>
+              <option value="mastered">已掌握</option>
+            </select>
+          </label>
+
+          <label class="field" for="recordSource">
+            來源
+            <select id="recordSource">
+              <option value="">老師自訂／其他觀察</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="addRecord" type="button" class="primary">
+          加入難點紀錄
+        </button>
+
+        <p class="small muted">
+          未按「加入難點紀錄」的草稿不會包含在備份中。
+        </p>
+      </div>
+
+      <label class="field" for="teacherNote">
+        整體觀察／下次教學安排
+        <textarea
+          id="teacherNote"
+          rows="3"
+          maxlength="6000"
+          placeholder="例如：「警覺」能認讀，但仍需練習字形；下次先溫習這兩個字，再聽詞默寫。"
+        ></textarea>
+      </label>
+
+      <div class="record-controls">
+        <label class="field" for="recordFilter">
+          顯示紀錄
+          <select id="recordFilter">
+            <option value="todo">待練項目（未標為已掌握）</option>
+            <option value="all">全部項目</option>
+            <option value="pending">只看待確認</option>
+            <option value="unknown">只看不認識</option>
+            <option value="review">只看需鞏固</option>
+            <option value="mastered">只看已掌握</option>
+          </select>
+        </label>
+
+        <button id="selectTodo" type="button">
+          選取全部待練項目
+        </button>
+
+        <button id="clearSelection" type="button">
+          取消全部選取
+        </button>
+      </div>
+
+      <p id="selectedCount" class="small muted"></p>
+
+      <div
+        class="table-wrap"
+        role="region"
+        aria-label="老師難點紀錄表，可左右捲動"
+        tabindex="0"
+      >
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">選練</th>
+              <th scope="col">字／詞／短句</th>
+              <th scope="col">來源</th>
+              <th scope="col">掌握情況</th>
+              <th scope="col">錯誤核對</th>
+              <th scope="col">最近錯答</th>
+              <th scope="col">老師備註</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody id="recordTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="toolbar">
+        <button id="playSelected" type="button" class="speak">
+          ▶ 播放已選難點
+        </button>
+
+        <button id="buildPractice" type="button" class="primary">
+          🎯 建立新一輪針對性練習
+        </button>
+      </div>
+
+      <section id="targetPractice" class="target-panel" hidden>
+        <h3>🎯 本輪針對性練習</h3>
+
+        <p class="small muted">
+          題目來自老師選取的難點，次序會打亂。
+          核對結果會保存；是否已掌握，仍由老師判定。
+        </p>
+
+        <div id="targetTools" class="toolbar"></div>
+
+        <div
+          id="targetScore"
+          class="score"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <div id="targetGrid" class="grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>人文科詞語溫習表（一） · 聽讀、默寫、批改與重練</p>
+    <p>切換到其他頁面時會停止播放。請定期匯出JSON備份。</p>
+  </footer>
+
+  <div class="audio-bar" aria-label="播放及操作狀態">
+    <div class="player-info">
+      <p id="audioStatus" role="status" aria-live="polite">
+        準備好了，請先測試聲音。
+      </p>
+      <p id="actionStatus" role="status" aria-live="polite">
+        每個項目播完後停頓3秒。
+      </p>
+    </div>
+
+    <button id="stopAudio" type="button" class="danger" disabled>
+      ■ 停止播放
+    </button>
+  </div>
+
+  <div id="printReport" hidden></div>
+
+  <script>
+  (() => {
+    "use strict";
+
+    /*
+     * =========================================================
+     * 一、教材資料
+     *
+     * 可在這裏修改詞語。
+     * mark: "proper"    = 機構專名底線
+     * mark: "requested" = 原稿指定底線，但不是專名
+     * =========================================================
+     */
+
+    const UNITS = [
+      {
+        id: "part1",
+        label: "第一部分",
+        number: "一",
+        title: "預防意外與簡單急救",
+        words: [
+          "乾燥",
+          "燙傷",
+          "冷敷",
+          "消毒",
+          "緩和運動",
+          "救護車",
+          "急救",
+          "行人過路設施"
+        ]
+      },
+      {
+        id: "part2",
+        label: "第二部分",
+        number: "二",
+        title: "危機四伏",
+        words: [
+          "觸電",
+          "濕毛巾",
+          "氣體泄漏",
+          { text: "香港警務處", mark: "proper" },
+          "緊急出口",
+          { text: "使用升降機", mark: "requested" },
+          { text: "香港消防處", mark: "proper" },
+          "濫用"
+        ]
+      },
+      {
+        id: "part3",
+        label: "第三部分",
+        number: "三",
+        title: "應對青春期的生理變化",
+        words: [
+          "衞生巾",
+          "夢遺",
+          "青春期",
+          "暗瘡",
+          "性教育",
+          "油膩",
+          "因人而異",
+          "勤洗澡"
+        ]
+      },
+      {
+        id: "part4",
+        label: "第四部分",
+        number: "四",
+        title: "應對青春期的心理變化",
+        words: [
+          "外表",
+          "羣體活動",
+          "陌生人",
+          "尊重",
+          "適當距離",
+          "非言語行為",
+          "警覺",
+          "堅決拒絕"
+        ]
+      }
+    ];
+
+    UNITS.forEach(unit => {
+      unit.items = unit.words.map((value, index) => ({
+        id: `${unit.id}-w${index + 1}`,
+        text: typeof value === "string" ? value : value.text,
+        mark: typeof value === "string" ? "" : value.mark,
+        kind: "詞語",
+        unitId: unit.id,
+        source: `${unit.number}、《${unit.title}》`
+      }));
+    });
+
+    const JOINED_ITEM = {
+      id: "part3-joined",
+      text: "油膩因人而異",
+      mark: "",
+      kind: "詞語",
+      unitId: "part3",
+      source: "三、《應對青春期的生理變化》"
+    };
+
+    const ALL_ITEMS = [
+      ...UNITS.flatMap(unit => unit.items),
+      JOINED_ITEM
+    ];
+
+    const ITEM_MAP = new Map(
+      ALL_ITEMS.map(item => [item.id, item])
+    );
+
+    const STATUS_LABELS = {
+      pending: "待確認",
+      unknown: "不認識",
+      review: "需鞏固",
+      mastered: "已掌握"
+    };
+
+    const KINDS = ["字", "詞語", "短句"];
+    const SHEET_ID = "humanities-words-one-v1";
+    const STORE_FORMAT = `${SHEET_ID}-store`;
+    const BACKUP_FORMAT = `${SHEET_ID}-profile`;
+    const STORAGE_KEY = `${SHEET_ID}-local`;
+    const MAX_PROFILES = 50;
+    const MAX_RECORDS = 500;
+    const PAUSE_MS = 3000;
+
+    const DEFAULT_PREFERENCES = {
+      language: "zh-HK",
+      voiceKey: "",
+      rate: "0.8",
+      acceptVariants: true,
+      splitOil: true
+    };
+
+    /*
+     * =========================================================
+     * 二、基本工具及資料載入
+     * =========================================================
+     */
+
+    const $ = id => document.getElementById(id);
+
+    const speechSupported =
+      "speechSynthesis" in window &&
+      "SpeechSynthesisUtterance" in window;
+
+    const synth = speechSupported ? window.speechSynthesis : null;
+
+    function element(tag, className = "", text = "") {
+      const result = document.createElement(tag);
+      if (className) result.className = className;
+      result.textContent = text;
+      return result;
+    }
+
+    function actionButton(text, handler, className = "", audio = false) {
+      const result = element("button", className, text);
+      result.type = "button";
+      result.disabled = audio && !speechSupported;
+      result.addEventListener("click", handler);
+      return result;
+    }
+
+    function uid() {
+      if (
+        window.crypto &&
+        typeof window.crypto.randomUUID === "function"
+      ) {
+        return "u-" + window.crypto.randomUUID();
+      }
+
+      return (
+        "u-" + Date.now().toString(36) + "-" +
+        Math.random().toString(36).slice(2, 11)
+      );
+    }
+
+    function isoNow() {
+      return new Date().toISOString();
+    }
+
+    function safeText(value, limit = 3000) {
+      return typeof value === "string" ? value.slice(0, limit) : "";
+    }
+
+    function safeObject(value) {
+      return value && typeof value === "object" && !Array.isArray(value)
+        ? value
+        : {};
+    }
+
+    function safeCount(value) {
+      return Number.isFinite(value)
+        ? Math.max(0, Math.min(1000000, Math.floor(value)))
+        : 0;
+    }
+
+    function notify(text) {
+      $("actionStatus").textContent = text;
+    }
+
+    function scrollTo(id) {
+      $(id).scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "start"
+      });
+    }
+
+    function shuffle(values) {
+      const result = [...values];
+
+      for (let index = result.length - 1; index > 0; index--) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [result[index], result[other]] = [result[other], result[index]];
+      }
+
+      return result;
+    }
+
+    function freshProfile(name = "學生 A") {
+      return {
+        id: uid(),
+        name: safeText(name, 40).trim() || "學生 A",
+        answers: {},
+        grades: {},
+        records: [],
+        practice: [],
+        note: "",
+        updatedAt: isoNow()
+      };
+    }
+
+    function cleanProfile(rawValue) {
+      const raw = safeObject(rawValue);
+      const clean = freshProfile(safeText(raw.name, 40));
+      const validId = /^[A-Za-z0-9_-]{1,120}$/;
+
+      if (typeof raw.id === "string" && validId.test(raw.id)) {
+        clean.id = raw.id;
+      }
+
+      const recordIds = new Set();
+
+      if (Array.isArray(raw.records)) {
+        raw.records.slice(0, MAX_RECORDS).forEach(value => {
+          const record = safeObject(value);
+          const text = safeText(record.text).trim();
+          if (!text) return;
+
+          let id = safeText(record.id, 120);
+          if (!validId.test(id) || recordIds.has(id)) id = uid();
+          recordIds.add(id);
+
+          const status = Object.keys(STATUS_LABELS).includes(record.status)
+            ? record.status
+            : "pending";
+
+          clean.records.push({
+            id,
+            text,
+            kind: KINDS.includes(record.kind) ? record.kind : "詞語",
+            sources: Array.isArray(record.sources)
+              ? [...new Set(
+                  record.sources.filter(source => ITEM_MAP.has(source))
+                )]
+              : [],
+            status,
+            selected: typeof record.selected === "boolean"
+              ? record.selected
+              : status !== "mastered",
+            auto: record.auto === true,
+            wrongCount: safeCount(record.wrongCount),
+            lastWrong: safeText(record.lastWrong),
+            note: safeText(record.note),
+            createdAt: safeText(record.createdAt, 60) || isoNow(),
+            updatedAt: safeText(record.updatedAt, 60) || isoNow()
+          });
+        });
+      }
+
+      const allowedIds = new Set([
+        ...ITEM_MAP.keys(),
+        ...clean.records.map(record => `target-${record.id}`)
+      ]);
+
+      Object.entries(safeObject(raw.answers)).forEach(([id, value]) => {
+        if (allowedIds.has(id) && typeof value === "string") {
+          clean.answers[id] = safeText(value);
+        }
+      });
+
+      Object.entries(safeObject(raw.grades)).forEach(([id, value]) => {
+        const grade = safeObject(value);
+
+        if (
+          allowedIds.has(id) &&
+          ["correct", "wrong", "empty"].includes(grade.state)
+        ) {
+          clean.grades[id] = {
+            state: grade.state,
+            signature: safeText(grade.signature, 14000),
+            at: safeText(grade.at, 60)
+          };
+        }
+      });
+
+      clean.practice = Array.isArray(raw.practice)
+        ? [...new Set(raw.practice.filter(id => recordIds.has(id)))]
+        : [];
+
+      clean.note = safeText(raw.note, 6000);
+      clean.updatedAt = safeText(raw.updatedAt, 60) || isoNow();
+      return clean;
+    }
+
+    function cleanPreferences(value) {
+      const raw = safeObject(value);
+      const clean = {...DEFAULT_PREFERENCES};
+
+      if (["zh-HK", "zh-TW", "zh-CN"].includes(raw.language)) {
+        clean.language = raw.language;
+      }
+
+      if (["0.2", "0.3", "0.5", "0.6", "0.8", "1"].includes(raw.rate)) {
+        clean.rate = raw.rate;
+      }
+
+      clean.voiceKey = safeText(raw.voiceKey, 1500);
+
+      ["acceptVariants", "splitOil"].forEach(key => {
+        if (typeof raw[key] === "boolean") clean[key] = raw[key];
+      });
+
+      return clean;
+    }
+
+    let loadWarning = "";
+
+    function loadModel() {
+      const first = freshProfile();
+
+      const fallback = {
+        format: STORE_FORMAT,
+        sheetId: SHEET_ID,
+        preferences: {...DEFAULT_PREFERENCES},
+        currentId: first.id,
+        profiles: [first]
+      };
+
+      try {
+        const stored = window.localStorage.getItem(STORAGE_KEY);
+        if (!stored) return fallback;
+
+        const raw = JSON.parse(stored);
+
+        if (
+          raw.format !== STORE_FORMAT ||
+          raw.sheetId !== SHEET_ID ||
+          !Array.isArray(raw.profiles)
+        ) {
+          loadWarning = "本機資料格式不相符，未載入。";
+          return fallback;
+        }
+
+        const profiles = raw.profiles
+          .slice(0, MAX_PROFILES)
+          .map(cleanProfile);
+
+        if (!profiles.length) profiles.push(first);
+
+        const seen = new Set();
+        profiles.forEach(profile => {
+          if (seen.has(profile.id)) profile.id = uid();
+          seen.add(profile.id);
+        });
+
+        return {
+          format: STORE_FORMAT,
+          sheetId: SHEET_ID,
+          preferences: cleanPreferences(raw.preferences),
+          currentId: profiles.some(profile => profile.id === raw.currentId)
+            ? raw.currentId
+            : profiles[0].id,
+          profiles
+        };
+      } catch (error) {
+        loadWarning =
+          "未能讀取本機資料。仍可使用練習，請另行匯出JSON備份。";
+        return fallback;
+      }
+    }
+
+    let model = loadModel();
+    const preferences = model.preferences;
+    let saveTimer = null;
+
+    const groups = new Map();
+    const views = new Map();
+    const revealedAnswers = new Set();
+
+    function profile() {
+      return model.profiles.find(value => value.id === model.currentId)
+        || model.profiles[0];
+    }
+
+    function saveNow() {
+      window.clearTimeout(saveTimer);
+
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(model));
+
+        $("storageHint").textContent =
+          (loadWarning ? loadWarning + " " : "") +
+          "已儲存至此瀏覽器；本機儲存不是永久備份，請定期匯出JSON。";
+      } catch (error) {
+        $("storageHint").textContent =
+          "本機儲存未能完成，可能被禁止或空間不足。" +
+          "目前仍可作答，離開前請匯出JSON備份。";
+      }
+    }
+
+    function queueSave() {
+      profile().updatedAt = isoNow();
+      window.clearTimeout(saveTimer);
+      saveTimer = window.setTimeout(saveNow, 350);
+    }
+
+    /*
+     * =========================================================
+     * 三、文字核對及底線顯示
+     * =========================================================
+     */
+
+    function textKey(value, acceptVariants = true) {
+      let text = String(value ?? "")
+        .normalize("NFKC")
+        .replace(/[\u200B-\u200D\uFEFF]/g, "")
+        .replace(/\s+/g, "")
+        .replace(/\p{P}/gu, "");
+
+      if (acceptVariants) {
+        const variants = {
+          "衞": "衛",
+          "羣": "群",
+          "泄": "洩"
+        };
+
+        text = text.replace(
+          /[衞羣泄]/g,
+          character => variants[character]
+        );
+      }
+
+      return text;
+    }
+
+    function markFor(text) {
+      const key = textKey(text, true);
+
+      return ALL_ITEMS.find(item =>
+        item.mark && textKey(item.text, true) === key
+      )?.mark || "";
+    }
+
+    function wordElement(text, mark = "") {
+      const result = element("span", "", text);
+
+      if (mark === "proper") {
+        result.className = "proper-name";
+        result.title = "機構專名：以底線標示";
+      } else if (mark === "requested") {
+        result.className = "format-underline";
+        result.title = "依原稿要求加底線；此詞組不是專名";
+      }
+
+      return result;
+    }
+
+    function signature(item) {
+      return JSON.stringify([
+        item.text,
+        profile().answers[item.id] || "",
+        preferences.acceptVariants
+      ]);
+    }
+
+    function currentGrade(item) {
+      const grade = profile().grades[item.id];
+      return grade && grade.signature === signature(item)
+        ? grade
+        : null;
+    }
+
+    function sourceDescription(record) {
+      const sources = [...new Set(
+        record.sources
+          .map(id => ITEM_MAP.get(id)?.source)
+          .filter(Boolean)
+      )];
+
+      return sources.length
+        ? sources.join("；")
+        : "老師自訂／其他觀察";
+    }
+
+    function targetItem(record) {
+      return {
+        id: `target-${record.id}`,
+        recordId: record.id,
+        text: record.text,
+        mark: markFor(record.text),
+        kind: record.kind,
+        sources: [...record.sources],
+        source: sourceDescription(record)
+      };
+    }
+
+    function itemsForGroup(key) {
+      if (key === "target") {
+        return profile().practice
+          .map(id => profile().records.find(record => record.id === id))
+          .filter(Boolean)
+          .map(targetItem);
+      }
+
+      const unit = UNITS.find(value => value.id === key);
+      if (!unit) return [];
+
+      if (key === "part3" && !preferences.splitOil) {
+        return [
+          ...unit.items.slice(0, 5),
+          JOINED_ITEM,
+          unit.items[7]
+        ];
+      }
+
+      return [...unit.items];
+    }
+
+    /*
+     * =========================================================
+     * 四、語音播放
+     *
+     * 停頓由 onend 開始計時，不以字數估算。
+     * 每項結束後停頓3000毫秒，最後一項亦相同。
+     * =========================================================
+     */
+
+    let availableVoices = [];
+    let playbackToken = 0;
+    let pauseTimer = null;
+    let countdownTimer = null;
+    let activeUtterance = null;
+    let activeButton = null;
+    let activeCard = null;
+    let playing = false;
+
+    function voiceKey(voice) {
+      return JSON.stringify([
+        voice.voiceURI,
+        voice.name,
+        voice.lang
+      ]);
+    }
+
+    function matchesLanguage(voice, language) {
+      const tag = String(voice.lang || "")
+        .replace(/_/g, "-")
+        .toLowerCase();
+
+      if (language === "zh-HK") {
+        return /^yue(?:-|$)/.test(tag) ||
+          (
+            /^zh(?:-|$)/.test(tag) &&
+            /(?:^|-)hk(?:-|$)/.test(tag)
+          );
+      }
+
+      if (language === "zh-TW") {
+        return /^(?:zh|cmn)(?:-|$)/.test(tag) &&
+          (
+            /(?:^|-)tw(?:-|$)/.test(tag) ||
+            tag === "zh-hant"
+          );
+      }
+
+      return /^(?:zh|cmn)(?:-|$)/.test(tag) &&
+        (
+          /(?:^|-)cn(?:-|$)/.test(tag) ||
+          tag === "zh-hans"
+        );
+    }
+
+    function selectedVoice() {
+      return (
+        availableVoices.find(
+          voice => voiceKey(voice) === preferences.voiceKey
+        ) ||
+        availableVoices.find(voice => voice.localService) ||
+        availableVoices.find(voice => voice.default) ||
+        availableVoices[0] ||
+        null
+      );
+    }
+
+    function updateVoiceHint() {
+      if (!speechSupported) {
+        $("voiceHint").textContent =
+          "此瀏覽器沒有語音合成功能；仍可輸入、批改及記錄。";
+        return;
+      }
+
+      const voice = selectedVoice();
+
+      if (!voice) {
+        $("voiceHint").textContent =
+          "未找到所選語言的可用聲音。" +
+          "請重新載入聲音，或在裝置加入相應中文／粵語聲音。" +
+          "本頁不會自動改用其他語言。";
+        return;
+      }
+
+      $("voiceHint").textContent =
+        `目前使用「${voice.name}」` +
+        `（${voice.lang}，${voice.localService ? "本機語音" : "遠端／雲端語音"}）。` +
+        "請先試聽；0.2×、0.3×等語速的實際效果視乎語音引擎。";
+    }
+
+    function refreshVoices() {
+      if (!speechSupported) {
+        $("voiceSelect").disabled = true;
+        $("languageSelect").disabled = true;
+        $("speedSelect").disabled = true;
+        $("reloadVoices").disabled = true;
+        updateVoiceHint();
+        return;
+      }
+
+      let voices = [];
+
+      try {
+        voices = synth.getVoices();
+      } catch (error) {
+        voices = [];
+      }
+
+      const seen = new Set();
+
+      availableVoices = voices
+        .filter(voice => matchesLanguage(voice, preferences.language))
+        .filter(voice => {
+          const key = voiceKey(voice);
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        })
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+      const select = $("voiceSelect");
+      select.replaceChildren();
+
+      const automatic = element("option", "", "自動選擇合適聲音");
+      automatic.value = "";
+      select.append(automatic);
+
+      availableVoices.forEach(voice => {
+        const option = element(
+          "option",
+          "",
+          `${voice.name} · ${voice.lang} · ` +
+          `${voice.localService ? "本機" : "雲端"}`
+        );
+
+        option.value = voiceKey(voice);
+        select.append(option);
+      });
+
+      select.value = availableVoices.some(
+        voice => voiceKey(voice) === preferences.voiceKey
+      ) ? preferences.voiceKey : "";
+
+      updateVoiceHint();
+    }
+
+    function clearPlaybackDisplay() {
+      if (activeButton) {
+        activeButton.classList.remove("playing");
+        activeButton.removeAttribute("aria-busy");
+      }
+
+      if (activeCard) activeCard.classList.remove("listening");
+
+      activeButton = null;
+      activeCard = null;
+      activeUtterance = null;
+      playing = false;
+      $("stopAudio").disabled = true;
+    }
+
+    function stopSpeech(message = "播放已停止。") {
+      playbackToken++;
+
+      window.clearTimeout(pauseTimer);
+      window.clearInterval(countdownTimer);
+
+      pauseTimer = null;
+      countdownTimer = null;
+
+      if (activeUtterance) {
+        activeUtterance.onend = null;
+        activeUtterance.onerror = null;
+      }
+
+      if (synth) synth.cancel();
+
+      clearPlaybackDisplay();
+
+      if (message !== null) {
+        $("audioStatus").textContent = message;
+      }
+    }
+
+    function playWords(items, trigger, label) {
+      stopSpeech(null);
+
+      if (!speechSupported) {
+        $("audioStatus").textContent =
+          "此瀏覽器未支援語音合成，仍可作答及批改。";
+        return;
+      }
+
+      const queue = items.filter(
+        item => item && String(item.text || "").trim()
+      );
+
+      if (!queue.length) {
+        $("audioStatus").textContent = "目前沒有可播放的項目。";
+        return;
+      }
+
+      const voice = selectedVoice();
+
+      if (!voice) {
+        updateVoiceHint();
+        $("audioStatus").textContent =
+          "未找到所選語言的聲音，請重新載入或更換語言設定。";
+        return;
+      }
+
+      const token = playbackToken;
+      const rate = Number(preferences.rate);
+      let index = 0;
+
+      playing = true;
+      activeButton = trigger || null;
+      $("stopAudio").disabled = false;
+
+      if (activeButton) {
+        activeButton.classList.add("playing");
+        activeButton.setAttribute("aria-busy", "true");
+      }
+
+      function finish() {
+        if (token !== playbackToken) return;
+
+        window.clearTimeout(pauseTimer);
+        window.clearInterval(countdownTimer);
+
+        pauseTimer = null;
+        countdownTimer = null;
+
+        clearPlaybackDisplay();
+        $("audioStatus").textContent = `${label}：播放完畢。`;
+      }
+
+      function speakNext() {
+        if (token !== playbackToken) return;
+
+        if (index >= queue.length) {
+          finish();
+          return;
+        }
+
+        if (activeCard) activeCard.classList.remove("listening");
+
+        const item = queue[index];
+        const view = views.get(item.id);
+
+        activeCard = view ? view.card : null;
+        if (activeCard) activeCard.classList.add("listening");
+
+        const itemLabel = item.audioLabel || label;
+
+        $("audioStatus").textContent =
+          `${itemLabel}｜第${index + 1}／${queue.length}項`;
+
+        const utterance = new SpeechSynthesisUtterance(item.text);
+        utterance.voice = voice;
+        utterance.lang = voice.lang;
+        utterance.rate = rate;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        activeUtterance = utterance;
+        let ended = false;
+
+        utterance.onend = () => {
+          if (ended || token !== playbackToken) return;
+          ended = true;
+          activeUtterance = null;
+
+          const deadline = Date.now() + PAUSE_MS;
+          const last = index === queue.length - 1;
+
+          function updateCountdown() {
+            if (token !== playbackToken) return;
+
+            const seconds = Math.max(
+              0,
+              Math.ceil((deadline - Date.now()) / 1000)
+            );
+
+            $("audioStatus").textContent =
+              `${itemLabel}已播完，停頓${seconds}秒` +
+              `${last ? "後結束" : "後繼續"}。` +
+              `（${index + 1}／${queue.length}）`;
+          }
+
+          updateCountdown();
+          countdownTimer = window.setInterval(updateCountdown, 250);
+
+          pauseTimer = window.setTimeout(() => {
+            if (token !== playbackToken) return;
+
+            window.clearInterval(countdownTimer);
+            countdownTimer = null;
+
+            index++;
+            speakNext();
+          }, PAUSE_MS);
+        };
+
+        utterance.onerror = event => {
+          if (token !== playbackToken) return;
+
+          stopSpeech(
+            "播放未能完成，請試另一個聲音或重新載入聲音。" +
+            `（${event.error || "未知語音錯誤"}）`
+          );
+        };
+
+        try {
+          if (synth.paused) synth.resume();
+          synth.speak(utterance);
+        } catch (error) {
+          stopSpeech("未能開始播放，請重新載入聲音後再試。");
+        }
+      }
+
+      speakNext();
+    }
+
+    function labelledItems(group) {
+      return group.items.map((item, index) => ({
+        ...item,
+        audioLabel: `${group.title} · 第${index + 1}題`
+      }));
+    }
+
+    /*
+     * =========================================================
+     * 五、老師難點與批改
+     * =========================================================
+     */
+
+    function upsertRecord(text, sources, kind, manualStatus = null) {
+      const current = profile();
+      const identity = textKey(text, true);
+
+      let record = current.records.find(
+        value => textKey(value.text, true) === identity
+      );
+
+      if (!record) {
+        if (current.records.length >= MAX_RECORDS) return null;
+
+        record = {
+          id: uid(),
+          text,
+          kind,
+          sources: [],
+          status: manualStatus || "pending",
+          selected: manualStatus !== "mastered",
+          auto: manualStatus === null,
+          wrongCount: 0,
+          lastWrong: "",
+          note: "",
+          createdAt: isoNow(),
+          updatedAt: isoNow()
+        };
+
+        current.records.push(record);
+      }
+
+      sources.forEach(id => {
+        if (ITEM_MAP.has(id) && !record.sources.includes(id)) {
+          record.sources.push(id);
+        }
+      });
+
+      if (manualStatus !== null) {
+        record.status = manualStatus;
+        record.kind = kind;
+        record.auto = false;
+        record.selected = manualStatus !== "mastered";
+      }
+
+      record.updatedAt = isoNow();
+      return record;
+    }
+
+    function checkItems(items, label) {
+      if (!items.length) {
+        notify("目前沒有題目。");
+        return;
+      }
+
+      const current = profile();
+      let correct = 0;
+      let wrong = 0;
+      let empty = 0;
+      let recordLimitHit = false;
+
+      items.forEach(item => {
+        const answer = current.answers[item.id] || "";
+        const nextSignature = signature(item);
+        const previous = current.grades[item.id];
+
+        const sameCheck = previous &&
+          previous.signature === nextSignature;
+
+        const state = !answer.trim()
+          ? "empty"
+          : textKey(answer, preferences.acceptVariants) ===
+            textKey(item.text, preferences.acceptVariants)
+            ? "correct"
+            : "wrong";
+
+        if (state === "correct") correct++;
+        if (state === "wrong") wrong++;
+        if (state === "empty") empty++;
+
+        if (state === "wrong") {
+          let record = item.recordId
+            ? current.records.find(value => value.id === item.recordId)
+            : null;
+
+          if (!record) {
+            record = upsertRecord(
+              item.text,
+              ITEM_MAP.has(item.id)
+                ? [item.id]
+                : (item.sources || []),
+              item.kind || "詞語"
+            );
+          }
+
+          if (record) {
+            /*
+              連續批改同一答案，不會重複累計。
+              更改答案或核對規則後，會視為新的核對。
+            */
+            if (!sameCheck) {
+              record.wrongCount++;
+              record.selected = true;
+
+              if (record.status === "mastered") {
+                record.status = "pending";
+              }
+            } else if (record.wrongCount === 0) {
+              record.wrongCount = 1;
+            }
+
+            record.lastWrong = answer;
+            record.updatedAt = isoNow();
+          } else {
+            recordLimitHit = true;
+          }
+        }
+
+        current.grades[item.id] = {
+          state,
+          signature: nextSignature,
+          at: isoNow()
+        };
+
+        paintCard(item.id);
+      });
+
+      groups.forEach(updateScore);
+      renderRecords();
+      queueSave();
+
+      notify(
+        `${label}：答對${correct}項，需要再試${wrong}項，未作答${empty}項。` +
+        (recordLimitHit
+          ? "難點已達500項上限，部分新難點未加入，請先備份及整理。"
+          : "")
+      );
+    }
+
+    /*
+     * =========================================================
+     * 六、建立四部分及默寫題目
+     * =========================================================
+     */
+
+    function updateShowButton(group) {
+      const allVisible = group.items.length > 0 &&
+        group.items.every(item => revealedAnswers.has(item.id));
+
+      group.showButton.textContent = allVisible
+        ? "🙈 隱藏答案"
+        : "👀 顯示答案";
+
+      group.showButton.setAttribute(
+        "aria-expanded",
+        String(allVisible)
+      );
+    }
+
+    function updateScore(group) {
+      let correct = 0;
+      let checked = 0;
+
+      group.items.forEach(item => {
+        const grade = currentGrade(item);
+        if (!grade) return;
+
+        checked++;
+        if (grade.state === "correct") correct++;
+      });
+
+      const unfilled = group.items.filter(
+        item => !(profile().answers[item.id] || "").trim()
+      ).length;
+
+      group.score.textContent =
+        `本部分${group.items.length}題` +
+        `　答對：${correct}／${group.items.length}` +
+        `　尚未批改：${group.items.length - checked}` +
+        `　未填：${unfilled}`;
+
+      group.score.classList.toggle(
+        "complete",
+        group.items.length > 0 && correct === group.items.length
+      );
+
+      updateShowButton(group);
+    }
+
+    function paintCard(id) {
+      const view = views.get(id);
+      if (!view) return;
+
+      const grade = currentGrade(view.item);
+      const state = grade?.state || "";
+
+      view.card.dataset.result = state;
+      view.input.classList.remove("correct", "wrong", "empty");
+      view.feedback.className = "feedback";
+      view.input.removeAttribute("aria-invalid");
+
+      if (!state) {
+        view.badge.textContent = "尚未批改";
+        view.feedback.textContent = "";
+      } else {
+        view.input.classList.add(state);
+        view.feedback.classList.add(state);
+
+        if (state === "correct") {
+          view.badge.textContent = "✓ 正確";
+          view.feedback.textContent = "✓ 正確，做得好！";
+        } else if (state === "wrong") {
+          view.badge.textContent = "✗ 需要再試";
+          view.feedback.textContent = "✗ 與詞表不符，請再聽一次。";
+          view.input.setAttribute("aria-invalid", "true");
+        } else {
+          view.badge.textContent = "○ 尚未作答";
+          view.feedback.textContent = "○ 請先輸入答案，再批改。";
+        }
+      }
+
+      const visible = revealedAnswers.has(id);
+
+      view.reference.hidden = !visible;
+      view.showButton.textContent = visible
+        ? "🙈 隱藏答案"
+        : "👁 顯示答案";
+
+      view.showButton.setAttribute(
+        "aria-expanded",
+        String(visible)
+      );
+    }
+
+    function openTeacherForm(item) {
+      const existing = item.recordId
+        ? profile().records.find(record => record.id === item.recordId)
+        : profile().records.find(
+            record => textKey(record.text, true) === textKey(item.text, true)
+          );
+
+      const sourceId = ITEM_MAP.has(item.id)
+        ? item.id
+        : existing?.sources[0] || "";
+
+      $("recordText").value = item.text;
+      $("recordKind").value = existing?.kind || item.kind || "詞語";
+      $("recordStatus").value = existing?.status || "pending";
+      $("recordSource").value = sourceId;
+
+      scrollTo("records");
+      $("recordText").focus({preventScroll: true});
+
+      notify("可保留整個詞語，或改成其中需要練習的字，再加入紀錄。");
+    }
+
+    function createCard(item, group, index) {
+      const card = element("article", "card");
+      const head = element("div", "card-head");
+
+      const title = element(
+        group.key === "target" ? "h4" : "h3",
+        "card-title",
+        `第${index + 1}題`
+      );
+
+      const badge = element("span", "badge", "尚未批改");
+      head.append(title, badge);
+
+      const listen = actionButton(
+        "🔊 聽讀",
+        event => playWords(
+          [{
+            ...item,
+            audioLabel: `${group.title} · 第${index + 1}題`
+          }],
+          event.currentTarget,
+          `${group.title}第${index + 1}題`
+        ),
+        "speak",
+        true
+      );
+
+      listen.setAttribute(
+        "aria-label",
+        `播放${group.title}第${index + 1}題`
+      );
+
+      const input = element("input", "answer");
+      input.type = "text";
+      input.id = `answer-${item.id}`;
+      input.lang = "zh-Hant";
+      input.maxLength = 3000;
+      input.autocomplete = "off";
+      input.spellcheck = false;
+      input.setAttribute("autocorrect", "off");
+      input.setAttribute("autocapitalize", "none");
+      input.placeholder = "請填寫聽到的字或詞語";
+      input.value = profile().answers[item.id] || "";
+
+      if (item.mark === "proper") {
+        input.classList.add("proper-name");
+      } else if (item.mark === "requested") {
+        input.classList.add("format-underline");
+      }
+
+      const label = element("label", "answer-label", "默寫答案");
+      label.htmlFor = input.id;
+
+      const feedback = element("p", "feedback");
+      feedback.id = `feedback-${item.id}`;
+      input.setAttribute("aria-describedby", feedback.id);
+
+      const actions = element("div", "row");
+
+      const check = actionButton(
+        "✓ 批改",
+        () => checkItems([item], `${group.title}第${index + 1}題`),
+        "secondary"
+      );
+
+      const show = actionButton("👁 顯示答案", () => {
+        if (revealedAnswers.has(item.id)) {
+          revealedAnswers.delete(item.id);
+        } else {
+          revealedAnswers.add(item.id);
+        }
+
+        paintCard(item.id);
+        updateShowButton(group);
+      });
+
+      const record = actionButton(
+        "📝 老師記錄",
+        () => openTeacherForm(item)
+      );
+
+      actions.append(check, show, record);
+
+      const reference = element("div", "reference");
+      reference.id = `reference-${item.id}`;
+      reference.hidden = true;
+
+      reference.append(
+        element("span", "reference-label", "參考答案："),
+        wordElement(item.text, item.mark)
+      );
+
+      show.setAttribute("aria-controls", reference.id);
+
+      input.addEventListener("input", () => {
+        profile().answers[item.id] = input.value;
+        delete profile().grades[item.id];
+
+        paintCard(item.id);
+        updateScore(group);
+        queueSave();
+      });
+
+      input.addEventListener("keydown", event => {
+        if (event.key !== "Enter" || event.isComposing) return;
+
+        event.preventDefault();
+        checkItems([item], `${group.title}第${index + 1}題`);
+      });
+
+      card.append(
+        head, listen, label, input,
+        feedback, actions, reference
+      );
+
+      views.set(item.id, {
+        item,
+        card,
+        input,
+        badge,
+        feedback,
+        reference,
+        showButton: show
+      });
+
+      return card;
+    }
+
+    function toggleGroupAnswers(group) {
+      if (!group.items.length) return;
+
+      const hide = group.items.every(
+        item => revealedAnswers.has(item.id)
+      );
+
+      group.items.forEach(item => {
+        if (hide) revealedAnswers.delete(item.id);
+        else revealedAnswers.add(item.id);
+
+        paintCard(item.id);
+      });
+
+      updateShowButton(group);
+      notify(
+        hide
+          ? `${group.title}答案已隱藏。`
+          : `${group.title}答案已顯示，作答沒有被覆蓋。`
+      );
+    }
+
+    function resetGroup(group) {
+      const current = profile();
+
+      const hasWork = group.items.some(item =>
+        (current.answers[item.id] || "").trim() ||
+        current.grades[item.id] ||
+        revealedAnswers.has(item.id)
+      );
+
+      if (
+        hasWork &&
+        !window.confirm(
+          "清除本部分的作答及目前批改結果？\n" +
+          "老師難點、備註及錯誤核對次數會保留。"
+        )
+      ) return;
+
+      stopSpeech("練習已重設，待播放。");
+
+      group.items.forEach(item => {
+        delete current.answers[item.id];
+        delete current.grades[item.id];
+        revealedAnswers.delete(item.id);
+
+        const view = views.get(item.id);
+        if (view) view.input.value = "";
+
+        paintCard(item.id);
+      });
+
+      updateScore(group);
+      queueSave();
+      notify(`${group.title}已重設，老師紀錄保留。`);
+    }
+
+    function registerGroup(key, title, tools, score, grid, bank = null) {
+      const group = {
+        key, title, tools, score, grid, bank,
+        items: [],
+        showButton: null
+      };
+
+      groups.set(key, group);
+
+      tools.append(
+        actionButton(
+          "▶ 全部播放",
+          event => playWords(
+            labelledItems(group),
+            event.currentTarget,
+            `${title}全部播放`
+          ),
+          "speak",
+          true
+        ),
+
+        actionButton(
+          "✅ 批改",
+          () => checkItems(group.items, title),
+          "primary"
+        )
+      );
+
+      group.showButton = actionButton(
+        "👀 顯示答案",
+        () => toggleGroupAnswers(group),
+        "secondary"
+      );
+
+      tools.append(
+        group.showButton,
+        actionButton("♻ 重設", () => resetGroup(group))
+      );
+
+      return group;
+    }
+
+    function createUnitSection(unit) {
+      const section = element("section", "panel");
+      section.id = unit.id;
+
+      const heading = element(
+        "h2",
+        "",
+        `${unit.number}、《${unit.title}》`
+      );
+
+      heading.id = `${unit.id}-heading`;
+      section.setAttribute("aria-labelledby", heading.id);
+
+      const bankDetails = element("details", "bank");
+      const bankSummary = element(
+        "summary",
+        "",
+        "📚 重點字詞｜點擊可聽讀音（展開詞表）"
+      );
+
+      const bankList = element("div", "bank-list");
+      bankDetails.append(bankSummary, bankList);
+
+      const tools = element("div", "toolbar");
+      const score = element("div", "score");
+      score.setAttribute("role", "status");
+      score.setAttribute("aria-live", "polite");
+
+      const grid = element("div", "grid");
+
+      section.append(
+        element("span", "part-label", `${unit.label} · 應用詞語`),
+        heading,
+        element(
+          "p",
+          "intro",
+          "認讀詞語：先聽讀，再默寫。溫習時可展開詞表；默寫時請收起。"
+        ),
+        bankDetails,
+        tools,
+        score,
+        grid
+      );
+
+      $("lessonSections").append(section);
+
+      registerGroup(
+        unit.id,
+        unit.label,
+        tools,
+        score,
+        grid,
+        {details: bankDetails, list: bankList}
+      );
+    }
+
+    function renderGroup(key) {
+      const group = groups.get(key);
+      if (!group) return;
+
+      group.items.forEach(item => views.delete(item.id));
+      group.items = itemsForGroup(key);
+
+      if (group.bank) {
+        group.bank.list.replaceChildren(
+          ...group.items.map((item, index) => {
+            const wordButton = actionButton(
+              "",
+              event => playWords(
+                [{
+                  ...item,
+                  audioLabel: `${group.title} · 詞表第${index + 1}項`
+                }],
+                event.currentTarget,
+                `${group.title}詞表聽讀`
+              ),
+              "speak word-button",
+              true
+            );
+
+            wordButton.append(
+              element("span", "word-number", `${index + 1}.`),
+              wordElement(item.text, item.mark)
+            );
+
+            wordButton.setAttribute(
+              "aria-label",
+              `聽讀詞語：${item.text}`
+            );
+
+            return wordButton;
+          })
+        );
+      }
+
+      group.grid.replaceChildren(
+        ...group.items.map(
+          (item, index) => createCard(item, group, index)
+        )
+      );
+
+      group.items.forEach(item => paintCard(item.id));
+      updateScore(group);
+
+      if (key === "target") {
+        $("targetPractice").hidden = group.items.length === 0;
+      }
+    }
+
+    function updatePlayAllLabel() {
+      const count = UNITS.reduce(
+        (total, unit) => total + groups.get(unit.id).items.length,
+        0
+      );
+
+      $("playAll").textContent =
+        `▶ 四部分全部播放（${count}項）`;
+    }
+
+    /*
+     * =========================================================
+     * 七、老師紀錄表
+     * =========================================================
+     */
+
+    function selectedRecords() {
+      return profile().records.filter(record => record.selected);
+    }
+
+    function updateRecordSummary() {
+      const counts = {
+        pending: 0,
+        unknown: 0,
+        review: 0,
+        mastered: 0
+      };
+
+      profile().records.forEach(record => counts[record.status]++);
+
+      $("recordSummary").textContent =
+        `學生：${profile().name}` +
+        `　待確認：${counts.pending}` +
+        `　不認識：${counts.unknown}` +
+        `　需鞏固：${counts.review}` +
+        `　已掌握：${counts.mastered}`;
+
+      $("selectedCount").textContent =
+        `已選${selectedRecords().length}項作針對性練習。` +
+        "此數目包括篩選後未顯示但仍已勾選的項目。";
+    }
+
+    function renderRecords() {
+      updateRecordSummary();
+
+      const filter = $("recordFilter").value;
+      const records = profile().records.filter(record => {
+        if (filter === "all") return true;
+        if (filter === "todo") return record.status !== "mastered";
+        return record.status === filter;
+      });
+
+      const body = $("recordTableBody");
+      body.replaceChildren();
+
+      if (!records.length) {
+        const row = element("tr");
+        const cell = element(
+          "td",
+          "table-empty",
+          "目前沒有符合條件的難點。可由錯答自動建立，或由老師手動加入。"
+        );
+
+        cell.colSpan = 8;
+        row.append(cell);
+        body.append(row);
+        return;
+      }
+
+      records.forEach(record => {
+        const row = element("tr");
+
+        const selectionCell = element("td");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = record.selected;
+        checkbox.setAttribute("aria-label", `選取難點：${record.text}`);
+
+        checkbox.addEventListener("change", () => {
+          record.selected = checkbox.checked;
+          record.updatedAt = isoNow();
+          updateRecordSummary();
+          queueSave();
+        });
+
+        selectionCell.append(checkbox);
+
+        const itemCell = element("td", "item-cell");
+        const wordBox = element("div", "record-word");
+        wordBox.append(wordElement(record.text, markFor(record.text)));
+
+        itemCell.append(
+          wordBox,
+          element(
+            "div",
+            "small muted",
+            `${record.kind} · ` +
+            `${record.auto ? "錯答後自動記錄" : "老師記錄／確認"}`
+          )
+        );
+
+        const sourceCell = element(
+          "td",
+          "source-cell small",
+          sourceDescription(record)
+        );
+
+        const statusCell = element("td", "status-cell");
+        const statusSelect = document.createElement("select");
+        statusSelect.setAttribute(
+          "aria-label",
+          `${record.text}的掌握情況`
+        );
+
+        Object.entries(STATUS_LABELS).forEach(([value, text]) => {
+          const option = element("option", "", text);
+          option.value = value;
+          statusSelect.append(option);
+        });
+
+        statusSelect.value = record.status;
+
+        statusSelect.addEventListener("change", () => {
+          record.status = statusSelect.value;
+          record.auto = false;
+          record.updatedAt = isoNow();
+
+          if (record.status === "mastered") {
+            record.selected = false;
+          }
+
+          renderRecords();
+          queueSave();
+        });
+
+        statusCell.append(statusSelect);
+
+        const countCell = element(
+          "td",
+          "",
+          String(record.wrongCount)
+        );
+
+        const wrongCell = element(
+          "td",
+          "wrong-cell",
+          record.lastWrong || "—"
+        );
+
+        const noteCell = element("td", "note-cell");
+        const note = document.createElement("textarea");
+        note.rows = 2;
+        note.maxLength = 3000;
+        note.value = record.note;
+        note.placeholder = "例如：聽音混淆、部件漏寫、詞義未掌握";
+        note.setAttribute(
+          "aria-label",
+          `${record.text}的老師備註`
+        );
+
+        note.addEventListener("input", () => {
+          record.note = note.value;
+          record.updatedAt = isoNow();
+          queueSave();
+        });
+
+        noteCell.append(note);
+
+        const operations = element("td");
+        const operationRow = element("div", "row");
+
+        const listen = actionButton(
+          "🔊 聽讀",
+          event => playWords(
+            [{
+              ...targetItem(record),
+              audioLabel: "老師難點聽讀"
+            }],
+            event.currentTarget,
+            "老師難點聽讀"
+          ),
+          "speak",
+          true
+        );
+
+        const remove = actionButton("刪除", () => {
+          if (!window.confirm(
+            `刪除此項難點？\n${record.text}\n` +
+            "原題作答及批改結果會保留。"
+          )) return;
+
+          stopSpeech("難點已刪除，待播放。");
+
+          const current = profile();
+          current.records = current.records.filter(
+            value => value.id !== record.id
+          );
+
+          current.practice = current.practice.filter(
+            id => id !== record.id
+          );
+
+          const targetId = `target-${record.id}`;
+          delete current.answers[targetId];
+          delete current.grades[targetId];
+          revealedAnswers.delete(targetId);
+
+          renderGroup("target");
+          renderRecords();
+          queueSave();
+        }, "danger");
+
+        operationRow.append(listen, remove);
+        operations.append(operationRow);
+
+        row.append(
+          selectionCell, itemCell, sourceCell, statusCell,
+          countCell, wrongCell, noteCell, operations
+        );
+
+        body.append(row);
+      });
+    }
+
+    function addManualRecords() {
+      const entries = [...new Set(
+        $("recordText").value
+          .split(/\n+/)
+          .map(text => text.trim())
+          .filter(Boolean)
+      )];
+
+      if (!entries.length) {
+        notify("請先輸入要記錄的字、詞或短句。");
+        $("recordText").focus();
+        return;
+      }
+
+      if (entries.length > 50) {
+        window.alert("一次最多加入50項，請分批加入。");
+        return;
+      }
+
+      if (entries.some(text => text.length > 3000)) {
+        window.alert("每項最多3000字，請縮短後再加入。");
+        return;
+      }
+
+      const sourceId = $("recordSource").value;
+      const sources = ITEM_MAP.has(sourceId) ? [sourceId] : [];
+      const kind = $("recordKind").value;
+      const status = $("recordStatus").value;
+
+      let done = 0;
+      const rejected = [];
+
+      entries.forEach(text => {
+        const record = upsertRecord(text, sources, kind, status);
+        if (record) done++;
+        else rejected.push(text);
+      });
+
+      $("recordText").value = rejected.join("\n");
+      renderRecords();
+      queueSave();
+
+      notify(
+        `已加入或更新${done}項難點。` +
+        (rejected.length
+          ? "已達500項上限，未加入的項目仍保留在草稿中。"
+          : "")
+      );
+    }
+
+    function buildTargetPractice() {
+      const current = profile();
+      const selected = selectedRecords();
+
+      if (!selected.length) {
+        notify("請先勾選要練習的難點。");
+        return;
+      }
+
+      const previousWork = selected.some(record => {
+        const id = `target-${record.id}`;
+        return (current.answers[id] || "").trim() ||
+          current.grades[id];
+      });
+
+      if (
+        previousWork &&
+        !window.confirm(
+          "開始新一輪練習，會清除所選難點的上輪作答及批改結果。\n" +
+          "難點、老師備註及錯誤核對次數會保留。"
+        )
+      ) return;
+
+      stopSpeech("針對性練習已建立，待播放。");
+
+      current.practice = shuffle(
+        selected.map(record => record.id)
+      );
+
+      selected.forEach(record => {
+        const id = `target-${record.id}`;
+        delete current.answers[id];
+        delete current.grades[id];
+        revealedAnswers.delete(id);
+      });
+
+      renderGroup("target");
+      queueSave();
+      scrollTo("targetPractice");
+
+      notify(`已建立${selected.length}題針對性練習。`);
+    }
+
+    /*
+     * =========================================================
+     * 八、學生切換
+     * =========================================================
+     */
+
+    function syncPreferenceControls() {
+      $("languageSelect").value = preferences.language;
+      $("speedSelect").value = preferences.rate;
+      $("acceptVariants").checked = preferences.acceptVariants;
+      $("splitOil").checked = preferences.splitOil;
+    }
+
+    function renderProfileSelect() {
+      const select = $("profileSelect");
+      select.replaceChildren();
+
+      model.profiles.forEach(value => {
+        const option = element("option", "", value.name);
+        option.value = value.id;
+        select.append(option);
+      });
+
+      select.value = model.currentId;
+    }
+
+    function allowProfileChange() {
+      return !$("recordText").value.trim() ||
+        window.confirm(
+          "尚有未按「加入難點紀錄」的草稿。\n" +
+          "切換學生會清除這份草稿，是否繼續？"
+        );
+    }
+
+    function renderAll() {
+      syncPreferenceControls();
+      renderProfileSelect();
+
+      $("teacherNote").value = profile().note;
+
+      groups.forEach(group => {
+        if (group.bank) group.bank.details.open = false;
+        renderGroup(group.key);
+      });
+
+      renderRecords();
+      updatePlayAllLabel();
+    }
+
+    function switchProfile(id, alreadyConfirmed = false) {
+      if (id === model.currentId) {
+        $("profileSelect").value = model.currentId;
+        return;
+      }
+
+      if (!model.profiles.some(value => value.id === id)) return;
+
+      if (!alreadyConfirmed && !allowProfileChange()) {
+        $("profileSelect").value = model.currentId;
+        return;
+      }
+
+      stopSpeech("學生已切換，待播放。");
+      saveNow();
+
+      model.currentId = id;
+      revealedAnswers.clear();
+      $("recordText").value = "";
+      $("newProfileName").value = "";
+
+      renderAll();
+      saveNow();
+
+      notify(`目前學生：${profile().name}。`);
+    }
+
+    /*
+     * =========================================================
+     * 九、JSON備份、CSV及列印
+     * =========================================================
+     */
+
+    function dateStamp() {
+      const date = new Date();
+
+      return [
+        date.getFullYear(),
+        String(date.getMonth() + 1).padStart(2, "0"),
+        String(date.getDate()).padStart(2, "0")
+      ].join("");
+    }
+
+    function safeFileName(name) {
+      return name.replace(/[\\/:*?"<>|\u0000-\u001f]/g, "_") || "學生";
+    }
+
+    function downloadText(text, filename, type) {
+      const blob = new Blob([text], {type});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = filename;
+
+      document.body.append(link);
+      link.click();
+      link.remove();
+
+      window.setTimeout(() => URL.revokeObjectURL(url), 3000);
+    }
+
+    function exportJson() {
+      saveNow();
+
+      const payload = {
+        format: BACKUP_FORMAT,
+        version: 1,
+        sheetId: SHEET_ID,
+        exportedAt: isoNow(),
+        options: {
+          splitOil: preferences.splitOil,
+          acceptVariants: preferences.acceptVariants
+        },
+        profile: profile()
+      };
+
+      downloadText(
+        JSON.stringify(payload, null, 2),
+        `${safeFileName(profile().name)}-人文科紀錄-${dateStamp()}.json`,
+        "application/json;charset=utf-8"
+      );
+
+      notify("已要求下載JSON備份，請確認檔案已儲存。");
+    }
+
+    function csvCell(value) {
+      let text = String(value ?? "");
+
+      // 防止自訂文字被試算表當成公式。
+      if (/^[\t\r\n]|^\s*[=+\-@]/.test(text)) {
+        text = "'" + text;
+      }
+
+      return `"${text.replace(/"/g, '""')}"`;
+    }
+
+    function exportCsv() {
+      const current = profile();
+
+      const rows = [[
+        "學生代號",
+        "種類",
+        "字詞短句",
+        "來源",
+        "掌握情況",
+        "錯誤核對次數",
+        "最近錯答",
+        "老師備註",
+        "最後更新"
+      ]];
+
+      current.records.forEach(record => {
+        rows.push([
+          current.name,
+          record.kind,
+          record.text,
+          sourceDescription(record),
+          STATUS_LABELS[record.status],
+          record.wrongCount,
+          record.lastWrong,
+          record.note,
+          record.updatedAt
+        ]);
+      });
+
+      downloadText(
+        "\uFEFF" +
+          rows.map(row => row.map(csvCell).join(",")).join("\r\n"),
+        `${safeFileName(current.name)}-人文科難點-${dateStamp()}.csv`,
+        "text/csv;charset=utf-8"
+      );
+
+      notify("已要求下載全部難點CSV，請確認檔案已儲存。");
+    }
+
+    function uniqueImportName(name) {
+      const base = (safeText(name, 30).trim() || "學生") + "（匯入）";
+      let result = base;
+      let number = 2;
+
+      while (model.profiles.some(value => value.name === result)) {
+        result = `${base} ${number++}`;
+      }
+
+      return result;
+    }
+
+    async function importJsonFile(file) {
+      if (!file) return;
+
+      if (file.size > 2000000) {
+        window.alert("檔案過大，請選擇本教材匯出的學生JSON備份。");
+        return;
+      }
+
+      if (model.profiles.length >= MAX_PROFILES) {
+        window.alert("已達50份學生紀錄上限，請先備份及整理舊紀錄。");
+        return;
+      }
+
+      try {
+        const raw = JSON.parse(await file.text());
+
+        if (
+          raw.format !== BACKUP_FORMAT ||
+          raw.version !== 1 ||
+          raw.sheetId !== SHEET_ID ||
+          !raw.profile ||
+          typeof raw.profile !== "object" ||
+          Array.isArray(raw.profile) ||
+          !Array.isArray(raw.profile.records)
+        ) {
+          throw new Error("不是這份人文科教材的學生JSON備份。");
+        }
+
+        if (!allowProfileChange()) return;
+
+        const imported = cleanProfile(raw.profile);
+        imported.id = uid();
+        imported.name = uniqueImportName(imported.name);
+
+        const options = safeObject(raw.options);
+
+        if (typeof options.splitOil === "boolean") {
+          preferences.splitOil = options.splitOil;
+        }
+
+        if (typeof options.acceptVariants === "boolean") {
+          preferences.acceptVariants = options.acceptVariants;
+        }
+
+        model.profiles.push(imported);
+        switchProfile(imported.id, true);
+
+        notify(
+          "已匯入為另一份學生紀錄，原有資料没有被覆蓋。" +
+          "已恢復備份的拆分及字形選項。"
+        );
+      } catch (error) {
+        window.alert(
+          "未能匯入：\n" +
+          (error instanceof Error ? error.message : "檔案格式錯誤。")
+        );
+      }
+    }
+
+    function printRecords() {
+      const current = profile();
+      const report = $("printReport");
+      report.replaceChildren();
+
+      report.append(
+        element("h1", "", "人文科詞語溫習表（一）"),
+        element("h2", "", "老師難點紀錄"),
+        element("p", "", `學生代號：${current.name}`),
+        element(
+          "p",
+          "",
+          `列印時間：${new Date().toLocaleString("zh-HK")}`
+        )
+      );
+
+      const table = document.createElement("table");
+      const head = document.createElement("thead");
+      const headRow = document.createElement("tr");
+
+      [
+        "項目", "種類", "來源", "掌握情況",
+        "錯誤核對", "最近錯答", "老師備註"
+      ].forEach(text => headRow.append(element("th", "", text)));
+
+      head.append(headRow);
+      table.append(head);
+
+      const body = document.createElement("tbody");
+
+      current.records.forEach(record => {
+        const row = document.createElement("tr");
+        const wordCell = element("td");
+        wordCell.append(
+          wordElement(record.text, markFor(record.text))
+        );
+
+        row.append(wordCell);
+
+        [
+          record.kind,
+          sourceDescription(record),
+          STATUS_LABELS[record.status],
+          String(record.wrongCount),
+          record.lastWrong || "—",
+          record.note
+        ].forEach(text => row.append(element("td", "", text)));
+
+        body.append(row);
+      });
+
+      table.append(body);
+      report.append(table);
+
+      report.append(
+        element("h2", "", "整體觀察／下次教學安排"),
+        element("p", "print-note", current.note || "尚未填寫。"),
+        element(
+          "p",
+          "",
+          "提示：錯答只屬待確認證據，不等同學生不認識該項目。" +
+          "「使用升降機」的底線為指定排版，不代表它是專名。"
+        )
+      );
+
+      window.print();
+    }
+
+    /*
+     * =========================================================
+     * 十、建立介面及綁定操作
+     * =========================================================
+     */
+
+    UNITS.forEach(createUnitSection);
+
+    registerGroup(
+      "target",
+      "針對性練習",
+      $("targetTools"),
+      $("targetScore"),
+      $("targetGrid")
+    );
+
+    UNITS.forEach(unit => {
+      const optgroup = document.createElement("optgroup");
+      optgroup.label = `${unit.number}、《${unit.title}》`;
+
+      const sourceItems = unit.id === "part3"
+        ? [...unit.items, JOINED_ITEM]
+        : unit.items;
+
+      sourceItems.forEach(item => {
+        const option = element(
+          "option",
+          "",
+          item.text + (item.id === JOINED_ITEM.id ? "（合併項）" : "")
+        );
+
+        option.value = item.id;
+        optgroup.append(option);
+      });
+
+      $("recordSource").append(optgroup);
+    });
+
+    $("languageSelect").addEventListener("change", () => {
+      stopSpeech("朗讀語言已更改，請重新播放。");
+      preferences.language = $("languageSelect").value;
+      preferences.voiceKey = "";
+
+      refreshVoices();
+      queueSave();
+      notify("已更改朗讀語言，請先測試聲音。");
+    });
+
+    $("voiceSelect").addEventListener("change", () => {
+      stopSpeech("聲音已更改，請重新播放。");
+      preferences.voiceKey = $("voiceSelect").value;
+
+      updateVoiceHint();
+      queueSave();
+    });
+
+    $("speedSelect").addEventListener("change", () => {
+      stopSpeech("語速已更改，請重新播放。");
+      preferences.rate = $("speedSelect").value;
+
+      queueSave();
+      notify(`語速已改為${preferences.rate}倍。`);
+    });
+
+    $("acceptVariants").addEventListener("change", () => {
+      preferences.acceptVariants = $("acceptVariants").checked;
+
+      views.forEach((view, id) => paintCard(id));
+      groups.forEach(updateScore);
+      queueSave();
+
+      notify("字形核對規則已更改，相關題目請重新批改。");
+    });
+
+    $("splitOil").addEventListener("change", () => {
+      stopSpeech("詞表編排已更新，待播放。");
+      preferences.splitOil = $("splitOil").checked;
+
+      ALL_ITEMS
+        .filter(item => item.unitId === "part3")
+        .forEach(item => revealedAnswers.delete(item.id));
+
+      renderGroup("part3");
+      updatePlayAllLabel();
+      queueSave();
+
+      notify(
+        preferences.splitOil
+          ? "已分成「油膩」及「因人而異」兩題；原有作答及紀錄保留。"
+          : "已合併成「油膩因人而異」一題；原有作答及紀錄保留。"
+      );
+    });
+
+    $("testVoice").addEventListener("click", event => {
+      playWords(
+        [{
+          id: "voice-test",
+          text: "人文科詞語溫習。急救。緊急出口。",
+          audioLabel: "聲音測試"
+        }],
+        event.currentTarget,
+        "聲音測試"
+      );
+    });
+
+    $("reloadVoices").addEventListener("click", () => {
+      stopSpeech("正在重新查詢聲音。");
+
+      refreshVoices();
+      window.setTimeout(refreshVoices, 400);
+      window.setTimeout(refreshVoices, 1200);
+
+      notify("已重新查詢聲音，請稍候再試聽。");
+    });
+
+    $("playAll").addEventListener("click", event => {
+      const items = UNITS.flatMap(unit =>
+        labelledItems(groups.get(unit.id))
+      );
+
+      playWords(
+        items,
+        event.currentTarget,
+        "四部分全部播放"
+      );
+    });
+
+    $("stopAudio").addEventListener("click", () => stopSpeech());
+
+    $("profileSelect").addEventListener("change", () => {
+      switchProfile($("profileSelect").value);
+    });
+
+    $("addProfile").addEventListener("click", () => {
+      const name = $("newProfileName").value.trim();
+
+      if (!name) {
+        notify("請先輸入學生代號。");
+        $("newProfileName").focus();
+        return;
+      }
+
+      const existing = model.profiles.find(value => value.name === name);
+
+      if (existing?.id === model.currentId) {
+        notify(`目前已是學生：${name}。`);
+        return;
+      }
+
+      if (!allowProfileChange()) return;
+
+      if (existing) {
+        switchProfile(existing.id, true);
+        return;
+      }
+
+      if (model.profiles.length >= MAX_PROFILES) {
+        window.alert("已達50份學生紀錄上限，請先備份及整理。");
+        return;
+      }
+
+      const created = freshProfile(name);
+      model.profiles.push(created);
+      switchProfile(created.id, true);
+    });
+
+    $("newProfileName").addEventListener("keydown", event => {
+      if (event.key === "Enter" && !event.isComposing) {
+        event.preventDefault();
+        $("addProfile").click();
+      }
+    });
+
+    $("deleteProfile").addEventListener("click", () => {
+      const current = profile();
+
+      if (!window.confirm(
+        `永久刪除此瀏覽器內「${current.name}」的作答、難點及備註？\n` +
+        "建議先匯出JSON備份。"
+      )) return;
+
+      stopSpeech("目前學生紀錄已刪除，待播放。");
+
+      model.profiles = model.profiles.filter(
+        value => value.id !== current.id
+      );
+
+      if (!model.profiles.length) {
+        model.profiles.push(freshProfile());
+      }
+
+      model.currentId = model.profiles[0].id;
+      revealedAnswers.clear();
+      $("recordText").value = "";
+      $("newProfileName").value = "";
+
+      renderAll();
+      saveNow();
+      notify("已刪除該學生的本機紀錄。");
+    });
+
+    $("addRecord").addEventListener("click", addManualRecords);
+
+    $("teacherNote").addEventListener("input", () => {
+      profile().note = $("teacherNote").value;
+      queueSave();
+    });
+
+    $("recordFilter").addEventListener("change", renderRecords);
+
+    $("selectTodo").addEventListener("click", () => {
+      profile().records.forEach(record => {
+        record.selected = record.status !== "mastered";
+      });
+
+      renderRecords();
+      queueSave();
+      notify("已選取全部未標為已掌握的項目。");
+    });
+
+    $("clearSelection").addEventListener("click", () => {
+      profile().records.forEach(record => {
+        record.selected = false;
+      });
+
+      renderRecords();
+      queueSave();
+      notify("已取消全部難點選取。");
+    });
+
+    $("playSelected").addEventListener("click", event => {
+      const items = selectedRecords().map((record, index) => ({
+        ...targetItem(record),
+        audioLabel: `已選難點 · 第${index + 1}項`
+      }));
+
+      playWords(
+        items,
+        event.currentTarget,
+        "已選難點全部播放"
+      );
+    });
+
+    $("buildPractice").addEventListener("click", buildTargetPractice);
+    $("exportJson").addEventListener("click", exportJson);
+    $("exportCsv").addEventListener("click", exportCsv);
+    $("printRecords").addEventListener("click", printRecords);
+
+    $("importJson").addEventListener("click", () => {
+      $("importFile").click();
+    });
+
+    $("importFile").addEventListener("change", async () => {
+      const file = $("importFile").files[0];
+      await importJsonFile(file);
+      $("importFile").value = "";
+    });
+
+    /*
+     * =========================================================
+     * 十一、啟動及離開頁面
+     * =========================================================
+     */
+
+    renderAll();
+    refreshVoices();
+
+    $("storageHint").textContent =
+      loadWarning ||
+      "本頁會嘗試自動儲存至此瀏覽器；請另行匯出JSON作正式備份。";
+
+    if (speechSupported) {
+      window.setTimeout(refreshVoices, 300);
+      window.setTimeout(refreshVoices, 1200);
+
+      if (typeof synth.addEventListener === "function") {
+        synth.addEventListener("voiceschanged", refreshVoices);
+      } else {
+        synth.onvoiceschanged = refreshVoices;
+      }
+    } else {
+      document.querySelectorAll("button.speak").forEach(button => {
+        button.disabled = true;
+      });
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) return;
+
+      saveNow();
+
+      if (playing) {
+        stopSpeech("頁面已切至背景，播放已停止。");
+      }
+    });
+
+    window.addEventListener("pagehide", () => {
+      saveNow();
+      stopSpeech(null);
+    });
+  })();
+  </script>
+</body>
+</html>
